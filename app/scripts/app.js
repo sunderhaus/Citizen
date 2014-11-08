@@ -1,8 +1,8 @@
-angular.module('CitizenApp', ['ngRoute'])
+angular.module('CitizenApp', ['ngRoute', 'ngCookies'])
 .config([
   '$routeProvider', function($routeProvider) {
     $routeProvider
-    .when('/home', {
+    .when('/', {
       templateUrl: '/templates/home.html',
       controller: 'HomeCtrl'
     })
@@ -17,7 +17,7 @@ angular.module('CitizenApp', ['ngRoute'])
     })
     .when('/about', {
       templateUrl: '/templates/about.html'
-    })  
+    })
     .when('/officialsList', {
         templateUrl: '/templates/officialsList.html',
         controller: 'OfficialsListCtrl'
@@ -25,5 +25,5 @@ angular.module('CitizenApp', ['ngRoute'])
     .otherwise({
     	templateUrl: '/templates/error.html'
     })
-   
+
   }]);

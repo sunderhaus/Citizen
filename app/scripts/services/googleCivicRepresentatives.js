@@ -1,22 +1,22 @@
 angular.module('CitizenApp')
 	.factory('GoogleCivicRepresentatives', function ($http, $q) {
-		
+
 		var civicAPI = {};
-		
+
 		civicAPI.getReps = function(address, city, state, zip) {
 			
 			var deferred = $q.defer();
-			
+
 			if((city && state && city!='' && state!='') || (zip && zip!='') ) {
 				var addr = '';
-				
+
 				if(address && address!='')
 					addr = address + ',';
 				if(city && state && city!='' && state!='')
 					addr += city + ',' + state;
 				if(zip && zip!='')
 					addr += zip;
-				
+
 				//try to look up by full address
 				var siteKey = 'AIzaSyCNTfR6tn2IpkL-oeInL314SdSmgJfUCLw';
 				$http.get( 'https://www.googleapis.com/civicinfo/v2/representatives?address='+addr+'&key='+siteKey )
@@ -28,9 +28,9 @@ angular.module('CitizenApp')
 						angular.forEach(data.offices, function(oInfo,key) {
 							if(oInfo.officialIndices) {
 								//get the officials at these indicies
-								
+
 								angular.forEach(oInfo.officialIndices, function(ofInfo,ok) {
-									
+
 									if(data.officials[ofInfo]) {
 										var ofData = data.officials[ofInfo];
 										officials.push( {
@@ -43,31 +43,31 @@ angular.module('CitizenApp')
 												'photoURL':ofData.photoUrl,
 												'socialMedia':ofData.channels
 										});//end scope.officials
-								
+
 									}
-									
+
 								});//end foreach(index)
 							}
-							
+
 						});//end foreachOffice
-						
-					}//end if(offices)	
-					
+
+					}//end if(offices)
+
 					deferred.resolve(officials);
-				
+
 				})
 				.error(function(data) {
 					deferred.resolve( {'error':'Cannot find information for your area'} );
 				});
-				
-				
+
+
 			}
 			else
 				deferred.resolve( {'error':'Cannot find information for your area'} );
-				
+
 			return deferred.promise;
 		}//end getReps
-		
+
 		return civicAPI;
-		
+
 	});//end factory
