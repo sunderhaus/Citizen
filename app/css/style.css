@@ -547,6 +547,57 @@
 				}
 
 	/* List */
+                .replist {
+                      width: 40em;
+                      margin-left: auto;
+                      margin-right: auto;
+                }
+		.replist h2
+		{
+                        margin-top: 1em;
+                        margin-bottom: .6em;
+                        text-transform: capitalize;
+                        text-align: left;
+		}
+
+		.replist dl
+		{
+                        width:100%;
+                        overflow:hidden;
+			font-weight: 400;
+			font-size: 1em;
+                        margin-left: auto;
+                        margin-right: auto;
+		}
+
+			.replist dt
+			{
+				display: block;
+				float: left;
+                                text-align: left;
+				color: #000;
+                                width:50%;
+                                background:#FFF;
+                                padding: .8em 0 .8em 1em;
+                                margin-bottom: 0.4em;
+			}
+
+			.replist dd
+			{
+                                float:left;
+                                text-align: right;
+				color: #F05040;
+                                width:50%; /* adjust the width; make sure the total of both is 100% */
+                                background:#FFF;
+                                padding: .8em 1em .8em 0;
+                                margin-bottom: 0.4em;
+			}
+
+                        dl.replist dd:after {
+                                content: '';
+                                display: block;
+                                clear: both;
+                        }
 
 		dl.contact
 		{
