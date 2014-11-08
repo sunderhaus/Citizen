@@ -1,4 +1,4 @@
 angular.module('CitizenApp')
 	.controller('OfficialsListCtrl', function () {
-		$window.alert('here');		
+		$window.alert('here');
 	});//end OfficialsListCtrl

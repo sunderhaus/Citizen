@@ -1,12 +1,10 @@
 angular.module('CitizenApp', ['ngRoute'])
 
 .config([
-  // '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   '$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/home', {
-      templateUrl: '/templates/home.html',
-      controller: 'HomeCtrl'
+      templateUrl: '/templates/home.html'
     })
     .when('/officialsList', {
       templateUrl: '/templates/officialsList.html',
@@ -15,7 +13,5 @@ angular.module('CitizenApp', ['ngRoute'])
     .otherwise({
       redirectTo:'/home'
     });
-
-    // $locationProvider.html5Mode(true);
   }
   ]);
