@@ -1,5 +1,4 @@
 angular.module('CitizenApp', ['ngRoute'])
-
 .config([
   '$routeProvider', function($routeProvider) {
     $routeProvider
@@ -17,13 +16,13 @@ angular.module('CitizenApp', ['ngRoute'])
     })
     .when('/about', {
       templateUrl: '/templates/about.html'
-    })
+    })  
     .when('/officialsList', {
-      templateUrl: '/templates/officialsList.html',
-      controller: 'OfficialsListCtrl'
-    })
+        templateUrl: '/templates/officialsList.html',
+        controller: 'OfficialsListCtrl'
+     })
     .otherwise({
-      redirectTo:'/home'
-    });
-  }
-  ]);
+    	templateUrl: '/templates/error.html'
+    })
+   
+  }]);
