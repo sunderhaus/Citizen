@@ -5,4 +5,4 @@
     node web.js
 
 ###Contributors
-Wes Nelson, Kenneth Kloeppel, Mara Kim, Hakan Tunc, Kimberly Lewis, and Paul Sunderhaus
+Wes Nelson, Kenneth Kloeppel, Mara Kim, Hakan Tunc, Kimberly Lewis, Kate Brady, and Paul Sunderhaus
