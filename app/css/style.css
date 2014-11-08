@@ -658,11 +658,10 @@
 		.box
 		{
 		}
-		
+
 			.box.excerpt
 			{
 				position: relative;
-				overflow: hidden;
 			}
 
 				.box.excerpt header
@@ -738,8 +737,8 @@
 				.box.article-list article
 				{
 					border-bottom: solid 1px #dbdbdb;
-					margin: 0 0 2.75em 0;
-					padding: 0 0 2.75em 0;
+					margin: 2em;
+					padding: 1em;
 				}
 
 				.box.article-list article:last-child
