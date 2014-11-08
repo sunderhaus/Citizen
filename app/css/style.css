@@ -904,15 +904,25 @@
 
 		.wrapper.style2
 		{
+			position: relative;
+			text-shadow: 1px 1px 0 #fff;
+			background-color: #E7E8E9;
+                        padding: 2em;
 		}
-	
+
 		.wrapper.style3
 		{
 			position: relative;
 			text-shadow: 1px 1px 0 #fff;
 			background-color: #E7E8E9;
 		}
-	
+
+        .centered {
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            float: none;
+        }
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -937,7 +947,7 @@
               word-wrap: break-word;
         }
 
-        .style3 article {
+        article {
               background-color: #FFF;
               -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
               -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
@@ -946,11 +956,11 @@
               margin-bottom: 2em;
         }
 
-        .style3 article h3 {
+        article h3 {
               margin: 0;
         }
 
-        .style3 article p {
+        article p {
               margin: 0.75em 0 0.75em;
         }
 
