@@ -1,10 +1,12 @@
 angular.module('CitizenApp')
-	.factory('googleCivicRepresentatives', function () {
+	.factory('GoogleCivicRepresentatives', function ($http, $q) {
 		
-		var returnData = {};
+		var civicAPI = {};
 		
-		googleCivicRepresentatives.getData = function(address, city, state, zip) {
-			//at minimum we have to have a city/state or zip
+		civicAPI.getReps = function(address, city, state, zip) {
+			
+			var deferred = $q.defer();
+			
 			if((city && state && city!='' && state!='') || (zip && zip!='') ) {
 				var addr = '';
 				
@@ -16,34 +18,56 @@ angular.module('CitizenApp')
 					addr += zip;
 				
 				//try to look up by full address
-				var ajaxRet = $http.get( 'https://www.googleapis.com/civicinfo/v2/representatives?address='+addr+'&key='+siteKey )
-					success(function(data) {
-						//we successfully called and will now analyze the return
-						alert('got good resposne');
-						parseData(data);
-					})
-					error(function(data) {
-						alert('getRepsByAddress - failed return - WTF Google?');
-						parseData(data);
-					});
-			
-				//if fail, come back to city state
-				if(1==2 && address && address!='') {
-					return getData(null, city, state, zip);
-				}//end if()
+				var siteKey = 'AIzaSyCNTfR6tn2IpkL-oeInL314SdSmgJfUCLw';
+				$http.get( 'https://www.googleapis.com/civicinfo/v2/representatives?address='+addr+'&key='+siteKey )
+				.success(function(data) {
+					//we successfully called and will now analyze the return
+					var officials = [];
+					if(data.offices) {
+						//loop over each office, and then get the officials for each
+						angular.forEach(data.offices, function(oInfo,key) {
+							if(oInfo.officialIndices) {
+								//get the officials at these indicies
+								
+								angular.forEach(oInfo.officialIndices, function(ofInfo,ok) {
+									
+									if(data.officials[ofInfo]) {
+										var ofData = data.officials[ofInfo];
+										officials.push( {
+												'office':oInfo.name,
+												'name':ofData.name,
+												'party':ofData.party,
+												'phone':ofData.phone,
+												'email':ofData.emails,
+												'urls':ofData.urls,
+												'photoURL':ofData.photoUrl,
+												'socialMedia':ofData.channels
+										});//end scope.officials
+								
+									}
+									
+								});//end foreach(index)
+							}
+							
+						});//end foreachOffice
+						
+					}//end if(offices)	
+					
+					deferred.resolve(officials);
+				
+				})
+				.error(function(data) {
+					deferred.resolve( {'error':'Cannot find information for your area'} );
+				});
+				
+				
 			}
-		}//end getData
-		
-		googleCivicRepresentatives.parseData = function(data) {
-			//format the return
-			returnData = data;
-		}//end parseData
-		
-		googleCivicRepresentatives.getMyReps = function() {
-			if(returnData)
-				return returnData;
 			else
-				return getData(address, city, state, zip);
-		}//end getMyReps
+				deferred.resolve( {'error':'Cannot find information for your area'} );
+				
+			return deferred.promise;
+		}//end getReps
+		
+		return civicAPI;
 		
 	});//end factory
