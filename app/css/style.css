@@ -14,7 +14,14 @@
 
 	body
 	{
-		background: #303238 url('images/bg01.png');
+                background-image: url(../images/Blank_USA_w_territories.svg);
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: 100%;
 	}
 
 		body.is-loading *
@@ -839,17 +846,10 @@
 /* Wrappers                                                                      */
 /*********************************************************************************/
 
-	#header-background
-	{
-            background-image: url(../images/Blank_USA_w_territories.svg);
-            background-position: center top;
-            background-size: auto, cover;
-            background-repeat: no-repeat;
-	}
 	#header-wrapper
 	{
             background: #E6E6E6;
-            background: rgba(230,230,230,.85);
+            background: rgba(230,230,230,.5);
             background-image: -moz-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
             background-image: -webkit-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
             background-image: -o-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
