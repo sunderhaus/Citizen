@@ -3,7 +3,8 @@ angular.module('CitizenApp', ['ngRoute'])
   '$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/home', {
-      templateUrl: '/templates/home.html'
+      templateUrl: '/templates/home.html',
+      controller: 'HomeCtrl'
     })
     .when('/feed', {
       templateUrl: '/templates/feed.html'
