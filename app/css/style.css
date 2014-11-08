@@ -262,7 +262,6 @@
 				form select:focus,
 				form textarea:focus
 				{
-					box-shadow: 0 0 2px 1px #4091bf;
 				}
 
 			form input[type="text"],
@@ -437,7 +436,6 @@
 			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
 			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
 			border-radius: 8px;
-			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.35), inset 0px 2px 1px 0px rgba(255,255,255,0.35);
 			color: #fff !important;
 			text-decoration: none;
 			text-transform: capitalize;
@@ -905,7 +903,6 @@
 		.wrapper.style2
 		{
 			position: relative;
-			text-shadow: 1px 1px 0 #fff;
 			background-color: #E7E8E9;
                         padding: 2em;
 		}
@@ -913,7 +910,6 @@
 		.wrapper.style3
 		{
 			position: relative;
-			text-shadow: 1px 1px 0 #fff;
 			background-color: #E7E8E9;
 		}
 
@@ -949,9 +945,6 @@
 
         article {
               background-color: #FFF;
-              -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-              -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-              box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
               padding: 2em 1em;
               margin-bottom: 2em;
         }
@@ -972,7 +965,6 @@
 	#footer
 	{
 		margin-bottom: 0;
-		text-shadow: -1px -1px 0 rgba(0,0,0,0.5);
 		position: relative;
 		z-index: 2;
 	}
@@ -995,7 +987,6 @@
 
 		#footer .button.alt
 		{
-			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.75), inset 0px 2px 1px 0px rgba(255,255,255,0.25);
 		}
 
 		#footer ul.divided li,
