@@ -842,7 +842,7 @@
 	#header-background
 	{
             background-image: url(../images/Blank_USA_w_territories.svg);
-            background-position: center center;
+            background-position: center top;
             background-size: auto, cover;
             background-repeat: no-repeat;
 	}
