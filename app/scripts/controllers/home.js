@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($rootScope, $scope, CookieJar, $location, $route, Geolocator) {
+.controller('HomeCtrl', function ($rootScope, $scope, $location, $route, Geolocator, CookieJar, Map) {
 
 	$scope.startDone = false;
 	$scope.formError = '';
@@ -78,6 +78,7 @@ angular.module('CitizenApp')
 			.then(function(data) {
 				CookieJar.setUserLocation(data);
 				$scope.setUserLocationFromCookie();
+				Map.focus($scope.userLocation.state);
 				$scope.spin = false;
 				$scope.browserLookupFailed = false;
 				$scope.startDone = true;
@@ -97,6 +98,10 @@ angular.module('CitizenApp')
 			$scope.lfcClass = "location-form-container-expanded";
 		}
 	};//end askForLocationAndAct
+
+	$scope.focusOnMap = function() {
+		Map.focus($scope.userLocation.state);
+	}
 
 	//Update the label on the home page
 	$scope.setUserLocationFromCookie();

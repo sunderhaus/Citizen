@@ -8,7 +8,7 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
     })
     .when('/feed', {
       //templateUrl: '/templates/feed.html',
-      templateUrl: '/templates/rep-detail.html',
+      templateUrl: '/templates/feed.html',
       //controller: 'FeedController'
       controller: 'OfficialsDetailCtrl'
     })
