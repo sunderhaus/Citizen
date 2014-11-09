@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($scope, $cookieStore, $location, Geolocator) {
+.controller('HomeCtrl', function ($scope, $cookieStore, $location, $route, Geolocator) {
 
 	$scope.startDone = false;
 
@@ -57,7 +57,7 @@ $scope.submitClick = function() {
 				$scope.startDone = true;
 				$scope.lfcClass = "location-form-container-expanded";
 			}, function (reason) {
-				console.log("HEY");
+				alert("Oops! It looks like you've denied us access to your location. Please fill out the form or re-enable location permission for our website in your browser settings and reload this page. Thanks!");
 				$scope.userLocation = null;
 				$scope.spin = false;
 				$scope.browserLookupFailed = true;
