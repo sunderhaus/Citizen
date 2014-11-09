@@ -656,6 +656,11 @@ a.pointer:hover {
 	margin-right: auto;
 }
 
+.replist a:hover dt,
+.replist a:hover dd {
+        background-color: #DDD;
+}
+
 .replist a {
 	color: #000 !important;
 	text-decoration: none;
