@@ -1,24 +1,24 @@
 angular.module('CitizenApp')
-	.controller('OfficialsDetailCtrl', function ($scope, $http, $location, $routeParams, $cookieStore, GoogleCivicRepresentatives) {
-		
+	.controller('OfficialsDetailCtrl', function ($scope, $http, $location, $routeParams, CookieJar, GoogleCivicRepresentatives) {
+
 		$scope.error = 'Loading Data...';
 		$scope.officials = [];
-		
+
 		//get address information from cookie
-		var userLocation = $cookieStore.get('storedUserLocation');
-		
-		if(userLocation.userAddress)
-			$scope.address = userLocation.street_number + " " + userLocation.route;
-		if(userLocation.locality)
-			$scope.city = userLocation.locality;
-		if(userLocation.administrative_area_level_1)
-			$scope.state = userLocation.administrative_area_level_1;
+		var userLocation = CookieJar.getUserLocation();
+
+		if(userLocation.address)
+			$scope.address = userLocation.address
+		if(userLocation.city)
+			$scope.city = userLocation.city;
+		if(userLocation.state)
+			$scope.state = userLocation.state;
 		if(userLocation.postal_code)
-			$scope.zip = userLocation.postal_code;
-		
+			$scope.zip = userLocation.zip;
+
 		if($routeParams.repName)
 			$scope.repName = $routeParams.repName.toLowerCase().replace(/[\W_]+/g,"").trim();
-		
+
 		if($scope.repName && $scope.repName!="") {
 			GoogleCivicRepresentatives.getReps($scope.address,$scope.city,$scope.state,$scope.zip)
 				.then(function(data) {
@@ -31,7 +31,7 @@ angular.module('CitizenApp')
 							done = true;
 						}
 					});
-					
+
 					if(filterSet.name) {
 						$scope.error = '';
 						$scope.officialDetail = filterSet;
@@ -42,6 +42,6 @@ angular.module('CitizenApp')
 		}//endif()
 		else
 			$scope.error = 'Cannot retrieve contact information';
-		
-	
+
+
 	});//end OfficialsListCtrl
