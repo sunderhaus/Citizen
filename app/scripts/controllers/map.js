@@ -10,8 +10,6 @@ angular.module('CitizenApp').controller('MapController', function ($scope) {
           'margin-right': 'auto'
       });
       default_viewbox = paper.getBBox();
-
-  $scope.focus('NV');
   });
 
   var state, state_color;
@@ -27,7 +25,7 @@ angular.module('CitizenApp').controller('MapController', function ($scope) {
                  + start + ';' + end + '" fill="freeze" />';
       state_color = state.attr('fill');
       paper.add(Snap.parse(anim));
-      state.animate({fill: '#F05040'},1000,mina.easein);
+      state.animate({fill: '#F9B099'},1000,mina.easein);
     } else {
       if(state) {
           state.attr({
