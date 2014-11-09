@@ -1,4 +1,4 @@
-angular.module('CitizenApp', ['ngRoute'])
+angular.module('CitizenApp', ['ngRoute', 'infiniteScroll'])
 .config([
   '$routeProvider', function($routeProvider) {
     $routeProvider
@@ -6,7 +6,8 @@ angular.module('CitizenApp', ['ngRoute'])
       templateUrl: '/templates/home.html'
     })
     .when('/feed', {
-      templateUrl: '/templates/feed.html'
+      templateUrl: '/templates/feed.html',
+      controller: 'FeedController'
     })
     .when('/reps', {
       templateUrl: '/templates/reps.html'
