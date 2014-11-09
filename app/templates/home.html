@@ -42,10 +42,10 @@
           <div id="location-form-container" class="location-form-container" ng-class="lfcClass">
             <span></span>
             <form id="location-form" method="post">
-              <input ng-show="started" type="text" name="address" placeholder="Address"></input><br/>
-              <input ng-show="started" type="text" name="city" placeholder="City"></input><br/>
-              <input ng-show="started" type="text" name="state" placeholder="State"></input><br/>
-              <input ng-show="started" type="text" name="zip" placeholder="Zip"></input><br/>
+              <input ng-show="started" ng-model="userAddress" type="text" name="address" placeholder="Address"></input><br/>
+              <input ng-show="started" ng-model="userCity" type="text" name="city" placeholder="City"></input><br/>
+              <input ng-show="started" ng-model="userState" type="text" name="state" placeholder="State"></input><br/>
+              <input ng-show="started" ng-model="userZip" type="text" name="zip" placeholder="Zip"></input><br/>
               <input ng-show="!started" ng-click="startClick()" type="submit" value="Start!" class="button big"></input><br/>
               <input ng-show="started" type="submit" value="Submit" class="button big"></input><br/>
             </form>
