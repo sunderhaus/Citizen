@@ -1,6 +1,6 @@
 <!-- Header -->
 <div ng-controller="HomeCtrl">
-  <div id="header-background" ng-controller="MapController"></div>
+  <div id="header-background"></div>
   <div id="header-wrapper-gradient">
     <a href="/#/">
       <img id="citizen-star" src="images/star.svg" alt="Citizen Star">
@@ -45,7 +45,7 @@
                 <form id="location-forost">
                   <input class="block optional" ng-show="startDone" ng-model="userLocation.address" type="text" name="address" placeholder="Address"></input>
                   <input class="block suggested" ng-show="startDone" ng-model="userLocation.city" type="text" name="city" placeholder="City"></input>
-                  <select class="block suggested" ng-show="startDone" ng-model="userLocation.state" type="text" name="state" placeholder="State">
+                  <select class="block suggested" ng-show="startDone" ng-model="userLocation.state", ng-change="focusOnMap()" type="text" name="state" placeholder="State">
                     <option value="" disabled selected>State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -169,5 +169,5 @@
 
   </div>
 
-  
+
 </div>
