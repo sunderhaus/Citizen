@@ -39,12 +39,13 @@
 	</section>
   <section ng-if="error==''" class="box spotlight">
     <article class="rep-info">
-      <h2 class="name">{{officialDetail.name}}</h2>
+    	<h2 class="role" style="margin-bottom: 15px;">{{officialDetail.office}}</h2>
+      <h3 class="name">{{officialDetail.name}}</h3>
       <span ng-if="officialDetail.photoURL!=''">
       	<a href="{{officialDetail.photoURL}}" target="_blank"><img src="{{officialDetail.photoURL}}" border="0" style="max-height: 200px;"></a>
       </span>
       <h4 ng-if="officialDetail.party!='' && officialDetail.party!='Unknown'">{{officialDetail.party}}</h4>
-      <h3 class="role">{{officialDetail.office}}</h3>
+      
       <p ng-if="officialDetail.address!=''" class="address uppercase" >
         <span ng-if="officialDetail.address!=''">{{officialDetail.address}}<br/></span>
         <span ng-if="officialDetail.address2!=''">{{officialDetail.address2}}<br/></span>
