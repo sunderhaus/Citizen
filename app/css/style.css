@@ -241,16 +241,17 @@
 
 	/* Forms */
 
-                #location-form-container
-                {
-                        background-color: #F05040;
-                        margin: 0;
-                        padding: 0.5em;
-                }
+  .location-form-container
+		{
+			margin: 0;
+			padding: 0.5em;
+		}
 
-                #location-form
-                {
-                }
+		.location-form-container-expanded {
+			background-color: #F05040;
+			margin: 0;
+			padding: 0.5em;
+		}
 
 		form
 		{

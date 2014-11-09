@@ -5,6 +5,7 @@ angular.module('CitizenApp')
 
 	$scope.startClick = function() {
 		$scope.started = true;
+		$scope.lfcClass = "location-form-container-expanded";
 	};
 
 	$scope.userLocation = $cookieStore.get('storedUserLocation');
