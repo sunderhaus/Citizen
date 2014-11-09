@@ -228,6 +228,18 @@
 	
 	/* Forms */
 
+                #location-form-container
+                {
+                        /* background-color: #F05040; */
+                        margin: 0;
+                        padding: 1em;
+                }
+
+                #location-form
+                {
+                        visibility: hidden;
+                }
+
 		form
 		{
 		}
@@ -237,12 +249,11 @@
 				display: block;
 				text-transform: uppercase;
 				font-weight: 700;
-				letter-spacing: 0.04em;
-				color: #404248;
-				margin: 0 0 1em 0;
+				color: #FFF;
+				margin: 0 0 0.4em 0;
 				font-size: 0.8em;
 			}
-		
+
 			form input[type="text"],
 			form input[type="email"],
 			form input[type="password"],
@@ -250,10 +261,16 @@
 			form textarea
 			{
 				-webkit-appearance: none;
+                                background-color: #C82818;
+                                font-family: 'Montserrat', sans-serif;
+                                color: #FFF;
 				display: block;
-				width: 100%;
-				border-radius: 8px;
-				border: solid 1px #eee;
+                                margin-top: 0.2em;
+                                margin-bottom: 0;
+                                margin-left: auto;
+                                margin-right: auto;
+				width: 60%;
+				border: solid 0 #eee;
 			}
 
 				form input[type="text"]:focus,
@@ -269,14 +286,14 @@
 			form input[type="password"],
 			form select
 			{
-				line-height: 3em;
-				padding: 0 1em;
+				line-height: 2em;
+				padding: 0 .2em;
 			}
-				
+
 			form textarea
 			{
-				min-height: 9em;
-				padding: 1em;
+				min-height: 2em;
+				padding: 0.2em;
 			}
 
 			form .formerize-placeholder
@@ -430,11 +447,6 @@
 			display: inline-block;
 			background-color: #F05040;
 			background-color: rgba(240,80,64,1);
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
 			border-radius: 8px;
 			color: #fff !important;
 			text-decoration: none;
@@ -493,11 +505,6 @@
 			{
 				font-size: 1.25em;
 				padding: 1em 2.25em;
-			}
-			.button.big small
-			{
-				font-size: 8pt;
-                                color: #64B4C8;
 			}
 
 			.button.big:hover small
@@ -889,6 +896,10 @@
 		{
 			font-size: 9pt;
 		}
+
+                .pledge {
+                    background-color: none;
+                }
 
 /*********************************************************************************/
 /* Wrappers                                                                      */
