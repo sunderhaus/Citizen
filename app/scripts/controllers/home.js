@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($rootScope, $scope, $cookieStore, $location, $route, Geolocator) {
+.controller('HomeCtrl', function ($rootScope, $scope, CookieJar, $location, $route, Geolocator) {
 
 	$scope.startDone = false;
 
@@ -14,10 +14,7 @@ $scope.submitClick = function() {
 };//end startClick
 
 	$scope.clearAll = function() {
-		$scope.userAddress = null;
-		$scope.userCity = null;
-		$scope.userState = null;
-		$scope.userZip = null;
+		$scope.userLocation = null;
 		$cookieStore.remove('storedUserLocation');
 	}//end clearAll
 
@@ -36,27 +33,23 @@ $scope.submitClick = function() {
 		userLocation.locality = $scope.userCity;
 		userLocation.administrative_area_level_1 = $scope.userState;
 		userLocation.postal_code = $scope.userZip;
-		$cookieStore.put('storedUserLocation', userLocation);
+
+		CookieJar.setUserLocation(userLocation);
 	}//end setCookieFromForm
 
 	$scope.setUserLocationFromCookie = function() {
-		var userLocation = $cookieStore.get('storedUserLocation');
-		$scope.userAddress = "" + userLocation.street_number + " " + userLocation.route;
-		$scope.userCity = userLocation.locality;
-		$scope.userState = userLocation.administrative_area_level_1.short_name;
-		$scope.userZip = userLocation.postal_code;
-		$rootScope.userAddressLabel = $scope.userCity + ", " + $scope.userState;
+		$scope.userLocation = CookieJar.getUserLocation();
+		$rootScope.userAddressLabel = $scope.userLocation.city_state;
 	};//end setUserLocationFromCookie
 
 	$scope.askForLocationAndAct = function() {
-		$scope.userLocation = $cookieStore.get('storedUserLocation');
+		$scope.userLocation = CookieJar.getUserLocation();
 		// console.log("Retrieving the user locationdata.");
 		// console.log(userLocation);
 		if (!$scope.userLocation) {
 			Geolocator.getBrowserGeolocation()
 			.then(function(data) {
-				$scope.userLocation = data;
-				$cookieStore.put('storedUserLocation', data);
+				CookieJar.setUserLocation(data);
 				$scope.setUserLocationFromCookie();
 				$scope.spin = false;
 				$scope.browserLookupFailed = false;

@@ -42,10 +42,10 @@
           <div id="location-form-container" class="location-form-container" ng-class="lfcClass">
             <span></span>
             <form id="location-form" method="post">
-              <input ng-show="startDone" ng-model="userAddress" type="text" name="address" placeholder="Address"></input><br/>
-              <input ng-show="startDone" ng-model="userCity" type="text" name="city" placeholder="City"></input><br/>
-              <input ng-show="startDone" ng-model="userState" type="text" name="state" placeholder="State"></input><br/>
-              <input ng-show="startDone" ng-model="userZip" type="text" name="zip" placeholder="Zip"></input><br/>
+              <input ng-show="startDone" ng-model="userLocation.address" type="text" name="address" placeholder="Address"></input><br/>
+              <input ng-show="startDone" ng-model="userLocation.city" type="text" name="city" placeholder="City"></input><br/>
+              <input ng-show="startDone" ng-model="userLocation.state" type="text" name="state" placeholder="State"></input><br/>
+              <input ng-show="startDone" ng-model="userLocation.zip" type="text" name="zip" placeholder="Zip"></input><br/>
               <a class="pointer pull-left" ng-show="startDone" ng-click="clearAll()">Clear Address</a>
               <a class="pointer pull-right" ng-show="startDone" ng-click="startClick()">Use Location</a>
               <img ng-show="spin" ng-src="images/Ajax-loader.gif"><br/>
