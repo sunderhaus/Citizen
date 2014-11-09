@@ -15,6 +15,7 @@ $scope.submitClick = function() {
 
 	$scope.clearAll = function() {
 		$scope.userLocation = null;
+		$rootScope.userAddressLabel = null;
 		CookieJar.removeUserLocation();
 	}//end clearAll
 
