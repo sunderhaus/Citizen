@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($scope, $cookieStore, Geolocator) {
+.controller('HomeCtrl', function ($scope, $cookieStore, $location, Geolocator) {
 
 	$scope.startDone = false;
 
@@ -8,17 +8,35 @@ angular.module('CitizenApp')
 		$scope.askForLocationAndAct();
 	};//end startClick
 
+$scope.submitClick = function() {
+	$scope.setCookieFromForm();
+	$location.path('/reps');
+};//end startClick
+
 	$scope.clearAll = function() {
 		$scope.userAddress = null;
 		$scope.userCity = null;
 		$scope.userState = null;
 		$scope.userZip = null;
 		$cookieStore.remove('storedUserLocation');
-	}
+	}//end clearAll
+
+	$scope.setCookieFromForm = function() {
+		var userLocation = {};
+		var splitUserAddress = $scope.userAddress.split(/([0-9]+\-?[0-9]+)/);
+		var formStreetNumber = splitUserAddress[1];
+		var formRoute = splitUserAddress[2].trim();
+		userLocation.street_number = formStreetNumber;
+		userLocation.route = formRoute;
+		userLocation.locality = $scope.userCity;
+		userLocation.administrative_area_level_1 = $scope.userState;
+		userLocation.postal_code = $scope.userZip;
+		$cookieStore.put('storedUserLocation', userLocation);
+	}//end setCookieFromForm
 
 	$scope.setUserLocationFromCookie = function() {
 		var userLocation = $cookieStore.get('storedUserLocation');
-		$scope.userAddress = userLocation.street_number + " " + userLocation.route;
+		$scope.userAddress = "" + userLocation.street_number + " " + userLocation.route;
 		$scope.userCity = userLocation.locality;
 		$scope.userState = userLocation.administrative_area_level_1;
 		$scope.userZip = userLocation.postal_code;
@@ -52,5 +70,5 @@ angular.module('CitizenApp')
 			$scope.startDone = true;
 			$scope.lfcClass = "location-form-container-expanded";
 		}
-	};
+	};//end askForLocationAndAct
 });//end HomeCtrl

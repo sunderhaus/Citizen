@@ -49,7 +49,7 @@
               <a class="pointer" ng-show="startDone" ng-click="clearAll()">Clear Address</a>
               <img ng-show="spin" ng-src="images/Ajax-loader.gif"><br/>
               <input ng-show="!startDone" ng-click="startClick()" type="button" value="Start!" class="button big"></input><br/>
-              <input ng-show="startDone" type="submit" value="Submit" class="button big"></input><br/>
+              <input ng-show="startDone" ng-click="submitClick()" type="submit" value="Submit" class="button big"></input><br/>
             </form>
           </div>
           <small>
