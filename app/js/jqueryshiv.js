@@ -33,7 +33,7 @@ skel.registerPlugin("layers",function(e){function cn(e,r,i){var o,u;this.id=e,th
 					width: '80%',
 					height: '100%',
 					clickToHide: true,
-					html: '<div data-action="navList" data-args="nav"></div>',
+					html: '<div data-action="navList" data-args="nav"><a class="location link" href="#"><img src="images/pin.svg" alt="GPS pin"> Find me</a><a class="link" href="/#/feed">Feed</a><a class="link" href="/#/reps">Reps</a><a class="link" href="/#/links">Links</a><a class="link" href="/#/about">About</a></div>',
 					orientation: 'vertical'
 				},
 				titleBar: {
@@ -42,7 +42,7 @@ skel.registerPlugin("layers",function(e){function cn(e,r,i){var o,u;this.id=e,th
 					side: 'top',
 					height: 44,
 					width: '100%',
-					html: '<span class="toggle" data-action="toggleLayer" data-args="navPanel"></span><span class="title" data-action="copyHTML" data-args="logo"></span>'
+					html: '<span class="toggle" data-action="toggleLayer" data-args="navPanel"></span><span class="title" data-action="copyHTML" data-args="logo">Citizen</span>'
 				}
 			}
 		}
