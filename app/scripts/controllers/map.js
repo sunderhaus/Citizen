@@ -1,4 +1,4 @@
-angular.module('CitizenApp').controller('MapController', function ($scope) {
+angular.module('CitizenApp').controller('MapController', function ($scope, $rootScope) {
   var paper, default_viewbox;
   Snap.load('/images/Blank_USA_w_territories.svg', function (data){
       paper = Snap.select("#header-background");
@@ -12,8 +12,9 @@ angular.module('CitizenApp').controller('MapController', function ($scope) {
       default_viewbox = paper.getBBox();
   });
 
-  var state, state_color;
-  $scope.focus = function (id) {
+
+  $rootScope.focus = function (id) {
+    var state, state_color;
     if(id) {
       if(state) {
           state.animate({fill: state_color},1000,mina.easein);
