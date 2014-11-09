@@ -16,13 +16,18 @@
 	{
                 background-image: url(../images/Blank_USA_w_territories.svg);
                 background-repeat: no-repeat;
-                background-position: center top;
+                background-position: center center;
                 background-attachment: fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
-                background-size: 100%;
+                background-size: 75%;
 	}
+
+        .container
+        {
+                padding: 1em;
+        }
 
 		body.is-loading *
 		{
@@ -232,12 +237,11 @@
                 {
                         /* background-color: #F05040; */
                         margin: 0;
-                        padding: 1em;
+                        padding: 0.5em;
                 }
 
                 #location-form
                 {
-                        visibility: hidden;
                 }
 
 		form
@@ -271,6 +275,7 @@
                                 margin-right: auto;
 				width: 60%;
 				border: solid 0 #eee;
+                                visibility: hidden;
 			}
 
 				form input[type="text"]:focus,
@@ -455,7 +460,7 @@
 			font-weight: 700;
 			font-size: 0.95em;
 			letter-spacing: 0.075em;
-			padding: 1em 2em;
+			padding: 0.5em 2em;
 			outline: 0;
 			border: 0;
 			white-space: nowrap;
@@ -525,8 +530,9 @@
 			input[type="reset"].big,
 			.button.big
 			{
-                                width: 100%;
-				padding: 0.8em 0 0.2em;
+				font-size: 2.5em;
+                                width: 80%;
+				padding: 0.3em 0 0.3em;
 			}
 
 			input[type="button"].alt,
@@ -561,7 +567,7 @@
                 }
 		.replist h2
 		{
-                        margin-top: 1em;
+                        margin-top: .5em;
                         margin-bottom: .6em;
                         text-transform: capitalize;
                         text-align: left;
@@ -848,6 +854,7 @@
                         color: rgba(42,64,120,1);
                         text-align: left;
 			font-size: 5em;
+                        letter-spacing: .005em;
 			font-weight: 700;
 			line-height: 1.1em;
 			margin: 0 0 0 0;

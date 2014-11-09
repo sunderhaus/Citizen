@@ -29,7 +29,7 @@
 
 	#header-wrapper
 	{
-		padding: 1em 0;
+		padding: 1em 0 0;
 	}
 	
 	#banner-wrapper
@@ -66,6 +66,9 @@
 		{
 			position: relative;
 			height: 5.5em;
+                        width: 75%;
+                        margin-left: auto;
+                        margin-right: auto;
 			background-color: #2A4078;
 			background-color: rgba(42,64,120,1);
 			border-radius: 8px;
@@ -99,11 +102,6 @@
 		#banner .right
                 {
                         float: right;
-                }
-
-		#banner .fill
-                {
-                        height: 2em;
                 }
 
                 #logo
@@ -228,9 +226,9 @@
 		width: 940px;
 		margin: 0 auto;
 		overflow: hidden;
-		padding: 2em 0 5em 0;
+		padding: 1em 0 3em 0;
 	}
-	
+
 		#banner h2
 		{
 		}
