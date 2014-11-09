@@ -80,7 +80,7 @@ angular.module('CitizenApp')
 			.then(function(data) {
 				CookieJar.setUserLocation(data);
 				$scope.setUserLocationFromCookie();
-				Map.focus($scope.userLocation.state);
+				$scope.focusOnMap();
 				$scope.spin = false;
 				$scope.browserLookupFailed = false;
 				$scope.startDone = true;

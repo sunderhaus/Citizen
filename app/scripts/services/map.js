@@ -34,7 +34,7 @@ angular.module('CitizenApp')
       state = env.paper.select('#'+id);
       var start = env.paper.attr('viewBox').vb,
       end = state.getBBox().vb,
-      anim = '<animate id="smoothpan" attributeName="viewBox" begin="1s" dur="1s" values="'
+      anim = '<animate id="smoothpan" attributeName="viewBox" begin="1s" dur="4s" values="'
       + start + ';' + end + '" fill="freeze" />';
       if(!state_color[id]) {
         state_color[id] = state.attr('fill');
