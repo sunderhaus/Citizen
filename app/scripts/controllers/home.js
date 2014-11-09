@@ -1,6 +1,5 @@
 angular.module('CitizenApp')
-<<<<<<< Updated upstream
-.controller('HomeCtrl', function ($cookieStore, Geolocator) {
+.controller('HomeCtrl', function ($scope, $cookieStore, Geolocator) {
 
 	$scope.started = false;
 
@@ -11,7 +10,7 @@ angular.module('CitizenApp')
 	$scope.userLocation = $cookieStore.get('storedUserLocation');
 	// console.log("Retrieving the user locationdata.");
 	// console.log(userLocation);
-	if (!userLocation) {
+	if (!$scope.userLocation) {
 		Geolocator.getBrowserGeolocation()
 		.then(function(data) {
 			$scope.userLocation = data;
