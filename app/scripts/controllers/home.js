@@ -1,10 +1,7 @@
 angular.module('CitizenApp')
 .controller('HomeCtrl', function ($cookieStore, Geolocator) {
 	var userLocation = $cookieStore.get('storedUserLocation');
-	if (userLocation) {
-		alert("I see your cookies.");
-		console.log($cookieStore.get('storedUserLocation'));
-	} else {
+	if (!userLocation) {
 		Geolocator.getBrowserGeolocation()
 		.then(function(data) {
 			console.log(data);

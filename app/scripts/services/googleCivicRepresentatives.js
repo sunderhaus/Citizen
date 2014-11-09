@@ -1,10 +1,10 @@
 angular.module('CitizenApp')
-	.factory('GoogleCivicRepresentatives', function ($http, $q) {
+	.factory('GoogleCivicRepresentatives', function ($http, $q, GoogleAPI) {
 
 		var civicAPI = {};
 
 		civicAPI.getReps = function(address, city, state, zip) {
-			
+
 			var deferred = $q.defer();
 
 			if((city && state && city!='' && state!='') || (zip && zip!='') ) {
@@ -18,7 +18,7 @@ angular.module('CitizenApp')
 					addr += zip;
 
 				//try to look up by full address
-				var siteKey = 'AIzaSyCNTfR6tn2IpkL-oeInL314SdSmgJfUCLw';
+				var siteKey = GoogleAPI.GOOGLE_API_KEY;
 				$http.get( 'https://www.googleapis.com/civicinfo/v2/representatives?address='+addr+'&key='+siteKey )
 				.success(function(data) {
 					//we successfully called and will now analyze the return
