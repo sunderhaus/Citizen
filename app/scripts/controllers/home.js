@@ -40,7 +40,9 @@ $scope.submitClick = function() {
 
 	$scope.setUserLocationFromCookie = function() {
 		$scope.userLocation = CookieJar.getUserLocation();
-		$rootScope.userAddressLabel = $scope.userLocation.city_state;
+		if($scope.userLocation) {
+			$rootScope.userAddressLabel = $scope.userLocation.city_state;
+		}
 	};//end setUserLocationFromCookie
 
 	$scope.askForLocationAndAct = function() {
@@ -71,4 +73,8 @@ $scope.submitClick = function() {
 			$scope.lfcClass = "location-form-container-expanded";
 		}
 	};//end askForLocationAndAct
+
+	//Update the label on the home page
+	$scope.setUserLocationFromCookie();
+
 });//end HomeCtrl
