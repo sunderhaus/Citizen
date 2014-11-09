@@ -143,12 +143,12 @@
 	hr
 	{
 		border: 0;
-		border-top: solid 1px #ddd;
+		border-top: solid 0 #ddd;
 	}
 
 	blockquote
 	{
-		border-left: solid 0.5em #ddd;
+		border-left: solid 0 #ddd;
 		padding: 1em 0 1em 2em;
 		font-style: italic;
 	}
