@@ -1,14 +1,12 @@
 angular.module('CitizenApp')
 .controller('HomeCtrl', function ($scope, $cookieStore, Geolocator) {
 
-	$scope.started = false;
+	$scope.startDone = false;
 
 	$scope.startClick = function() {
-		$scope.started = true;
-		$scope.lfcClass = "location-form-container-expanded";
-
+		$scope.spin = true;
 		$scope.askForLocationAndAct();
-	};
+	};//end startClick
 
 	$scope.setUserLocationFromCookie = function() {
 		var userLocation = $cookieStore.get('storedUserLocation');
@@ -16,7 +14,7 @@ angular.module('CitizenApp')
 		$scope.userCity = userLocation.locality;
 		$scope.userState = userLocation.administrative_area_level_1;
 		$scope.userZip = userLocation.postal_code;
-	};
+	};//end setUserLocationFromCookie
 
 	$scope.askForLocationAndAct = function() {
 		$scope.userLocation = $cookieStore.get('storedUserLocation');
@@ -28,11 +26,22 @@ angular.module('CitizenApp')
 				$scope.userLocation = data;
 				$cookieStore.put('storedUserLocation', data);
 				$scope.setUserLocationFromCookie();
+				$scope.spin = false;
+				$scope.browserLookupFailed = false;
+				$scope.startDone = true;
+				$scope.lfcClass = "location-form-container-expanded";
 			}), function (reason) {
 				$scope.userLocation = null;
+				$scope.spin = false;
+				$scope.browserLookupFailed = true;
+				$scope.startDone = true;
+				$scope.lfcClass = "location-form-container-expanded";
 			};
 		} else {
 			$scope.setUserLocationFromCookie();
+			$scope.spin = false;
+			$scope.startDone = true;
+			$scope.lfcClass = "location-form-container-expanded";
 		}
 	};
 });//end HomeCtrl
