@@ -27,23 +27,21 @@
 
       </div>
     </header>
-
-    <div class="centered">
-
-      <!-- Spotlight -->
-      <section ng-if="error!=''" class="box spotlight">
-      	<article>{{error}}</article>
-      </section>
-      <section ng-if="error==''" class="box spotlight">
-        <article data-ng-repeat="nfo in contactList">
-          <h3>{{nfo.title}}</h3>
-          <p>{{nfo.comments}}</p>
-          <span ng-if="nfo.url!=''"><a href="{{nfo.url}}">{{nfo.url}}</a><br/></span>
-          <span ng-if="nfo.phone!=''"><a href="tel://{{nfo.phone}}">{{nfo.phone}}</a><br/></span>
-        </article>
-        
-      </section>
-
-    </div>
   </div>
+</div>
+
+<div class="centered">
+
+  <!-- Spotlight -->
+  <section ng-if="error!=''" class="box spotlight">
+    <article>{{error}}</article>
+  </section>
+  <section ng-if="error==''" class="box spotlight">
+    <article data-ng-repeat="nfo in contactList">
+      <h3>{{nfo.title}}</h3>
+      <p>{{nfo.comments}}</p>
+      <span ng-if="nfo.url!=''"><a href="{{nfo.url}}">{{nfo.url}}</a><br/></span>
+      <span ng-if="nfo.phone!=''"><a href="tel://{{nfo.phone}}">{{nfo.phone}}</a><br/></span>
+    </article>
+  </section>
 </div>
