@@ -2,30 +2,57 @@
 	{"city":"Nashville","state":"TN","zip":"",
 		"contacts":[
 			{
-				"title":"Public Works",
-				"address":"555 W Main St",
-				"address2":"",
-				"city":"Nashville",
-				"state":"TN",
-				"zip":"37040",
-				"phone":"615-234-2342",
-				"fax":"",
-				"email":"",
-				"url":"",
-				"comments":""
-			},
-			{
-				"title":"Non Emergency Number",
+				"title":"Non-Emergency #",
 				"address":"",
 				"address2":"",
-				"city":"Nashville",
-				"state":"TN",
+				"city":"",
+				"state":"",
 				"zip":"",
-				"phone":"615-862-8200",
+				"phone":"(615) 862-8600",
 				"fax":"",
 				"email":"",
 				"url":"",
-				"comments":""}
+				"comments":"For non-life-threatening emergencies"
+			},
+			{
+				"title":"Register To Vote",
+				"address":"",
+				"address2":"",
+				"city":"",
+				"state":"",
+				"zip":"",
+				"phone":"",
+				"fax":"",
+				"email":"",
+				"url":"http://www.tn.gov/sos/election/registration.htm",
+				"comments":"State voter registration page"
+			},
+			{
+				"title":"Change Address",
+				"address":"",
+				"address2":"",
+				"city":"",
+				"state":"",
+				"zip":"",
+				"phone":"",
+				"fax":"",
+				"email":"",
+				"url":"http://www.tn.gov/sos/election/address_changes.htm",
+				"comments":"Update address with the state"
+			},
+			{
+				"title":"Request Public Works",
+				"address":"",
+				"address2":"",
+				"city":"",
+				"state":"",
+				"zip":"",
+				"phone":"615-862-8600",
+				"fax":"",
+				"email":"",
+				"url":"",
+				"comments":"Traffic light issues, graffiti, debri, paving, etc."
+			}
 			]
 	},
 	{"city":"Memphis","state":"TN","zip":"",

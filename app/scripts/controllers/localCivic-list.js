@@ -1,13 +1,15 @@
 angular.module('CitizenApp')
 	.controller('LocalCivicCtrl', function ($scope, LocalCivicData) {
 		
+		$scope.error = 'Loading Data ...';
 		$scope.contactList = [];
 		$scope.city = 'Nashville';
 		$scope.state = 'TN';
 		$scope.zip = '';
-			
+		
 		LocalCivicData.getInfo($scope.city,$scope.state,$scope.zip)
 			.then(function(data) {
+				
 				if(!data.error) {
 					//loop over each result to format like we want
 					angular.forEach(data, function(info,key) {
@@ -28,16 +30,21 @@ angular.module('CitizenApp')
 									'zip':cInfo.zip,
 									'phone':cInfo.phone,
 									'fax':cInfo.phone,
-									'email':cInfo.emails,
-									'url':cInfo.urls
+									'email':cInfo.email,
+									'url':cInfo.url,
+									'comments':cInfo.comments
 								});//end pData
 								
 							});//end foreach(index)
 							
 						}//end if location match
 					});//end foreachOffice
+					
+					if($scope.contactList.length>0)
+						$scope.error = '';
+					
 				}//end if(error)
+				else
+					$scope.error = 'Cannot retrieve local civic contacts for your location.';
 			})
-		
-		
-	});
+});

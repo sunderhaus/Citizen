@@ -20,7 +20,8 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
       templateUrl: '/templates/rep-detail.html'
     })
     .when('/links', {
-      templateUrl: '/templates/links.html'
+      templateUrl: '/templates/links.html',
+      controller: 'LocalCivicCtrl'
     })
     .when('/about', {
       templateUrl: '/templates/about.html'
