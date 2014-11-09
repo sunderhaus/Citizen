@@ -886,6 +886,7 @@ form > a.pointer:hover {
 	#banner
 	{
 		text-align: center;
+                position: relative;
 	}
 
 		#banner h2
@@ -964,13 +965,9 @@ form > a.pointer:hover {
 
 	#header-background
 	{
-            background-image: url(../images/Blank_USA_w_territories.svg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: 70%;
+            width: 100%;
+            height: 100%;
+            position: absolute;
         }
 
 	#header-wrapper-gradient
