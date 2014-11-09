@@ -567,16 +567,38 @@
 					background-color: #363a42;
 				}
 
+form > a {
+	font-size:90%;
+	color: #FFF;
+}
+
+form > a.pull-right {
+  float: right;
+	padding-right: 1em;
+}
+
+form > a.pull-left {
+  float: left;
+	padding-left: 1em;
+}
+
 form > a.pointer {
 	cursor: pointer;
+	text-decoration:none;
 }
+
+form > a.pointer:hover {
+	text-decoration:underline;
+}
+
+
 	/* List */
                 .replist {
                       width: 40em;
                       margin-left: auto;
                       margin-right: auto;
                 }
-                
+
                 .replist a {
 					color: #000 !important;
                 	text-decoration: none;
@@ -585,7 +607,7 @@ form > a.pointer {
 				.replist dd a {
 					color: #F00 !important;
 				}
-                
+
 		.replist h2
 		{
                         margin-top: .5em;
@@ -1142,7 +1164,7 @@ form > a.pointer {
 		{
 			color: inherit;
 		}
-		
+
 		p.uppercase {
 			text-transform: uppercase;
 		}
