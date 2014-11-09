@@ -9,27 +9,25 @@ angular.module('CitizenApp').controller('MapController', function ($scope) {
           'margin-left': 'auto',
           'margin-right': 'auto'
       });
-      default_viewbox = paper.attr('viewBox');
+      default_viewbox = paper.getBBox();
 
-  $scope.focus('TN');
+  $scope.focus('NV');
   });
 
   var state, state_color;
   $scope.focus = function (id) {
     if(id) {
       if(state) {
-          state.attr({
-              fill: state_color
-          });
+          state.animate({fill: state_color},1000,mina.easein);
       }
       state = paper.select('#'+id);
+      var start = paper.attr('viewBox').vb,
+          end = state.getBBox().vb,
+          anim = '<animate id="smoothpan" attributeName="viewBox" begin="0s" dur="1s" values="'
+                 + start + ';' + end + '" fill="freeze" />';
       state_color = state.attr('fill');
-      state.attr({
-          fill: '#F05040'
-      });
-      paper.attr({
-          viewBox: state.getBBox()
-      });
+      paper.add(Snap.parse(anim));
+      state.animate({fill: '#F05040'},1000,mina.easein);
     } else {
       if(state) {
           state.attr({
