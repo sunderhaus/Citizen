@@ -26,7 +26,7 @@ angular.module('CitizenApp')
 		splitUserAddress,
 		formStreetNumber,
 		formRoute;
-		if($scope.userLocation.address && !$scope.userLocation.address.isBlank()) {
+		if($scope.userLocation.address && !$scope.userLocation.address != '') {
 			splitUserAddress = $scope.userLocation.address.split(/([0-9]+\-?[0-9]+)/);
 			formStreetNumber = splitUserAddress[1];
 			if(splitUserAddress[2] != null) {
