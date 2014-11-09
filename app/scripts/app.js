@@ -41,4 +41,5 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
     .otherwise({
     	redirectTo: '/'
     });
+    
   }]);

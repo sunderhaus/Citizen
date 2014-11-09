@@ -7,10 +7,15 @@ angular.module('CitizenApp')
     var userLocation = {};
     var deferred = $q.defer();
 
-    if($window.navigator) {
+    if($window.navigator.geolocation) {
       $window.navigator.geolocation.getCurrentPosition(function (position) {
         //To Google!
-        $http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+ position.coords.latitude + ',' + position.coords.longitude +'&key=' + GoogleAPI.GOOGLE_API_KEY)
+        $http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+                   position.coords.latitude +
+                   ',' +
+                   position.coords.longitude +
+                   '&key='
+                   + GoogleAPI.GOOGLE_API_KEY)
         .success(function(data) {
           //Check out results array for data
           if (data.results.length > 0) {
@@ -21,13 +26,13 @@ angular.module('CitizenApp')
             //No results!! Freak out!!
           }
           deferred.resolve(userLocation);
-        },
-        function (error) {
+        })
+        .error(function(error) {
           deferred.reject(error);
         });
-      });
-    } else {
-      deferred.reject(new Error("Geolocation is not supported"));
+      },function() {
+        deferred.reject(new Error("Geolocation is not supported"));
+      },{timeout: 10000});
     }
     return deferred.promise
   };
