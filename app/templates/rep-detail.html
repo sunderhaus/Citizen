@@ -34,11 +34,9 @@
 
   <!-- Spotlight -->
   <!-- Excerpt -->
-  <section ng-if="error!=''" class="box spotlight " >
-    <article class="rep-info">
-      <h2 >{{error}}</h2>
-    </article>
-  </section>
+  <section ng-if="error!=''" class="box spotlight replist" >
+	  <h2 >{{error}}</h2>
+	</section>
   <section ng-if="error==''" class="box spotlight">
     <article class="rep-info">
       <h2 class="name">{{officialDetail.name}}</h2>

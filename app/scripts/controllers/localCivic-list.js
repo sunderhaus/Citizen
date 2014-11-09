@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-	.controller('LocalCivicCtrl', function ($scope, $rootScope, CookieJar, LocalCivicData) {
+	.controller('LocalCivicCtrl', function ($scope, $rootScope, $location, CookieJar, LocalCivicData) {
 
 		$scope.error = 'Loading Data ...';
 		$scope.contactList = [];
@@ -20,6 +20,10 @@ angular.module('CitizenApp')
 				$scope.state = userLocation.state;
 			if(userLocation.postal_code)
 				$scope.zip = userLocation.zip;
+		}
+		else {
+			$scope.error = 'Cannot get your current location.';
+			$location.path( '/');
 		}
 		
 		//we will see if we already have the data, and if so, use it
@@ -72,11 +76,15 @@ angular.module('CitizenApp')
 				
 				if($scope.contactList.length>0)
 					$scope.error = '';
-				else
+				else {
 					$scope.error = 'Cannot retrieve local civic contacts for your location.';
+					$location.path( '/');
+				}
 			}//end if(error)
-			else
+			else {
 				$scope.error = 'Cannot retrieve local civic contacts for your location.';
+				$location.path( '/');
+			}
 		}	
 });
 

@@ -44,8 +44,10 @@ angular.module('CitizenApp')
 					});
 			}//end getNewData
 		}//end if(location
-		else
+		else {
 			$scope.error = 'Cannot get your current location.';
+			$location.path( '/');
+		}
 		
 		//function to format the information from google for our page
 		function processData(data) {
@@ -88,12 +90,12 @@ angular.module('CitizenApp')
 					}//end switch()
 				});
 			}
-			else if(data.error)
+			else if(data.error) 
 				$scope.error = data.error;
 			else
 				$scope.error = 'Cannot retrieve civic information list.';
 			
-			
+		
 		}
 
 
