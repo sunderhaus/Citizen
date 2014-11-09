@@ -30,13 +30,14 @@ angular.module('CitizenApp')
 				$scope.browserLookupFailed = false;
 				$scope.startDone = true;
 				$scope.lfcClass = "location-form-container-expanded";
-			}), function (reason) {
+			}, function (reason) {
+				console.log("HEY");
 				$scope.userLocation = null;
 				$scope.spin = false;
 				$scope.browserLookupFailed = true;
 				$scope.startDone = true;
 				$scope.lfcClass = "location-form-container-expanded";
-			};
+			});
 		} else {
 			$scope.setUserLocationFromCookie();
 			$scope.spin = false;
