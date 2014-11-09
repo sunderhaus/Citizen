@@ -12,6 +12,9 @@ angular.module('CitizenApp', ['ngRoute', 'infiniteScroll'])
     .when('/reps', {
       templateUrl: '/templates/reps.html'
     })
+    .when('/rep-detail', {
+      templateUrl: '/templates/rep-detail.html'
+    })
     .when('/links', {
       templateUrl: '/templates/links.html'
     })
