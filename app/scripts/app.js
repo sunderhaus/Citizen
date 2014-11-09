@@ -1,6 +1,6 @@
 angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
 .config([
-  '$routeProvider', function($routeProvider, $rootScope) {
+  '$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
       templateUrl: '/templates/home.html',
@@ -41,5 +41,4 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
     .otherwise({
     	redirectTo: '/'
     });
-    
   }]);
