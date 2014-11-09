@@ -27,38 +27,35 @@
 
       </div>
     </header>
+  </div>
+</div>
 
 
-      <div class="style2">
-        <div class="inner">
-          <div class="container">
-            <!-- Spotlight -->
-            <section ng-if="error!=''" class="box spotlight replist" >
-            	<h2 >{{error}}</h2>
-            </section>
-            <section ng-if="error==''" class="box spotlight replist" >
-              <h2>City/Local</h2>
-              
-              <dl data-ng-repeat="nfo in localOfficials | orderBy:['sort','office']">
-                <dt><a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
-                <dd><a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
-              </dl>
+<div class="style2">
+  <div class="inner">
+    <div class="container">
+      <!-- Spotlight -->
+      <section ng-if="error!=''" class="box spotlight replist" >
+        <h2 >{{error}}</h2>
+      </section>
+      <section ng-if="error==''" class="box spotlight replist" >
+        <h2>City/Local</h2>
+        <dl data-ng-repeat="nfo in localOfficials | orderBy:['sort','office']">
+          <dt><a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
+          <dd><a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
+        </dl>
+        <h2>State</h2>
+        <dl data-ng-repeat="nfo in stateOfficials | orderBy:['sort','office']">
+          <dt><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
+          <dd><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
+        </dl>
 
-              <h2>State</h2>
-              <dl data-ng-repeat="nfo in stateOfficials | orderBy:['sort','office']"">
-                <dt><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
-                <dd><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
-              </dl>
-
-              <h2>National</h2>
-              <dl data-ng-repeat="nfo in nationalOfficials | orderBy:['sort','office']"">
-                <dt><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
-                <dd><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
-              </dl>
-            </section>
-
-        </div>
-      </div>
+        <h2>National</h2>
+        <dl data-ng-repeat="nfo in nationalOfficials | orderBy:['sort','office']"">
+          <dt><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
+          <dd><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
+        </dl>
+      </section>
     </div>
   </div>
 </div>
