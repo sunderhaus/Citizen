@@ -31,6 +31,13 @@
       </header>
 
       <div class="centered">
+        <div ng-app="CitizenApp" ng-controller="FeedController" infinite-scroll="addItems()" threshold="0" can-load="true">
+          <ul>
+              <li ng-repeat="item in items">{{item.name}}</li>
+          </ul>
+        </div>
+
+        
         <!-- Article list -->
         <section class="box article-list">
 
