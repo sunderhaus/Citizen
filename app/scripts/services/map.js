@@ -16,18 +16,18 @@ angular.module('CitizenApp')
       default_viewbox = paper.getBBox();
   });
 
-  var state, state_color;
+  var state, state_color = {};
   map.focus = function (id) {
     if(id) {
       if(state) {
-          state.animate({fill: state_color},1000,mina.easein);
+          state.animate({fill: state_color["state"]},1000,mina.easein);
       }
       state = paper.select('#'+id);
       var start = paper.attr('viewBox').vb,
           end = state.getBBox().vb,
-          anim = '<animate id="smoothpan" attributeName="viewBox" begin="0s" dur="1s" values="'
+          anim = '<animate id="smoothpan" attributeName="viewBox" begin="1s" dur="1s" values="'
                  + start + ';' + end + '" fill="freeze" />';
-      state_color = state.attr('fill');
+      state_color["state"] = state.attr('fill');
       paper.add(Snap.parse(anim));
       state.animate({fill: '#F9B099'},1000,mina.easein);
     } else {
