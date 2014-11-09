@@ -29,7 +29,7 @@ angular.module('CitizenApp')
 			.then(function(data) {
 				//let's split this data up into four buckets
 				//city, state, national
-				if(data) {
+				if(!data.error) {
 					$scope.error = '';
 					// console.log("data");
 					// console.log(data);

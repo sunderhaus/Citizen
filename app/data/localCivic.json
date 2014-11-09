@@ -1,5 +1,5 @@
 [
-	{"city":"Nashville","state":"Tennessee","zip":"",
+	{"city":"Nashville","state":"TN","zip":"",
 		"contacts":[
 			{
 				"title":"Non-Emergency #",
@@ -55,14 +55,14 @@
 			}
 			]
 	},
-	{"city":"Memphis","state":"Tennessee","zip":"",
+	{"city":"Memphis","state":"TN","zip":"",
 		"contacts":[
 			{
 				"title":"Memphis Clerk's Office",
 				"address":"555 W Main St",
 				"address2":"",
 				"city":"Memphis",
-				"state":"Tennessee",
+				"state":"TN",
 				"zip":"37523",
 				"phone":"615-134-1434",
 				"fax":"",
@@ -75,7 +75,7 @@
 				"address":"",
 				"address2":"",
 				"city":"Memphis",
-				"state":"Tennessee",
+				"state":"TN",
 				"zip":"",
 				"phone":"615-352-0000",
 				"fax":"",
