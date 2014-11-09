@@ -3,10 +3,6 @@ angular.module('CitizenApp')
 
   var geolocationFactory = {};
 
-  geolocationFactory.createUserLocation = function(element, index, array) {
-    return userLocation[this.type] = this.long_name;
-  }
-
   geolocationFactory.getBrowserGeolocation = function () {
     var userLocation = {};
     var deferred = $q.defer();
