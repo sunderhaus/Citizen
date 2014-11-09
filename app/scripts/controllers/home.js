@@ -22,10 +22,15 @@ $scope.submitClick = function() {
 	}//end clearAll
 
 	$scope.setCookieFromForm = function() {
-		var userLocation = {};
-		var splitUserAddress = $scope.userAddress.split(/([0-9]+\-?[0-9]+)/);
-		var formStreetNumber = splitUserAddress[1];
-		var formRoute = splitUserAddress[2].trim();
+		var userLocation = {},
+		    splitUserAddress,
+				formStreetNumber,
+				formRoute;
+		splitUserAddress = $scope.userAddress.split(/([0-9]+\-?[0-9]+)/);
+		formStreetNumber = splitUserAddress[1];
+		if(splitUserAddress[2] != null) {
+		  formRoute = splitUserAddress[2].trim();
+		}
 		userLocation.street_number = formStreetNumber;
 		userLocation.route = formRoute;
 		userLocation.locality = $scope.userCity;

@@ -45,7 +45,7 @@ angular.module('CitizenApp')
 											'photoURL':ofData.photoUrl,
 											'socialMedia':ofData.channels
 										};//end pData
-										
+
 										//add the detail
 										if(oInfo.levels)
 											pData.level = oInfo.levels[0];
@@ -74,6 +74,8 @@ angular.module('CitizenApp')
 
 						});//end foreachOffice
 
+					} else {
+						console.log("Nothing to see here... Move along.");
 					}//end if(offices)
 
 					deferred.resolve(officials);

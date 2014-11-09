@@ -1,14 +1,15 @@
 angular.module('CitizenApp')
 	.controller('OfficialsListCtrl', function ($scope, $http, $location, $cookieStore, GoogleCivicRepresentatives) {
-		
+
 		$scope.error = 'Loading Data...';
 		$scope.localOfficials = [];
 		$scope.stateOfficials = [];
 		$scope.nationalOfficials = [];
-		
+
 		//get address information from cookie
 		var userLocation = $cookieStore.get('storedUserLocation');
-		
+		console.log(userLocation);
+
 		if(userLocation.userAddress)
 			$scope.address = userLocation.street_number + " " + userLocation.route;
 		if(userLocation.locality)
@@ -17,13 +18,13 @@ angular.module('CitizenApp')
 			$scope.state = userLocation.administrative_area_level_1;
 		if(userLocation.postal_code)
 			$scope.zip = userLocation.postal_code;
-		
+
 		/*
 		$scope.address = '';
 		$scope.city = 'Nashville';
 		$scope.state = 'TN';
 		*/
-		
+
 		GoogleCivicRepresentatives.getReps($scope.address,$scope.city,$scope.state,$scope.zip)
 			.then(function(data) {
 				//let's split this data up into four buckets
@@ -59,11 +60,11 @@ angular.module('CitizenApp')
 						}//end switch()
 					});
 				}
-				else if(data.error) 
+				else if(data.error)
 					$scope.error = data.error;
 				else
 					$scope.error = 'Cannot retrieve civic information list.';
 			});
-		
-	
+
+
 	});//end OfficialsListCtrl
