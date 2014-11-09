@@ -14,7 +14,14 @@
 
 	body
 	{
-		background: #303238 url('images/bg01.png');
+                background-image: url(../images/Blank_USA_w_territories.svg);
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: 100%;
 	}
 
 		body.is-loading *
@@ -221,6 +228,18 @@
 	
 	/* Forms */
 
+                #location-form-container
+                {
+                        /* background-color: #F05040; */
+                        margin: 0;
+                        padding: 1em;
+                }
+
+                #location-form
+                {
+                        visibility: hidden;
+                }
+
 		form
 		{
 		}
@@ -230,12 +249,11 @@
 				display: block;
 				text-transform: uppercase;
 				font-weight: 700;
-				letter-spacing: 0.04em;
-				color: #404248;
-				margin: 0 0 1em 0;
+				color: #FFF;
+				margin: 0 0 0.4em 0;
 				font-size: 0.8em;
 			}
-		
+
 			form input[type="text"],
 			form input[type="email"],
 			form input[type="password"],
@@ -243,10 +261,16 @@
 			form textarea
 			{
 				-webkit-appearance: none;
+                                background-color: #C82818;
+                                font-family: 'Montserrat', sans-serif;
+                                color: #FFF;
 				display: block;
-				width: 100%;
-				border-radius: 8px;
-				border: solid 1px #eee;
+                                margin-top: 0.2em;
+                                margin-bottom: 0;
+                                margin-left: auto;
+                                margin-right: auto;
+				width: 60%;
+				border: solid 0 #eee;
 			}
 
 				form input[type="text"]:focus,
@@ -255,7 +279,6 @@
 				form select:focus,
 				form textarea:focus
 				{
-					box-shadow: 0 0 2px 1px #4091bf;
 				}
 
 			form input[type="text"],
@@ -263,14 +286,14 @@
 			form input[type="password"],
 			form select
 			{
-				line-height: 3em;
-				padding: 0 1em;
+				line-height: 2em;
+				padding: 0 .2em;
 			}
-				
+
 			form textarea
 			{
-				min-height: 9em;
-				padding: 1em;
+				min-height: 2em;
+				padding: 0.2em;
 			}
 
 			form .formerize-placeholder
@@ -424,13 +447,7 @@
 			display: inline-block;
 			background-color: #F05040;
 			background-color: rgba(240,80,64,1);
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2)), url('images/bg02.png');
 			border-radius: 8px;
-			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.35), inset 0px 2px 1px 0px rgba(255,255,255,0.35);
 			color: #fff !important;
 			text-decoration: none;
 			text-transform: capitalize;
@@ -489,11 +506,6 @@
 				font-size: 1.25em;
 				padding: 1em 2.25em;
 			}
-			.button.big small
-			{
-				font-size: 8pt;
-                                color: #64B4C8;
-			}
 
 			.button.big:hover small
 			{
@@ -542,6 +554,57 @@
 				}
 
 	/* List */
+                .replist {
+                      width: 40em;
+                      margin-left: auto;
+                      margin-right: auto;
+                }
+		.replist h2
+		{
+                        margin-top: 1em;
+                        margin-bottom: .6em;
+                        text-transform: capitalize;
+                        text-align: left;
+		}
+
+		.replist dl
+		{
+                        width:100%;
+                        overflow:hidden;
+			font-weight: 400;
+			font-size: 1em;
+                        margin-left: auto;
+                        margin-right: auto;
+		}
+
+			.replist dt
+			{
+				display: block;
+				float: left;
+                                text-align: left;
+				color: #000;
+                                width:50%;
+                                background:#FFF;
+                                padding: .8em 0 .8em 1em;
+                                margin-bottom: 0.4em;
+			}
+
+			.replist dd
+			{
+                                float:left;
+                                text-align: right;
+				color: #F05040;
+                                width:50%; /* adjust the width; make sure the total of both is 100% */
+                                background:#FFF;
+                                padding: .8em 1em .8em 0;
+                                margin-bottom: 0.4em;
+			}
+
+                        dl.replist dd:after {
+                                content: '';
+                                display: block;
+                                clear: both;
+                        }
 
 		dl.contact
 		{
@@ -653,11 +716,10 @@
 		.box
 		{
 		}
-		
+
 			.box.excerpt
 			{
 				position: relative;
-				overflow: hidden;
 			}
 
 				.box.excerpt header
@@ -733,8 +795,8 @@
 				.box.article-list article
 				{
 					border-bottom: solid 1px #dbdbdb;
-					margin: 0 0 2.75em 0;
-					padding: 0 0 2.75em 0;
+					margin: 2em;
+					padding: 1em;
 				}
 
 				.box.article-list article:last-child
@@ -835,21 +897,18 @@
 			font-size: 9pt;
 		}
 
+                .pledge {
+                    background-color: none;
+                }
+
 /*********************************************************************************/
 /* Wrappers                                                                      */
 /*********************************************************************************/
 
-	#header-background
-	{
-            background-image: url(../images/Blank_USA_w_territories.svg);
-            background-position: center center;
-            background-size: auto, cover;
-            background-repeat: no-repeat;
-	}
 	#header-wrapper
 	{
             background: #E6E6E6;
-            background: rgba(230,230,230,.85);
+            background: rgba(230,230,230,.5);
             background-image: -moz-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
             background-image: -webkit-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
             background-image: -o-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
@@ -905,7 +964,6 @@
 		.wrapper.style2
 		{
 			position: relative;
-			text-shadow: 1px 1px 0 #fff;
 			background-color: #E7E8E9;
                         padding: 2em;
 		}
@@ -913,7 +971,6 @@
 		.wrapper.style3
 		{
 			position: relative;
-			text-shadow: 1px 1px 0 #fff;
 			background-color: #E7E8E9;
 		}
 
@@ -949,11 +1006,8 @@
 
         article {
               background-color: #FFF;
-              -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-              -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-              box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
               padding: 2em 1em;
-              margin-bottom: 2em;
+              margin: 1.5em 0 2em;
         }
 
         article h3 {
@@ -972,7 +1026,6 @@
 	#footer
 	{
 		margin-bottom: 0;
-		text-shadow: -1px -1px 0 rgba(0,0,0,0.5);
 		position: relative;
 		z-index: 2;
 	}
@@ -995,7 +1048,6 @@
 
 		#footer .button.alt
 		{
-			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.75), inset 0px 2px 1px 0px rgba(255,255,255,0.25);
 		}
 
 		#footer ul.divided li,

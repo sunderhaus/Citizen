@@ -1,57 +1,63 @@
 <!-- Header -->
-<div id="header-background">
-  <div id="header-wrapper">
-    <a href="/#/home">
-      <img id="citizen-star" src="images/star.svg" alt="Citizen Star">
-    </a>
-    <div class="container">
+<div id="header-wrapper">
+  <a href="/#/home">
+    <img id="citizen-star" src="images/star.svg" alt="Citizen Star">
+  </a>
+  <div class="container">
 
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
 
-          <!-- Logo -->
-          <h1><a href="index.html" id="logo">Citizen</a></h1>
+        <!-- Logo -->
+        <h1><a href="/#/home" id="logo">Citizen</a></h1>
 
-          <!-- Nav -->
-          <nav id="nav">
-            <ul>
-              <li class="location-container"><a class="location" href="#">Current Location</a></li>
-              <li><a href="/#/feed">Feed</a></li>
-              <li><a href="/#/reps">Reps</a></li>
-              <li><a href="/#/links">Links</a></li>
-              <li><a href="/#/about">About</a></li>
-            </ul>
-          </nav>
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li class="location-container">
+              <a class="location" href="#">
+                <img src="images/pin.svg" alt="GPS pin">
+                Find me</a></li>
+            <li><a href="/#/feed">Feed</a></li>
+            <li><a href="/#/reps">Reps</a></li>
+            <li><a href="/#/links">Links</a></li>
+            <li><a href="/#/about">About</a></li>
+          </ul>
+        </nav>
 
-        </div>
-      </header>
+      </div>
+    </header>
 
-      <!-- Banner -->
-      <div id="banner">
-        <div class="left">
-          <h2>Become an<br/>
-            engaged<br/>
-            citizen</h2>
-            <p>without even trying.</p>
-        </div>
-        <div class="right">
-          <div class="fill"></div>
-          <div>
-            <a href="#" class="button big">
-              <span><b>Start</b>!</span>
-              <br/>
-              <small>Use My Current Location</small>
-            </a>
-            <br/>
-            <small>
-              We don't record any data! You are completely anonymous.
-            </small>
+    <!-- Banner -->
+    <div id="banner">
+      <div class="left">
+        <h2>Become an<br/>
+          engaged<br/>
+          citizen</h2>
+          <p>without even trying.</p>
+      </div>
+      <div class="right">
+        <div class="pledge">
+          <div id="location-form-container">
+            <form id="location-form" method="post">
+              <input type="text" name="address" placeholder="Address"></input><br/>
+              <input type="text" name="city" placeholder="City"></input><br/>
+              <input type="text" name="state" placeholder="State"></input><br/>
+              <input type="text" name="zip" placeholder="Zip"></input><br/>
+              <input type="submit" value="Submit" class="button big"></input><br/>
+            </form>
+          <a href="#" class="button big">
+            <span><b>Start</b>!</span>
+          </a>
           </div>
+          <small>
+            We don't record any data! You are completely anonymous.
+          </small>
         </div>
       </div>
-
     </div>
+
   </div>
 </div>
 
@@ -73,7 +79,7 @@
         <div class="row">
           <div class="4u">
             <section>
-              <a href="#" class="image featured constant">
+              <a href="/#/feed" class="image featured constant">
                 <img src="images/messages.svg" alt="Messages">
               </a>
               <h3>Messages for you from your local Reps.</h3>
@@ -81,7 +87,7 @@
           </div>
           <div class="4u">
             <section>
-              <a href="#" class="image featured constant">
+              <a href="/#/reps" class="image featured constant">
                 <img src="images/reps.svg" alt="Representatives" />
               </a>
               <h3>All the officials who are representing you.</h3>
@@ -89,7 +95,7 @@
           </div>
           <div class="4u">
             <section>
-              <a href="#" class="image featured constant">
+              <a href="/#/links" class="image featured constant">
                 <img src="images/resources.svg" alt="Resources" />
               </a>
               <h3>Links to your local resources.</h3>
