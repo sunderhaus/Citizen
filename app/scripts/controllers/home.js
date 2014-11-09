@@ -1,15 +1,16 @@
 angular.module('CitizenApp')
 .controller('HomeCtrl', function ($cookieStore, Geolocator) {
 	var userLocation = $cookieStore.get('storedUserLocation');
+	// console.log("Retrieving the user locationdata.");
+	// console.log(userLocation);
 	if (!userLocation) {
 		Geolocator.getBrowserGeolocation()
 		.then(function(data) {
-			console.log(data);
 			userLocation = data;
 			$cookieStore.put('storedUserLocation', data);
-			console.log($cookieStore.get('storedUserLocation'));
+			// console.log("Storing the user locationdata.");
+			// console.log(data);
 		}), function (reason) {
-			console.log(reason);
 			userLocation = null;
 		};
 	}
