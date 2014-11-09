@@ -24,8 +24,10 @@ angular.module("CitizenApp")
           }//end if()
           
           //if an element is found, scroll to the element
-          if(el) 
-            el.scrollIntoView(false);
+          if(el) {
+        	  $window.scrollTo(0,0);
+            //el.scrollIntoView(false);
+          }
           //otherwise, ignore
         }
 

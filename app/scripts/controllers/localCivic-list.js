@@ -78,7 +78,6 @@ angular.module('CitizenApp')
 					$scope.error = '';
 				else {
 					$scope.error = 'Cannot retrieve local civic contacts for your location.';
-					$location.path( '/');
 				}
 			}//end if(error)
 			else {
