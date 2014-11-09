@@ -101,9 +101,19 @@
 		font-weight: 700;
 	}
 
-	strong.attitude
+        #banner .attitude
+        {
+                color: #2A4078;
+                text-transform: none;
+                font-size: 1.2em;
+                margin-top: 1em;
+        }
+
+	#banner .attitude strong
 	{
                 font-family: 'Permanent Marker', cursive;
+                color: #F05040;
+                font-size: 1.2em;
 	}
 
 	i, em
@@ -853,7 +863,7 @@
 			font-size: 5em;
                         letter-spacing: .005em;
 			font-weight: 700;
-			line-height: 1.1em;
+			line-height: 0.9em;
 			margin: 0 0 0 0;
 		}
 
@@ -924,7 +934,7 @@
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
-            background-size: 75%;
+            background-size: 70%;
         }
 
 	#header-wrapper
