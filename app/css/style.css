@@ -394,7 +394,7 @@
                 #citizen-star
                 {
                         display: block;
-                        margin: 0 auto 1em;
+                        margin: 0 auto 0;
                         width: 2.5em;
                 }
 
@@ -863,8 +863,8 @@
 			font-size: 5em;
                         letter-spacing: .005em;
 			font-weight: 700;
-			line-height: 0.9em;
-			margin: 0 0 0 0;
+			line-height: 1em;
+			margin: 0 0 0.1em 0;
 		}
 
 			#banner h2 strong
