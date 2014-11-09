@@ -38,6 +38,6 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
         controller: 'LocalCivicCtrl'
      })
     .otherwise({
-    	templateUrl: '/templates/error.html'
+    	redirectTo: '/'
     });
   }]);
