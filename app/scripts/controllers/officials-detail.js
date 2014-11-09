@@ -25,6 +25,10 @@ angular.module('CitizenApp')
 			if(userLocation.postal_code)
 				zip = userLocation.zip;
 		}//end if()
+		else {
+			$scope.error = 'Cannot get your current location.';
+			$location.path( '/');
+		}
 		
 		if( ($scope.repName && $scope.repName!="") || $rootScope.lastOfficialDetailPage!="") {
 			if(!$scope.repName || $scope.repName=="")
