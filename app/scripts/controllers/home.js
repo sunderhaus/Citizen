@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($scope, $cookieStore, $location, $route, Geolocator) {
+.controller('HomeCtrl', function ($rootScope, $scope, $cookieStore, $location, $route, Geolocator) {
 
 	$scope.startDone = false;
 
@@ -43,8 +43,9 @@ $scope.submitClick = function() {
 		var userLocation = $cookieStore.get('storedUserLocation');
 		$scope.userAddress = "" + userLocation.street_number + " " + userLocation.route;
 		$scope.userCity = userLocation.locality;
-		$scope.userState = userLocation.administrative_area_level_1;
+		$scope.userState = userLocation.administrative_area_level_1.short_name;
 		$scope.userZip = userLocation.postal_code;
+		$rootScope.userAddressLabel = $scope.userCity + ", " + $scope.userState;
 	};//end setUserLocationFromCookie
 
 	$scope.askForLocationAndAct = function() {

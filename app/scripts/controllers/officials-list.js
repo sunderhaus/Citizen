@@ -14,8 +14,8 @@ angular.module('CitizenApp')
 			$scope.address = userLocation.street_number + " " + userLocation.route;
 		if(userLocation.locality)
 			$scope.city = userLocation.locality;
-		if(userLocation.administrative_area_level_1)
-			$scope.state = userLocation.administrative_area_level_1;
+		if(userLocation.administrative_area_level_1.long_name)
+			$scope.state = userLocation.administrative_area_level_1.long_name;
 		if(userLocation.postal_code)
 			$scope.zip = userLocation.postal_code;
 

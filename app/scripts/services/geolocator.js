@@ -20,7 +20,13 @@ angular.module('CitizenApp')
           //Check out results array for data
           if (data.results.length > 0) {
             angular.forEach(data.results[0].address_components, function(component, key) {
-              userLocation[component.types[0]] = component.long_name;
+              switch(component.types[0]){
+                case "administrative_area_level_1":
+                  userLocation[component.types[0]] = {"short_name":component.short_name, "long_name":component.long_name};
+                  break;
+                default:
+                  userLocation[component.types[0]] = component.long_name;
+                };
             });
           } else {
             //No results!! Freak out!!
