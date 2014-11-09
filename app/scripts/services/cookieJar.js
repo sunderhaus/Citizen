@@ -33,6 +33,13 @@ angular.module('CitizenApp')
   cookieJar.removeUserLocation = function() {
     $cookieStore.remove('storedUserLocation');
   }
+  
+  cookieJar.setCurrentCivicData = function(data) {
+	  $cookieStore.put('currentCivicData', data);
+  }
+  cookieJar.getCurrentCivicData = function () {
+	  return $cookieStore.get('currentCivicData');
+  }
 
   return cookieJar;
 });

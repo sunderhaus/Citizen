@@ -43,7 +43,7 @@
               <h2 class="name">{{officialDetail.name}}</h2>
               <h4 ng-if="officialDetail.party!='' && officialDetail.party!='Unknown'">{{officialDetail.party}}</h4>
               <h3 class="role">{{officialDetail.office}}</h3>
-              <p ng-if="officialDetail.address!=''" class="address uppercase" >
+              <p ng-if="officialDetail.address.replace(' ','')!=''" class="address uppercase" >
                 {{officialDetail.address}}<span ng-if="officialDetail.address2!=''"><br/>
                 {{officialDetail.address2}}</span><br/>
                 {{officialDetail.city}}, {{officialDetail.state}} {{officialDetail.zip}}
