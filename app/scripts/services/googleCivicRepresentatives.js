@@ -1,15 +1,19 @@
 angular.module('CitizenApp')
-	.factory('GoogleCivicRepresentatives', function ($http, $q, GoogleAPI) {
+	.factory('GoogleCivicRepresentatives', function ($http, $q, $rootScope, CookieJar, GoogleAPI) {
 
 		var civicAPI = {};
 
 		civicAPI.getReps = function(address, city, state, zip) {
 
 			var deferred = $q.defer();
+			
+			$rootScope.currentCivicData = null;
+			$rootScope.lastOfficialDetailPage = null;
+			$rootScope.currentCivicDataBaseAddress = (address + city + state + zip).trim().toLowerCase().replace(/[\W_]+/g,"");
 
 			if((city && state && city!='' && state!='') || (zip && zip!='') ) {
 				var addr = '';
-
+				
 				if(address && address!='')
 					addr = address + ',';
 				if(city && state && city!='' && state!='')
@@ -51,7 +55,10 @@ angular.module('CitizenApp')
 											pData.level = oInfo.levels[0];
 										//pop the first one
 										if(ofData.address) {
-											pData.address = ofData.address[0].line1;
+											if(ofData.address[0].line1)
+												pData.address = ofData.address[0].line1;
+											else
+												pData.address = '';
 											if(ofData.address[0].line2)
 												pData.address2 = ofData.address[0].line2;
 											else
@@ -63,6 +70,15 @@ angular.module('CitizenApp')
 											pData.city = ofData.address[0].city;
 											pData.state = ofData.address[0].state;
 											pData.zip = ofData.address[0].zip;
+										}//endif()
+										else {
+											//default the address info
+											pData.address = '';
+											pData.address2 = '';
+											pData.address3 = '';
+											pData.city = '';
+											pData.state = '';
+											pData.zip = '';
 										}
 										//finally push this result on our array()
 										officials.push(pData);
@@ -75,13 +91,16 @@ angular.module('CitizenApp')
 						});//end foreachOffice
 
 					} else {
+						$rootScope.currentCivicDataBaseAddress = null;
 						console.log("Nothing to see here... Move along.");
 					}//end if(offices)
 
+					$rootScope.currentCivicData = officials;
 					deferred.resolve(officials);
 
 				})
 				.error(function(data) {
+					$rootScope.currentCivicDataBaseAddress = null;
 					deferred.resolve( {'error':'Cannot find information for your area'} );
 				});
 
@@ -92,6 +111,7 @@ angular.module('CitizenApp')
 
 			return deferred.promise;
 		}//end getReps
+		
 
 		return civicAPI;
 

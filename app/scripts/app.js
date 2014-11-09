@@ -38,6 +38,10 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
         templateUrl: '/templates/localCivicList.html',
         controller: 'LocalCivicCtrl'
      })
+     .when('/getTwitterFeed', {
+        templateUrl: '/templates/twitterFeed.html',
+        controller: 'getTwitterFeed'
+     })
     .otherwise({
     	redirectTo: '/'
     });

@@ -1,47 +1,79 @@
 angular.module('CitizenApp')
-	.controller('OfficialsDetailCtrl', function ($scope, $http, $location, $routeParams, CookieJar, GoogleCivicRepresentatives) {
+	.controller('OfficialsDetailCtrl', function ($scope, $http, $location, $routeParams, $rootScope, CookieJar, GoogleCivicRepresentatives) {
 
 		$scope.error = 'Loading Data...';
 		$scope.officials = [];
 
-		//get address information from cookie
-		var userLocation = CookieJar.getUserLocation();
-
-		if(userLocation.address)
-			$scope.address = userLocation.address
-		if(userLocation.city)
-			$scope.city = userLocation.city;
-		if(userLocation.state)
-			$scope.state = userLocation.state;
-		if(userLocation.postal_code)
-			$scope.zip = userLocation.zip;
-
+		var address;
+		var city;
+		var state;
+		var zip;
+		
+		//get the rep name from the url
 		if($routeParams.repName)
 			$scope.repName = $routeParams.repName.toLowerCase().replace(/[\W_]+/g,"").trim();
-
-		if($scope.repName && $scope.repName!="") {
-			GoogleCivicRepresentatives.getReps($scope.address,$scope.city,$scope.state,$scope.zip)
-				.then(function(data) {
-					var repName = $scope.repName;
-					var filterSet = [];
-					var done = false;
-					angular.forEach( data, function (info, key) {
-						if(!done && !repName || repName=='' || (repName!="" && repName===(info.name.trim().toLowerCase().replace(/[\W_]+/g,"")+info.office.trim().toLowerCase().replace(/[\W_]+/g,"")) )) {
-							filterSet = info;
-							done = true;
-						}
+		
+		//get address information from cookie
+		var userLocation = CookieJar.getUserLocation();
+		if(userLocation) {
+			if(userLocation.address)
+				address = userLocation.address
+			if(userLocation.city)
+				city = userLocation.city;
+			if(userLocation.state)
+				state = userLocation.state;
+			if(userLocation.postal_code)
+				zip = userLocation.zip;
+		}//end if()
+		
+		if( ($scope.repName && $scope.repName!="") || $rootScope.lastOfficialDetailPage!="") {
+			if(!$scope.repName || $scope.repName=="")
+				$scope.repName = $rootScope.lastOfficialDetailPage;
+			
+			//we will see if we already have the data, and if so, use it
+			var getNewData = false;
+			if($rootScope.currentCivicData) {
+				processData($rootScope.currentCivicData);
+			}
+			else
+				getNewData = true;
+			
+			//if we need to get data, get it
+			if(getNewData) {
+					GoogleCivicRepresentatives.getReps(address,city,state,zip)
+					.then(function(data) {
+						processData(data);
 					});
-
-					if(filterSet.name) {
-						$scope.error = '';
-						$scope.officialDetail = filterSet;
-					}
-					else
-						$scope.error = 'Cannot retrieve contact information';
-				});
+			}//end getNewData
+			
+			
 		}//endif()
 		else
 			$scope.error = 'Cannot retrieve contact information';
 
+		
+		function processData(data) {
+			if(data && !data.error && data.length>0) {
+				var repName = $scope.repName;
+				var filterSet = [];
+				var done = false;
+				angular.forEach( data, function (info, key) {
+					if(!done && !repName || repName=='' || (repName!="" && repName===(info.name.trim().toLowerCase().replace(/[\W_]+/g,"")+info.office.trim().toLowerCase().replace(/[\W_]+/g,"")) )) {
+						$rootScope.lastOfficialDetailPage = repName;
+						filterSet = info;
+						done = true;
+					}
+				});
+
+				if(filterSet.name) {
+					$scope.error = '';
+					$scope.officialDetail = filterSet;
+				}
+				else
+					$scope.error = 'Cannot retrieve contact information';
+			}//endif
+			else
+				$scope.error = 'Cannot retrieve contact information';
+		}
 
 	});//end OfficialsListCtrl
