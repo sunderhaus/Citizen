@@ -1,17 +1,25 @@
 angular.module('CitizenApp')
+<<<<<<< Updated upstream
 .controller('HomeCtrl', function ($cookieStore, Geolocator) {
-	var userLocation = $cookieStore.get('storedUserLocation');
+
+	$scope.started = false;
+
+	$scope.startClick = function() {
+		$scope.started = true;
+	};
+
+	$scope.userLocation = $cookieStore.get('storedUserLocation');
 	// console.log("Retrieving the user locationdata.");
 	// console.log(userLocation);
 	if (!userLocation) {
 		Geolocator.getBrowserGeolocation()
 		.then(function(data) {
-			userLocation = data;
+			$scope.userLocation = data;
 			$cookieStore.put('storedUserLocation', data);
 			// console.log("Storing the user locationdata.");
 			// console.log(data);
 		}), function (reason) {
-			userLocation = null;
+			$scope.userLocation = null;
 		};
 	}
 });//end HomeCtrl

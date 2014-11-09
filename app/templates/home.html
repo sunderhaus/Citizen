@@ -1,5 +1,5 @@
 <!-- Header -->
-<div id="header-background">
+<div ng-controller="HomeCtrl" id="header-background">
   <div id="header-wrapper">
     <a href="/#/home">
       <img id="citizen-star" src="images/star.svg" alt="Citizen Star">
@@ -41,12 +41,12 @@
           <div id="location-form-container">
             <span></span>
             <form id="location-form" method="post">
-              <input type="text" name="address" placeholder="Address"></input><br/>
-              <input type="text" name="city" placeholder="City"></input><br/>
-              <input type="text" name="state" placeholder="State"></input><br/>
-              <input type="text" name="zip" placeholder="Zip"></input><br/>
-              <input type="submit" value="Start!" class="button big"></input><br/>
-              <input type="submit" value="Submit" class="button big"></input><br/>
+              <input ng-show="started" type="text" name="address" placeholder="Address"></input><br/>
+              <input ng-show="started" type="text" name="city" placeholder="City"></input><br/>
+              <input ng-show="started" type="text" name="state" placeholder="State"></input><br/>
+              <input ng-show="started" type="text" name="zip" placeholder="Zip"></input><br/>
+              <input ng-show="!started" ng-click="startClick()" type="submit" value="Start!" class="button big"></input><br/>
+              <input ng-show="started" type="submit" value="Submit" class="button big"></input><br/>
             </form>
           </div>
           <small>

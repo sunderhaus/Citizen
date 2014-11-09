@@ -29,4 +29,5 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
     .otherwise({
     	templateUrl: '/templates/error.html'
     });
+    
   }]);
