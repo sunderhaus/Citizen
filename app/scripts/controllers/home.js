@@ -8,6 +8,14 @@ angular.module('CitizenApp')
 		$scope.askForLocationAndAct();
 	};//end startClick
 
+	$scope.clearAll = function() {
+		$scope.userAddress = null;
+		$scope.userCity = null;
+		$scope.userState = null;
+		$scope.userZip = null;
+		$cookieStore.remove('storedUserLocation');
+	}
+
 	$scope.setUserLocationFromCookie = function() {
 		var userLocation = $cookieStore.get('storedUserLocation');
 		$scope.userAddress = userLocation.street_number + " " + userLocation.route;

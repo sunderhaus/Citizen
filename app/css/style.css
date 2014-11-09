@@ -567,6 +567,9 @@
 					background-color: #363a42;
 				}
 
+form > a.pointer {
+	cursor: pointer;
+}
 	/* List */
                 .replist {
                       width: 40em;
