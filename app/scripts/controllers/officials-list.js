@@ -8,7 +8,7 @@ angular.module('CitizenApp')
 
 		//get address information from cookie
 		var userLocation = CookieJar.getUserLocation();
-		console.log(userLocation);
+		// console.log(userLocation);
 
 		if(userLocation.address)
 			$scope.address = userLocation.address
@@ -25,10 +25,6 @@ angular.module('CitizenApp')
 		$scope.state = 'TN';
 		*/
 
-		console.log($scope.address);
-		console.log($scope.city);
-		console.log($scope.state);
-		console.log($scope.zip);
 		GoogleCivicRepresentatives.getReps($scope.address,$scope.city,$scope.state,$scope.zip)
 			.then(function(data) {
 				//let's split this data up into four buckets
@@ -38,7 +34,7 @@ angular.module('CitizenApp')
 					// console.log("data");
 					// console.log(data);
 					angular.forEach(data, function(info, key) {
-						console.log(info.level);
+						// console.log(info.level);
 						switch(info.level) {
 							case "country":
 								info.sort = 99;
