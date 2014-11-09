@@ -1,5 +1,5 @@
 [
-	{"city":"Nashville","state":"TN","zip":"",
+	{"city":"Nashville","state":"Tennessee","zip":"",
 		"contacts":[
 			{
 				"title":"Non-Emergency #",
@@ -24,7 +24,7 @@
 				"phone":"",
 				"fax":"",
 				"email":"",
-				"url":"http://www.tn.gov/sos/election/registration.htm",
+				"url":"http://www.Tennessee.gov/sos/election/registration.htm",
 				"comments":"State voter registration page"
 			},
 			{
@@ -37,7 +37,7 @@
 				"phone":"",
 				"fax":"",
 				"email":"",
-				"url":"http://www.tn.gov/sos/election/address_changes.htm",
+				"url":"http://www.Tennessee.gov/sos/election/address_changes.htm",
 				"comments":"Update address with the state"
 			},
 			{
@@ -55,14 +55,14 @@
 			}
 			]
 	},
-	{"city":"Memphis","state":"TN","zip":"",
+	{"city":"Memphis","state":"Tennessee","zip":"",
 		"contacts":[
 			{
 				"title":"Memphis Clerk's Office",
 				"address":"555 W Main St",
 				"address2":"",
 				"city":"Memphis",
-				"state":"TN",
+				"state":"Tennessee",
 				"zip":"37523",
 				"phone":"615-134-1434",
 				"fax":"",
@@ -75,7 +75,7 @@
 				"address":"",
 				"address2":"",
 				"city":"Memphis",
-				"state":"TN",
+				"state":"Tennessee",
 				"zip":"",
 				"phone":"615-352-0000",
 				"fax":"",
