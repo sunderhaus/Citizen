@@ -222,11 +222,17 @@
 			#navPanel .link:first-child
 			{
 				border-top: 0;
+                                padding-top: 60px;
                                 background-color: #F05040;
                                 background-color: rgba(240,80,64,1);
-                                height: 120px;
-                                color: #FFF;
+                                background: url(../images/star_white.svg) center 20px no-repeat, url(../images/red_bkg.svg)center no-repeat;
+                                height: 110px;
 			}
+
+                        .location-form-container
+                        {
+                                margin-top: 0;
+                        }
 
 			#navPanel .link:hover:first-child
 			{
