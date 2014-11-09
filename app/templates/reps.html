@@ -41,14 +41,14 @@
       <section ng-if="error==''" class="box spotlight replist" >
         <h2>City/Local</h2>
         <dl data-ng-repeat="nfo in localOfficials | orderBy:['sort','office']">
-          <a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="header">
+          <a ng-href="#/rep-detail?repName={{nfo.linkId}}" scroll-to="header">
             <dt>{{nfo.office}}</dt>
             <dd>{{nfo.name}}</dd>
           </a>
         </dl>
         <h2>State</h2>
         <dl data-ng-repeat="nfo in stateOfficials | orderBy:['sort','office']">
-          <a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="header">
+          <a ng-href="#/rep-detail?repName={{nfo.linkId}}" scroll-to="header">
             <dt>{{nfo.office}}</dt>
             <dd>{{nfo.name}}</dd>
           </a>
@@ -56,7 +56,7 @@
 
         <h2>National</h2>
         <dl data-ng-repeat="nfo in nationalOfficials | orderBy:['sort','office']"">
-          <a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="header">
+          <a ng-href="#/rep-detail?repName={{nfo.linkId}}" scroll-to="header">
             <dt>{{nfo.office}}</dt>
             <dd>{{nfo.name}}</dd>
           </a>

@@ -10,14 +10,14 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
       //templateUrl: '/templates/feed.html',
       templateUrl: '/templates/feed.html',
       //controller: 'FeedController'
-      controller: 'OfficialsDetailCtrl'
     })
     .when('/reps', {
       templateUrl: '/templates/reps.html',
       controller: 'OfficialsListCtrl'
     })
     .when('/rep-detail', {
-      templateUrl: '/templates/rep-detail.html'
+      templateUrl: '/templates/rep-detail.html',
+      controller: 'OfficialsDetailCtrl'
     })
     .when('/links', {
       templateUrl: '/templates/links.html',
