@@ -1,9 +1,10 @@
-angular.module('CitizenApp', ['ngRoute', 'infiniteScroll'])
+angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
 .config([
-  '$routeProvider', function($routeProvider) {
+  '$routeProvider', function($routeProvider, $rootScope) {
     $routeProvider
-    .when('/home', {
-      templateUrl: '/templates/home.html'
+    .when('/', {
+      templateUrl: '/templates/home.html',
+      controller: 'HomeCtrl'
     })
     .when('/feed', {
       templateUrl: '/templates/feed.html',
@@ -20,13 +21,13 @@ angular.module('CitizenApp', ['ngRoute', 'infiniteScroll'])
     })
     .when('/about', {
       templateUrl: '/templates/about.html'
-    })  
+    })
     .when('/officialsList', {
         templateUrl: '/templates/officialsList.html',
         controller: 'OfficialsListCtrl'
      })
     .otherwise({
     	templateUrl: '/templates/error.html'
-    })
-   
+    });
+    
   }]);
