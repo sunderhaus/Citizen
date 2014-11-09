@@ -2,6 +2,7 @@ angular.module('CitizenApp')
 .controller('HomeCtrl', function ($rootScope, $scope, CookieJar, $location, $route, Geolocator) {
 
 	$scope.startDone = false;
+	$scope.formError = '';
 
 	$scope.startClick = function() {
 		$scope.spin = true;
@@ -45,7 +46,8 @@ angular.module('CitizenApp')
 
 	$scope.userLocationIsValid = function(userLocation) {
 		if(!userLocation) {
-			console.log("Invalid userLocation");
+			// console.log("Invalid userLocation");
+			$scope.formError = 'Please enter a City and State, or Zip Code.';
 			return false;
 		}
 		var city = userLocation.city,
@@ -55,6 +57,8 @@ angular.module('CitizenApp')
 		if((city && state && city!='' && state!='') || (zip && zip!='')) {
 			return true;
 		}
+		// console.log("Invalid userLocation: no City and State, or Zip.");
+		$scope.formError = 'Please enter a City and State, or Zip Code.';
 		return false;
 	};
 

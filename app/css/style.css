@@ -257,9 +257,7 @@ form
 {
 }
 
-form > select {
-	color: #DDD;
-}
+f
 
 form > select.block,
 form > input.block {
@@ -323,29 +321,37 @@ form textarea
 	padding: 0.2em;
 }
 
+form > input.suggested {
+	color: #FFF;
+}
+
+/*form > input.optional {
+	color: #DDD;
+}*/
+
 form .formerize-placeholder
 {
-	color: #DDD;
+	color: #FFF;
 }
 
 form ::-webkit-input-placeholder
 {
-	color: #DDD;
+	color: #FFF;
 }
 
 form :-moz-placeholder
 {
-	color: #DDD;
+	color: #FFF;
 }
 
 form ::-moz-placeholder
 {
-	color: #DDD;
+	color: #FFF;
 }
 
 form :-ms-input-placeholder
 {
-	color: #DDD;
+	color: #FFF;
 }
 
 form ::-moz-focus-inner
@@ -403,6 +409,18 @@ table.default tfoot
 
 table.default tbody
 {
+}
+
+form > div {
+	width: 80%;
+	color: rgba(42,64,120,1);
+	font-weight: bold;
+	background-color: #FFF;
+	/*font-size: 80%;*/
+	margin-top: 3em;
+	margin-right: auto;
+	margin-left: auto;
+	clear: both;
 }
 
 /* Image */
@@ -590,6 +608,7 @@ color
 form > a {
 	font-size:90%;
 	color: #FFF;
+	margin-bottom: 2em;
 }
 
 form > a.pull-right {
