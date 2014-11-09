@@ -1,11 +1,20 @@
 angular.module('CitizenApp')
-	.controller('OfficialsDetailCtrl', function ($scope, $http, $location, $routeParams, GoogleCivicRepresentatives) {
+	.controller('OfficialsDetailCtrl', function ($scope, $http, $location, $routeParams, $cookieStore, GoogleCivicRepresentatives) {
 		
 		$scope.error = 'Loading Data...';
 		$scope.officials = [];
-		$scope.address = '';
-		$scope.city = 'Nashville';
-		$scope.state = 'TN';
+		
+		//get address information from cookie
+		var userLocation = $cookieStore.get('storedUserLocation');
+		
+		if(userLocation.userAddress)
+			$scope.address = userLocation.street_number + " " + userLocation.route;
+		if(userLocation.locality)
+			$scope.city = userLocation.locality;
+		if(userLocation.administrative_area_level_1)
+			$scope.state = userLocation.administrative_area_level_1;
+		if(userLocation.postal_code)
+			$scope.zip = userLocation.postal_code;
 		
 		if($routeParams.repName)
 			$scope.repName = $routeParams.repName.toLowerCase().replace(/[\W_]+/g,"").trim();

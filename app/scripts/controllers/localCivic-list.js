@@ -1,11 +1,21 @@
 angular.module('CitizenApp')
-	.controller('LocalCivicCtrl', function ($scope, LocalCivicData) {
+	.controller('LocalCivicCtrl', function ($scope, $cookieStore, LocalCivicData) {
 		
 		$scope.error = 'Loading Data ...';
 		$scope.contactList = [];
-		$scope.city = 'Nashville';
-		$scope.state = 'TN';
-		$scope.zip = '';
+		
+		//get address information from cookie
+		var userLocation = $cookieStore.get('storedUserLocation');
+		
+		if(userLocation.userAddress)
+			$scope.address = userLocation.street_number + " " + userLocation.route;
+		if(userLocation.locality)
+			$scope.city = userLocation.locality;
+		if(userLocation.administrative_area_level_1)
+			$scope.state = userLocation.administrative_area_level_1;
+		if(userLocation.postal_code)
+			$scope.zip = userLocation.postal_code;
+		
 		
 		LocalCivicData.getInfo($scope.city,$scope.state,$scope.zip)
 			.then(function(data) {
