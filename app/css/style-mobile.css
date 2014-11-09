@@ -226,6 +226,7 @@
                                 background-color: #F05040;
                                 background-color: rgba(240,80,64,1);
                                 background: url(../images/star_white.svg) center 20px no-repeat, url(../images/red_bkg.svg)center no-repeat;
+                                color: #FFF;
                                 height: 110px;
 			}
 
