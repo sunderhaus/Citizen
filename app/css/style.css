@@ -938,7 +938,7 @@
             background-size: 70%;
         }
 
-	#header-wrapper
+	#header-wrapper .gradient
 	{
             background-image: -moz-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
             background-image: -webkit-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
@@ -947,6 +947,11 @@
             background-image: linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,255,.2));
             background-position: top left, center center;
             background-size: auto, cover;
+	}
+
+	#header-wrapper
+	{
+		background-color: #E7E8E9;
 	}
 
 	#banner-wrapper
