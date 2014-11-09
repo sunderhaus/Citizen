@@ -24,28 +24,27 @@ angular.module('CitizenApp')
     });
   }
 
+  var prev_color = [];
   map.focus = function (id, paper, default_viewbox) {
-    var state, prev_id, state_color = {};
     if(id) {
-      if(state) {
-        state.attr({fill: state_color[prev_id]});
+      if(prev_color.length) {
+        var info = prev_color.pop();
+        env.paper.select('#'+info.id).attr({
+            fill: info.color});
       }
-      prev_id = id;
-      state = env.paper.select('#'+id);
+      var state = env.paper.select('#'+id);
+      prev_color.push({id:id,color: state.attr('fill')});
       var start = env.paper.attr('viewBox').vb,
       end = state.getBBox().vb,
       anim = '<animate id="smoothpan" attributeName="viewBox" begin="1s" dur="4s" values="'
       + start + ';' + end + '" fill="freeze" />';
-      if(!state_color[id]) {
-        state_color[id] = state.attr('fill');
-      }
       env.paper.add(Snap.parse(anim));
       state.animate({fill: '#F9B099'},1000,mina.easein);
     } else {
-      if(state) {
-        state.attr({
-          fill: state_color
-        });
+      if(prev_color.length) {
+        var info = prev_color.pop();
+        env.paper.select('#'+info.id).attr({
+            fill: info.color});
       }
       env.paper.attr({
         viewBox: env.viewbox
