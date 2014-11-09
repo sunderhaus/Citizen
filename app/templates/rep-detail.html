@@ -31,44 +31,58 @@
     <div class="centered">
 
       <!-- Spotlight -->
-      <section class="box spotlight">
-        <article class="rep-info">
-          <h2 class="name">Sheri Weiner</h2>
-          <h3 class="role">Dixtrict 22 Council Member</h3>
-          <p class="address">
-            417 W. F. Rust Court<br/>
-            Nashville, TN 37221
-          <p>
-          <a class="email"
-            href="mailto:sheri.weiner@nashville.gov">
-            sheri.weiner@nashville.gov
-          </a><br/>
-          <a class="phone"
-            href="tel://6153477544">
-            (615) 347-7544
-          </a>
-          <p class="office">
-            Metropolitan Council Office<br/>
-            One Public Square, Suite 204<br/>
-            P.O. Box 196300<br/>
-            Nashville, TN 37219-6300
-          </p>
-          <a class="source"
-            href="http://www.nashville.gov/Metro-Council/Metro-Council-Members/District-22-Council-Member.aspx">
-            Visit Information Source &gt;&gt;
-          </a>
-          <hr>
-          <section class="box spotlight replist">
-             <ul>
-              <li><a href="https://www.facebook.com/SheriWeinerforMetroCouncil">
-                Facebook</a></li>
-              <li><a href="https://twitter.com/sheriweiner">
-                Twitter</a></li>
-              <li><a href="https://www.linkedin.com/pub/sheri-weiner/11/8b1/7a8">
-                LinkedIn</a></li>
-             </ul>
-        </article>
-      </section>
+      <!-- Excerpt -->
+      	<section ng-if="error!=''" class="box spotlight " >
+          	<article class="rep-info">
+          		<h2 >{{error}}</h2>
+          	</article>
+          </section>
+      	<section ng-if="error==''" class="box spotlight">
+        	<article class="rep-info">
+            <h2 class="name">{{officialDetail.name}}</h2>
+            <h4 ng-if="officialDetail.party!='' && officialDetail.party!='Unknown'">{{officialDetail.party}}</h4>
+            <h3 class="role">{{officialDetail.office}}</h3>
+            
+            <p ng-if="officialDetail.city!=''" class="address uppercase" >
+              {{officialDetail.address}}<span ng-if="officialDetail.address2!=''"><br/>{{officialDetail.address2}}</span>
+              <br/>
+              {{officialDetail.city}}, {{officialDetail.state}} {{officialDetail.zip}}
+            <p>
+            
+            <p data-ng-repeat="pn in officialDetail.email">
+	            <a class="email"
+	              href="mailto:{{pn}}">
+	              {{pn}}
+	            </a><br/>
+            </p>            
+            <p data-ng-repeat="pn in officialDetail.phone">
+	            <a class="phone"
+	              href="tel://{{pn}}">
+	              {{pn}}
+	            </a><br/>
+            </p>
+			<p data-ng-repeat="pn in officialDetail.urls">
+	            <a class="source"
+	              href="{{pn}}" target="_blank">
+	           		Visit Information Source &gt;&gt;
+	            </a><br/>
+            </p>
+            
+            <hr>
+            <section class="box spotlight replist">
+               <ul>
+               	<li ng-repeat="sm in officialDetail.socialMedia">
+               		<span ng-if="sm.type=='Facebook'"><a href="https://www.facebook.com/{{sm.id}}" target="_blank">Facebook</a><br/></span>
+               		<span ng-if="sm.type=='Twitter'"><a href="https://twitter.com/{{sm.id}}" target="_blank">Twitter @{{sm.id}}</a><br/></span>
+               		<span ng-if="sm.type=='LinkedIn'"><a href="https://www.linkedin.com/pub/{{sm.id}}" target="_blank">LinkedIn</a><br/></span>
+               		<span ng-if="sm.type=='YouTube'"><a href="https://www.youtube.com/{{sm.id}}" target="_blank">YouTube</a><br/></span>
+               		<span ng-if="sm.type=='GooglePlus'"><a href="https://plus.google.com/u/0/{{sm.id}}" target="_blank">Google+</a><br/></span>
+               	</li>
+                
+               </ul>
+              </section>
+          </article>
+        </section>
 
     </div>
   </div>

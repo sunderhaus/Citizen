@@ -20,6 +20,7 @@ angular.module('CitizenApp')
 				//try to look up by full address
 				var siteKey = GoogleAPI.GOOGLE_API_KEY;
 				$http.get( 'https://www.googleapis.com/civicinfo/v2/representatives?address='+addr+'&key='+siteKey )
+
 				.success(function(data) {
 					//we successfully called and will now analyze the return
 					var officials = [];
@@ -28,21 +29,43 @@ angular.module('CitizenApp')
 						angular.forEach(data.offices, function(oInfo,key) {
 							if(oInfo.officialIndices) {
 								//get the officials at these indicies
-
 								angular.forEach(oInfo.officialIndices, function(ofInfo,ok) {
 
 									if(data.officials[ofInfo]) {
 										var ofData = data.officials[ofInfo];
-										officials.push( {
-												'office':oInfo.name,
-												'name':ofData.name,
-												'party':ofData.party,
-												'phone':ofData.phone,
-												'email':ofData.emails,
-												'urls':ofData.urls,
-												'photoURL':ofData.photoUrl,
-												'socialMedia':ofData.channels
-										});//end scope.officials
+										//setup the base data
+										var pData = {
+											'linkId':ofData.name.toLowerCase().replace(/[\W_]+/g,"").trim()+oInfo.name.toLowerCase().replace(/[\W_]+/g,"").trim(),
+											'office':oInfo.name,
+											'name':ofData.name,
+											'party':ofData.party,
+											'phone':ofData.phones,
+											'email':ofData.emails,
+											'urls':ofData.urls,
+											'photoURL':ofData.photoUrl,
+											'socialMedia':ofData.channels
+										};//end pData
+										
+										//add the detail
+										if(oInfo.levels)
+											pData.level = oInfo.levels[0];
+										//pop the first one
+										if(ofData.address) {
+											pData.address = ofData.address[0].line1;
+											if(ofData.address[0].line2)
+												pData.address2 = ofData.address[0].line2;
+											else
+												pData.address2 = '';
+											if(ofData.address[0].line3)
+												pData.address3 = ofData.address[0].line3;
+											else
+												pData.address3 = '';
+											pData.city = ofData.address[0].city;
+											pData.state = ofData.address[0].state;
+											pData.zip = ofData.address[0].zip;
+										}
+										//finally push this result on our array()
+										officials.push(pData);
 
 									}
 

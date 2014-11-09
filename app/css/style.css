@@ -557,6 +557,16 @@
                       margin-left: auto;
                       margin-right: auto;
                 }
+                
+                .replist a {
+					color: #000 !important;
+                	text-decoration: none;
+                	font-size: 1em !important;
+                }
+				.replist dd a {
+					color: #F00 !important;
+				}
+                
 		.replist h2
 		{
                         margin-top: .5em;
@@ -1107,4 +1117,8 @@
 		#copyright a
 		{
 			color: inherit;
+		}
+		
+		p.uppercase {
+			text-transform: uppercase;
 		}

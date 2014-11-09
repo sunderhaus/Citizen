@@ -28,41 +28,42 @@
       </div>
     </header>
 
-    <div class="style2">
-      <div class="inner">
-        <div class="container">
-          <!-- Spotlight -->
-          <section class="box spotlight replist">
-            <h2>Local</h2>
-            <dl>
-              <dt>Council Member</dt>
-              <dd>Sheri Weiner</dd>
 
-              <dt>State Representative</dt>
-              <dd>Jim Cooper</dd>
+      <div class="style2">
+        <div class="inner">
+          <div class="container">
+            <!-- Spotlight -->
+            <section ng-if="error!=''" class="box spotlight replist" >
+            	<h2 >{{error}}</h2>
+            </section>
+            <section ng-if="error==''" class="box spotlight replist" >
+              <h2>City/Local</h2>
+              
+              <dl data-ng-repeat="nfo in localOfficials | orderBy:['sort','office']">
+                <dt><a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
+                <dd><a ng-href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
+              </dl>
 
-              <dt>School Board</dt>
-              <dd>Steve Himer</dd>
-            </dl>
+              <h2>State</h2>
+              <dl data-ng-repeat="nfo in stateOfficials | orderBy:['sort','office']"">
+                <dt><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
+                <dd><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
+              </dl>
 
-            <h2>City</h2>
-            <dl>
-              <dt>Mayor</dt>
-              <dd>Karl Dean</dd>
-
-              <dt>City Clerk</dt>
-              <dd>Sharon McCowan</dd>
-            </dl>
-
-            <h2>State</h2>
-            <dl>
-              <dt>Governor</dt>
-              <dd>Bill Haslam</dd>
-            </dl>
-          </section>
+              <h2>National</h2>
+              <dl data-ng-repeat="nfo in nationalOfficials | orderBy:['sort','office']"">
+                <dt><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.office}}</a></dt>
+                <dd><a href="#/feed?repName={{nfo.linkId}}" scroll-to="mainNgView">{{nfo.name}}</a></dd>
+              </dl>
+            </section>
 
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+	function getRepDetail(repName) {
+		window.location.href = '#/feed?repName='+repName;	
+	}
+</script>
