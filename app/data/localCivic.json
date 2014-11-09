@@ -24,9 +24,49 @@
 				"phone":"",
 				"fax":"",
 				"email":"",
-				"url":"http://www.TN.gov/sos/election/registration.htm",
+				"url":"http://www.tn.gov/sos/election/registration.htm",
 				"comments":"State voter registration page"
 			},
+			{
+				"title":"Report Suspicious Activity",
+				"address":"",
+				"address2":"",
+				"city":"",
+				"state":"",
+				"zip":"",
+				"phone":"",
+				"fax":"",
+				"email":"",
+				"url":"http://www.tn.gov/homelandsecurity/report_susp_act.shtml",
+				"comments":"For non-life-threatening emergencies"
+			},
+			{
+				"title":"Request Public Work",
+				"address":"",
+				"address2":"",
+				"city":"",
+				"state":"",
+				"zip":"",
+				"phone":"",
+				"fax":"",
+				"email":"",
+				"url":"https://www.nashville.gov/Public-Works/Forms/Request-Customer-Service.aspx",
+				"comments":"Graffiti, Debri/Trash, Paving, Traffic Signals/Signs"
+			},
+			{
+				"title":"Report Litterbugs",
+				"address":"",
+				"address2":"",
+				"city":"",
+				"state":"",
+				"zip":"",
+				"phone":"",
+				"fax":"",
+				"email":"",
+				"url":"https://www.nashville.gov/Public-Works/Forms/Report-Litterbugs.aspx",
+				"comments":"To report litter from a car, call (615) 862-8418"
+			},
+			
 			{
 				"title":"Change Address",
 				"address":"",
@@ -37,51 +77,12 @@
 				"phone":"",
 				"fax":"",
 				"email":"",
-				"url":"http://www.TN.gov/sos/election/address_changes.htm",
-				"comments":"Update address with the state"
-			},
-			{
-				"title":"Request Public Works",
-				"address":"",
-				"address2":"",
-				"city":"",
-				"state":"",
-				"zip":"",
-				"phone":"615-862-8600",
-				"fax":"",
-				"email":"",
-				"url":"",
-				"comments":"Traffic light issues, graffiti, debri, paving, etc."
+				"url":"http://www.tn.gov/safety/driverlicense/dlchange.shtml",
+				"comments":"Notify government of new address (required)."
 			}
 			]
 	},
 	{"city":"Memphis","state":"TN","zip":"",
-		"contacts":[
-			{
-				"title":"Memphis Clerk's Office",
-				"address":"555 W Main St",
-				"address2":"",
-				"city":"Memphis",
-				"state":"TN",
-				"zip":"37523",
-				"phone":"615-134-1434",
-				"fax":"",
-				"email":"",
-				"url":"",
-				"comments":""
-			},
-			{
-				"title":"Non Emergency Number",
-				"address":"",
-				"address2":"",
-				"city":"Memphis",
-				"state":"TN",
-				"zip":"",
-				"phone":"615-352-0000",
-				"fax":"",
-				"email":"",
-				"url":"",
-				"comments":""}
-			]
+		"contacts":[]
 	}
 ]

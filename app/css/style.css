@@ -317,7 +317,7 @@ form textarea
 	height: 30px;
 }
 form select {
-	height: 20px;
+	height: 30px;
 }
 
 form input[type="text"]:focus,
