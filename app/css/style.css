@@ -1,5 +1,5 @@
 @charset 'UTF-8';
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,800');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic');
 @import url('http://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 
@@ -21,7 +21,12 @@ body
 {
 	padding: 1em;
 }
-
+.ng-scope {
+	/*background-color: #e7e8e9;*/
+}
+.ngMainBkg {
+	background-color: #e7e8e9;
+}
 body.is-loading *
 {
 	-moz-transition: none !important;
@@ -56,7 +61,7 @@ a:hover
 
 h1, h2, h3, h4, h5, h6
 {
-	text-transform: uppercase;
+	text-transform: capitalize;
 	font-weight: 700;
 	letter-spacing: 0.04em;
 	color: #2A4078;
@@ -156,6 +161,7 @@ blockquote
 p, ul, ol, dl, table
 {
 	margin-bottom: 1.8em;
+	font-family: 'open sans',sans-serif;
 }
 
 .date
@@ -245,6 +251,9 @@ header.major p
 {
 	margin: 0;
 	padding: 0.5em;
+	margin-top:75px;
+	border-radius:8px;
+	padding-top: 15px;
 }
 
 .location-form-container-expanded {
@@ -252,7 +261,15 @@ header.major p
 	margin: 0;
 	padding: 0.5em;
 }
-
+#location-form input {
+            width: 90%;
+            padding: 8px 5px;
+        }
+        
+        #location-form select {
+            width: 90%;
+            padding: 8px 5px;
+        }
 form
 {
 }
@@ -634,7 +651,7 @@ a.pointer:hover {
 
 /* List */
 .replist {
-	width: 40em;
+	max-width: 40em;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -1107,7 +1124,6 @@ margin: 0.5em 0 10px 0;
 .centered {
 	margin-left: auto;
 	margin-right: auto;
-	width: 60%;
 	float: none;
 }
 /*********************************************************************************/
@@ -1150,6 +1166,7 @@ article p {
 
 .rep-info .name {
 	margin-bottom: 1em;
+	background-color: #FFF;
 }
 
 .rep-info hr {
@@ -1224,6 +1241,25 @@ article p {
 	color: inherit;
 }
 
-p.uppercase {
-	text-transform: uppercase;
+
+.uppercase {
+	text-transform: uppercase !important;
+}
+
+.ng-scope {
+	/*background-color: #e7e8e9;*/
+}
+
+#logo {
+	text-transform: uppercase !important;
+}
+
+.whiteBkg {
+	background-color: #FFF !important;
+}
+
+.containerDiv {
+	max-width: 40em; 
+	text-align: center; 
+	padding: 5px;
 }
