@@ -908,7 +908,7 @@
 	#header-wrapper
 	{
             background: #E6E6E6;
-            background: rgba(230,230,230,.5);
+            background: rgba(230,230,230,.2);
             background-image: -moz-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
             background-image: -webkit-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
             background-image: -o-linear-gradient(top, rgba(230,230,230,.4), rgba(250,250,250,0.2));
