@@ -24,5 +24,9 @@ angular.module('CitizenApp')
     $cookieStore.put('storedUserLocation', data);
   };
 
+  cookieJar.removeUserLocation = function() {
+    $cookieStore.remove('storedUserLocation');
+  }
+
   return cookieJar;
 });

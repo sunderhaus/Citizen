@@ -15,7 +15,7 @@ $scope.submitClick = function() {
 
 	$scope.clearAll = function() {
 		$scope.userLocation = null;
-		$cookieStore.remove('storedUserLocation');
+		CookieJar.removeUserLocation();
 	}//end clearAll
 
 	$scope.setCookieFromForm = function() {
@@ -23,16 +23,16 @@ $scope.submitClick = function() {
 		    splitUserAddress,
 				formStreetNumber,
 				formRoute;
-		splitUserAddress = $scope.userAddress.split(/([0-9]+\-?[0-9]+)/);
+		splitUserAddress = $scope.userLocation.address.split(/([0-9]+\-?[0-9]+)/);
 		formStreetNumber = splitUserAddress[1];
 		if(splitUserAddress[2] != null) {
 		  formRoute = splitUserAddress[2].trim();
 		}
 		userLocation.street_number = formStreetNumber;
 		userLocation.route = formRoute;
-		userLocation.locality = $scope.userCity;
-		userLocation.administrative_area_level_1 = $scope.userState;
-		userLocation.postal_code = $scope.userZip;
+		userLocation.locality = $scope.userLocation.city;
+		userLocation.administrative_area_level_1 = { "short_name": $scope.userLocation.state };
+		userLocation.postal_code = $scope.userLocation.zip;
 
 		CookieJar.setUserLocation(userLocation);
 	}//end setCookieFromForm

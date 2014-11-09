@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-	.controller('OfficialsListCtrl', function ($scope, $http, $location, $cookieStore, GoogleCivicRepresentatives) {
+	.controller('OfficialsListCtrl', function ($scope, $http, $location, CookieJar, GoogleCivicRepresentatives) {
 
 		$scope.error = 'Loading Data...';
 		$scope.localOfficials = [];
@@ -7,17 +7,17 @@ angular.module('CitizenApp')
 		$scope.nationalOfficials = [];
 
 		//get address information from cookie
-		var userLocation = $cookieStore.get('storedUserLocation');
+		var userLocation = CookieJar.getUserLocation();
 		console.log(userLocation);
 
-		if(userLocation.userAddress)
-			$scope.address = userLocation.street_number + " " + userLocation.route;
-		if(userLocation.locality)
-			$scope.city = userLocation.locality;
-		if(userLocation.administrative_area_level_1.long_name)
-			$scope.state = userLocation.administrative_area_level_1.long_name;
+		if(userLocation.address)
+			$scope.address = userLocation.address
+		if(userLocation.city)
+			$scope.city = userLocation.city;
+		if(userLocation.state)
+			$scope.state = userLocation.state;
 		if(userLocation.postal_code)
-			$scope.zip = userLocation.postal_code;
+			$scope.zip = userLocation.zip;
 
 		/*
 		$scope.address = '';
@@ -25,12 +25,18 @@ angular.module('CitizenApp')
 		$scope.state = 'TN';
 		*/
 
+		console.log($scope.address);
+		console.log($scope.city);
+		console.log($scope.state);
+		console.log($scope.zip);
 		GoogleCivicRepresentatives.getReps($scope.address,$scope.city,$scope.state,$scope.zip)
 			.then(function(data) {
 				//let's split this data up into four buckets
 				//city, state, national
 				if(data) {
 					$scope.error = '';
+					// console.log("data");
+					// console.log(data);
 					angular.forEach(data, function(info, key) {
 						console.log(info.level);
 						switch(info.level) {
