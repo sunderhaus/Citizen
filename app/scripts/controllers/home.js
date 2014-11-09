@@ -8,10 +8,12 @@ angular.module('CitizenApp')
 		$scope.askForLocationAndAct();
 	};//end startClick
 
-$scope.submitClick = function() {
-	$scope.setCookieFromForm();
-	$location.path('/reps');
-};//end startClick
+	$scope.submitClick = function() {
+		if($scope.userLocationIsValid($scope.userLocation)) {
+			$scope.setCookieFromForm();
+			$location.path('/reps');
+		}
+	};//end startClick
 
 	$scope.clearAll = function() {
 		$scope.userLocation = null;
@@ -21,22 +23,40 @@ $scope.submitClick = function() {
 
 	$scope.setCookieFromForm = function() {
 		var userLocation = {},
-		    splitUserAddress,
-				formStreetNumber,
-				formRoute;
-		splitUserAddress = $scope.userLocation.address.split(/([0-9]+\-?[0-9]+)/);
-		formStreetNumber = splitUserAddress[1];
-		if(splitUserAddress[2] != null) {
-		  formRoute = splitUserAddress[2].trim();
+		splitUserAddress,
+		formStreetNumber,
+		formRoute;
+		if($scope.userLocation.address && !$scope.userLocation.address.isBlank()) {
+			splitUserAddress = $scope.userLocation.address.split(/([0-9]+\-?[0-9]+)/);
+			formStreetNumber = splitUserAddress[1];
+			if(splitUserAddress[2] != null) {
+				formRoute = splitUserAddress[2].trim();
+			}
 		}
 		userLocation.street_number = formStreetNumber;
 		userLocation.route = formRoute;
+
 		userLocation.locality = $scope.userLocation.city;
 		userLocation.administrative_area_level_1 = { "short_name": $scope.userLocation.state };
 		userLocation.postal_code = $scope.userLocation.zip;
 
 		CookieJar.setUserLocation(userLocation);
 	}//end setCookieFromForm
+
+	$scope.userLocationIsValid = function(userLocation) {
+		if(!userLocation) {
+			console.log("Invalid userLocation");
+			return false;
+		}
+		var city = userLocation.city,
+		state = userLocation.state,
+		zip = userLocation.zip;
+
+		if((city && state && city!='' && state!='') || (zip && zip!='')) {
+			return true;
+		}
+		return false;
+	};
 
 	$scope.setUserLocationFromCookie = function() {
 		$scope.userLocation = CookieJar.getUserLocation();

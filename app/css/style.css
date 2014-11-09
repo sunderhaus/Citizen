@@ -582,12 +582,12 @@ form > a.pull-left {
 	padding-left: 1em;
 }
 
-form > a.pointer {
+a.pointer {
 	cursor: pointer;
 	text-decoration:none;
 }
 
-form > a.pointer:hover {
+a.pointer:hover {
 	text-decoration:underline;
 }
 

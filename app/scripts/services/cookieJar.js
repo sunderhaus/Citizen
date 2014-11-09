@@ -7,13 +7,19 @@ angular.module('CitizenApp')
     var cookieToReturn = {},
     cookieFromStore = $cookieStore.get('storedUserLocation');
     if(cookieFromStore) {
-      cookieToReturn = {
-        "address": cookieFromStore.street_number + " " + cookieFromStore.route,
-        "city": cookieFromStore.locality,
-        "state": cookieFromStore.administrative_area_level_1.short_name,
-        "zip":cookieFromStore.postal_code,
-        "city_state": cookieFromStore.locality + ", " + cookieFromStore.administrative_area_level_1.short_name
+      if(!cookieFromStore.street_number || cookieFromStore.street_number === '' || !cookieFromStore.route || !cookieFromStore.route === ''){
+        cookieToReturn.address = null;
+      } else {
+        cookieToReturn.address = cookieFromStore.street_number + " " + cookieFromStore.route;
       }
+      if (!cookieFromStore.locality || cookieFromStore.locality === '' || !cookieFromStore.administrative_area_level_1.short_name || !cookieFromStore.administrative_area_level_1.short_name === ''){
+        cookieToReturn.city_state = null;
+      } else {
+        cookieToReturn.city_state = cookieFromStore.locality + ", " + cookieFromStore.administrative_area_level_1.short_name;
+      }
+      cookieToReturn.city = cookieFromStore.locality;
+      cookieToReturn.state = cookieFromStore.administrative_area_level_1.short_name;
+      cookieToReturn.zip = cookieFromStore.postal_code;
     } else {
       cookieToReturn = null;
     }
