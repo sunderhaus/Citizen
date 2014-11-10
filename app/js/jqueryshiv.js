@@ -42,7 +42,7 @@ skel.registerPlugin("layers",function(e){function cn(e,r,i){var o,u;this.id=e,th
 					side: 'top',
 					height: 44,
 					width: '100%',
-					html: '<span class="toggle" data-action="toggleLayer" data-args="navPanel"></span><span class="title" data-action="copyHTML" data-args="logo">Citizen</span>'
+					html: '<span class="title" data-action="toggleLayer" data-args="navPanel">Citizen</span>'
 				}
 			}
 		}
