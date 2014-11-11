@@ -16,6 +16,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 body
 {
+	background-color: #e7e8e9;
 }
 
 .container
@@ -25,9 +26,7 @@ body
 .ng-scope {
 	/*background-color: #e7e8e9;*/
 }
-.ngMainBkg {
-	background-color: #e7e8e9;
-}
+
 body.is-loading *
 {
 	-moz-transition: none !important;
@@ -1033,11 +1032,12 @@ margin: 0.5em 0 10px 0;
 /* Wrappers                                                                      */
 /*********************************************************************************/
 
-#header-background
+.banner-background
 {
             width: 100%;
             height: 100%;
             position: absolute;
+            top: 0;
 }
         }
 
@@ -1051,16 +1051,7 @@ margin: 0.5em 0 10px 0;
 	background-position: top left, center center;
 	background-size: auto, cover;
 }
-	#header-wrapper-gradient
-	{
-            background-image: -moz-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
-            background-image: -webkit-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
-            background-image: -o-linear-gradient(top, rgba(230,230,230,.2), rgba(250,250,255,.2));
-            background-image: -ms-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
-            background-image: linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,255,.2));
-            background-position: top left, center center;
-            background-size: auto, cover;
-	}
+
 
 #header-wrapper
 {
