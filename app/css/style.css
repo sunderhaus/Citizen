@@ -1045,7 +1045,7 @@ margin: 0.5em 0 10px 0;
             top: 0;
 }
 
-#banner
+#banner-overlay
 {
 	background-image: -moz-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
 	background-image: -webkit-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
@@ -1061,10 +1061,6 @@ margin: 0.5em 0 10px 0;
 {
 	background-color: #E7E8E9;
 }
-	#header-wrapper
-	{
-		background-color: #E7E8E9;
-	}
 
 #banner-wrapper
 {
