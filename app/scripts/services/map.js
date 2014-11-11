@@ -35,11 +35,15 @@ angular.module('CitizenApp')
       var state = env.paper.select('#'+id);
       prev_color.push({id:id,color: state.attr('fill')});
       var start = env.paper.attr('viewBox').vb,
-      end = state.getBBox().vb,
-      anim = '<animate id="smoothpan" attributeName="viewBox" begin="1s" dur="4s" values="'
-      + start + ';' + end + '" fill="freeze" />';
-      env.paper.add(Snap.parse(anim));
+        bbox = state.getBBox(),
+        scale = .2,
+        end = (bbox.x-scale/2*bbox.width) + ' ' + (bbox.y-scale/2*bbox.height) + ' '
+          + (bbox.width+scale*bbox.width) + ' ' + (bbox.height+scale*bbox.height);
+      console.log(end, state.getBBox());
       state.animate({fill: '#F9B099'},1000,mina.easein);
+      env.paper.add(Snap.parse(
+        '<animate id="smoothpan" attributeName="viewBox" dur="4s" values="'
+          + start + ';' + end + '" fill="freeze" />'));
     } else {
       if(prev_color.length) {
         var info = prev_color.pop();
