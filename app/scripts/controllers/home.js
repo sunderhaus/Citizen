@@ -8,7 +8,7 @@ angular.module('CitizenApp')
 
 	$scope.startClick = function() {
 		$scope.spin = true;
-		$scope.askForLocationAndAct();
+		$scope.askForLocation(false);
 	};//end startClick
 
 	$scope.submitClick = function() {
@@ -23,6 +23,11 @@ angular.module('CitizenApp')
 		$rootScope.userAddressLabel = null;
 		CookieJar.removeUserLocation();
 	}//end clearAll
+
+	$scope.refreshLocation = function() {
+		$scope.spin = true;
+		$scope.askForLocation(true);
+	};//end startClick
 
 	$scope.setCookieFromForm = function() {
 		var userLocation = {},
@@ -44,6 +49,7 @@ angular.module('CitizenApp')
 		userLocation.postal_code = $scope.userLocation.zip;
 
 		CookieJar.setUserLocation(userLocation);
+                $scope.setUserLocationFromCookie();
 	}//end setCookieFromForm
 
 	$scope.userLocationIsValid = function(userLocation) {
@@ -71,35 +77,30 @@ angular.module('CitizenApp')
 		}
 	};//end setUserLocationFromCookie
 
-	$scope.askForLocationAndAct = function() {
+	$scope.askForLocation = function(complain) {
 		$scope.userLocation = CookieJar.getUserLocation();
 		// console.log("Retrieving the user locationdata.");
 		// console.log(userLocation);
-		if (!$scope.userLocation) {
-			Geolocator.getBrowserGeolocation()
-			.then(function(data) {
-				CookieJar.setUserLocation(data);
-				$scope.setUserLocationFromCookie();
-				$scope.focusOnMap();
-				$scope.spin = false;
-				$scope.browserLookupFailed = false;
-				$scope.startDone = true;
-				$scope.lfcClass = "location-form-container-expanded";
-			}, function (reason) {
-				alert("Oops! It looks like you've denied us access to your location. Please fill out the form or re-enable location permission for our website in your browser settings and reload this page. Thanks!");
-				$scope.userLocation = null;
-				$scope.spin = false;
-				$scope.browserLookupFailed = true;
-				$scope.startDone = true;
-				$scope.lfcClass = "location-form-container-expanded";
-			});
-		} else {
-			$scope.setUserLocationFromCookie();
-			$scope.spin = false;
-			$scope.startDone = true;
-			$scope.lfcClass = "location-form-container-expanded";
-		}
-	};//end askForLocationAndAct
+                Geolocator.getBrowserGeolocation()
+                .then(function(data) {
+                        CookieJar.setUserLocation(data);
+                        $scope.setUserLocationFromCookie();
+                        $scope.focusOnMap();
+                        $scope.spin = false;
+                        $scope.browserLookupFailed = false;
+                        $scope.startDone = true;
+                        $scope.lfcClass = "location-form-container-expanded";
+                }, function (reason) {
+                        if(complain) {
+                          alert("Oops! It looks like you've denied us access to your location. Please fill out the form or re-enable location permission for our website in your browser settings and reload this page. Thanks!");
+                        }
+                        $scope.userLocation = null;
+                        $scope.spin = false;
+                        $scope.browserLookupFailed = true;
+                        $scope.startDone = true;
+                        $scope.lfcClass = "location-form-container-expanded";
+                });
+	};//end askForLocation
 
 	$scope.focusOnMap = function() {
 		Map.focus($scope.userLocation.state, $scope.paper, $scope.default_viewbox);

@@ -72,8 +72,9 @@
           </select>
           <!-- <input ng-show="startDone" ng-model="userLocation.state" type="text" name="state" placeholder="State"></input><br/> -->
           <input class="block suggested" ng-show="startDone" ng-model="userLocation.zip" type="text" name="zip" placeholder="Zip"></input>
-          <a class="pointer pull-left" ng-show="startDone" ng-click="clearAll()">Clear Address</a>
-          <a class="pointer pull-right" ng-show="startDone" ng-click="startClick()">Use Location</a>
+          <a class="pointer pull-left" ng-show="startDone" ng-click="clearAll()">Clear</a>
+          <a class="pointer pull-right" ng-show="startDone" ng-click="refreshLocation()">Location
+            <img src="images/refresh.svg" alt="refresh" style="height:1em"></a>
           <img ng-show="spin" ng-src="images/Ajax-loader.gif">
           <div id="errorBlock" class="block">
             <span id="errorSpan" ng-show="startDone">{{formError}}</span>
