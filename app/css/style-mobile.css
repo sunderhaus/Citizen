@@ -230,6 +230,10 @@
                                 height: 110px;
 			}
 
+                        #navPanel .current_page_item {
+                                background-color: #DDD;
+                        }
+
                         .location-form-container
                         {
                                 margin-top: 0;

@@ -4,25 +4,21 @@ angular.module('CitizenApp')
   var map = {},
       env;
 
-// use "strict";
-
-  map.load = function(userLocation) {
-    Snap.load('/images/Blank_USA_w_territories.svg', function (data){
-      var paper = Snap.select(".USAmap");
-      paper.append(data);
-      paper = paper.select('svg');
-      paper.attr({
-        width: '100%',
-        'margin-left': 'auto',
-        'margin-right': 'auto'
-      });
-      var viewbox = paper.getBBox();
-      env = {paper:paper,viewbox:viewbox};
-      if(userLocation){
-        map.focus(userLocation.state, paper, viewbox);
-      }
+  Snap.load('/images/Blank_USA_w_territories.svg', function (data){
+    var paper = Snap.select(".USAmap");
+    paper.append(data);
+    paper = paper.select('svg');
+    paper.attr({
+      width: '100%',
+      'margin-left': 'auto',
+      'margin-right': 'auto'
     });
-  }
+    var viewbox = paper.getBBox();
+    env = {paper:paper,viewbox:viewbox};
+    if(userLocation){
+      map.focus(userLocation.state, paper, viewbox);
+    }
+  });
 
   var prev_color = [];
   map.focus = function (id, paper, default_viewbox) {

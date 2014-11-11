@@ -33,7 +33,7 @@ skel.registerPlugin("layers",function(e){function cn(e,r,i){var o,u;this.id=e,th
 					width: '80%',
 					height: '100%',
 					clickToHide: true,
-					html: '<div data-action="navList" data-args="nav"><a class="location link" href="#"><img src="images/pin.svg" alt="GPS pin"> Find me</a><a class="link" href="/#/feed">Feed</a><a class="link" href="/#/reps">Reps</a><a class="link" href="/#/links">Links</a><a class="link" href="/#/about">About</a></div>',
+					html: '<div data-action="navList" data-args="nav" ng-controller="NavCtrl"><a class="location link" href="#"><img src="images/pin.svg" alt="GPS pin"> Find me</a><a class="link" ng-class="{current_page_item:isActive(\'/feed\')}" href="/#/feed">Feed</a><a class="link" ng-class="{current_page_item:isActive(\'/reps\')}" href="/#/reps">Reps</a><a class="link" ng-class="{current_page_item:isActive(\'/links\')}" href="/#/links">Links</a><a class="link" ng-class="{current_page_item:isActive(\'/about\')}" href="/#/about">About</a></div>',
 					orientation: 'vertical'
 				},
 				titleBar: {

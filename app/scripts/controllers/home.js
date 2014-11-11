@@ -101,17 +101,12 @@ angular.module('CitizenApp')
 		}
 	};//end askForLocationAndAct
 
-	$scope.loadMap = function(userLocation) {
-		Map.load($scope.paper, $scope.default_viewbox, userLocation);
-	}
-
 	$scope.focusOnMap = function() {
 		Map.focus($scope.userLocation.state, $scope.paper, $scope.default_viewbox);
 	}
 
 	//Update the label on the home page
 	$scope.setUserLocationFromCookie();
-	$scope.loadMap($scope.userLocation);
 
 
 
