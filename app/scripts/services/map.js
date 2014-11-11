@@ -15,13 +15,10 @@ angular.module('CitizenApp')
     });
     var viewbox = paper.getBBox();
     env = {paper:paper,viewbox:viewbox};
-    if(userLocation){
-      map.focus(userLocation.state, paper, viewbox);
-    }
   });
 
   var prev_color = [];
-  map.focus = function (id, paper, default_viewbox) {
+  map.focus = function (id) {
     if(id) {
       if(prev_color.length) {
         var info = prev_color.pop();

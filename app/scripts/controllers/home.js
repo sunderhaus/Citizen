@@ -3,8 +3,6 @@ angular.module('CitizenApp')
 
 	$scope.startDone = false;
 	$scope.formError = '';
-	$scope.paper;
-	$scope.default_viewbox;
 
 	$scope.startClick = function() {
 		$scope.spin = true;
@@ -95,6 +93,8 @@ angular.module('CitizenApp')
                             $scope.browserLookupFailed = true;
                             $scope.userLocationIsValid($scope.userLocation);
                     });
+                } else {
+                    $scope.focusOnMap();
                 }
                 $scope.spin = false;
                 $scope.startDone = true;
@@ -102,7 +102,7 @@ angular.module('CitizenApp')
 	};//end askForLocation
 
 	$scope.focusOnMap = function() {
-		Map.focus($scope.userLocation.state, $scope.paper, $scope.default_viewbox);
+		Map.focus($scope.userLocation.state);
 	}
 
 	//Update the label on the home page
