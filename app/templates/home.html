@@ -1,6 +1,5 @@
 <!-- Header -->
-<div>
-  <div id="header-background"></div>
+<div id="header-background"></div>
   <div id="header-wrapper-gradient">
     <a href="/#/">
       <img id="citizen-star" src="images/star.svg" alt="Citizen Star">
@@ -10,171 +9,178 @@
       <!-- Header -->
       <header id="header">
         <div class="inner">
-
           <!-- Logo -->
           <h1><a href="/#/" id="logo">Citizen</a></h1>
-
           <!-- Nav -->
           <nav id="nav">
             <ul>
               <li><a class="location" href="#">
                 <img src="images/pin.svg" alt="GPS pin">
-                {{userAddressLabel}}</a></li>
-                <li><a href="/#/feed">Feed</a></li>
-                <li><a href="/#/reps">Reps</a></li>
-                <li><a href="/#/links">Links</a></li>
-                <li><a href="/#/about">About</a></li>
-              </ul>
-            </nav>
-
-          </div>
-        </header>
-
-        <!-- Banner -->
-        <div id="banner">
-          <div class="left">
-            <h2 class="uppercase">Become an<br/>
-              engaged<br/>
-              citizen</h2>
-              <p>without even trying.</p>
-              <p class="attitude">Boost the &nbsp;<strong>#CitizenUp</strong> movement.</p>
-            </div>
-            <div class="right">
-              <div id="location-form-container" class="location-form-container" ng-class="lfcClass" >
-                <span></span>
-                <form id="location-forost">
-                  <input class="block optional" ng-show="startDone" ng-model="userLocation.address" type="text" name="address" placeholder="Address"></input>
-                  <input class="block suggested" ng-show="startDone" ng-model="userLocation.city" type="text" name="city" placeholder="City"></input>
-                  <select class="block suggested" ng-show="startDone" ng-model="userLocation.state", ng-change="focusOnMap()" type="text" name="state" placeholder="State">
-                    <option value="" disabled selected>State</option>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="DC">District Of Columbia</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                  </select>
-                  <!-- <input ng-show="startDone" ng-model="userLocation.state" type="text" name="state" placeholder="State"></input><br/> -->
-                  <input class="block suggested" ng-show="startDone" ng-model="userLocation.zip" type="text" name="zip" placeholder="Zip"></input>
-                  <a class="pointer pull-left" ng-show="startDone" ng-click="clearAll()">Clear Address</a>
-                  <a class="pointer pull-right" ng-show="startDone" ng-click="startClick()">Use Location</a>
-                  <img ng-show="spin" ng-src="images/Ajax-loader.gif">
-                  <div id="errorBlock" class="block">
-                    <span id="errorSpan" ng-show="startDone">{{formError}}</span>
-                  </div>
-                  <!-- <img ng-show="spin" ng-src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAKAAawMBEQACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAFBgIDBAEHAP/EADoQAAIBAwMCBAMFBwIHAAAAAAECAwAEEQUSITFBBhNRYSJxgRQyQpGhByMzUrHB0RXhJDSCkqLw8f/EABoBAAIDAQEAAAAAAAAAAAAAAAABAgMEBQb/xAAwEQACAgEDAgQEBgIDAAAAAAAAAQIDEQQSITFBEyJRYQWRofAyQnGBseEVwRTR8f/aAAwDAQACEQMRAD8AQbbVrqwsLu0gkZI7kx7iCRgKSf1yPyrTJLqIlZQtqN/HHNcbBI2GmkJO0dM0rLFX1J11TsflXQ9esbKDT7RLa1j2RR/d9T6k+9UN55FgsnVJFEUihlk+Fge4qL54ZKLa5Qu3GnW8dtc6NczbUkUtCzducqfoePpUIWRoa3PBZc3a9+BQgsGsbBpJY2M0rbcK2Megz69/fIrDq9T49+1Pyx/clVHZHL6m62uN+ye6j2eWc5+Ft2Oh+ft61hdbjLZU85/VfsWTmlHdLsFlYXNmZfUHA67fUfOvT6HSV6etbeW+rOTbe7XnsWaXBJJGcDjrmtkpJFeDl7ZfFtlkAB54qG/jhDSM2lXMMF9LbLHvcp1JwAaSTl3wSeEi+0uvtUklu21ZEztYYww9D61RfpKr4bZ/P0JxsnXyi5o3MqMMCRH3DcO5GMn14zg/Q815XU6eemk658pr5rr/AD19Ox0K7I2LcjMNDa5zNc7BK5LMCCxHsTnrR/kXDy1ptIfhZ5YiX1jNBcSWsyFJUOGB7V6idiUW2UQrc5bUELdFSNcD4cfnXHssdjyzv01RhFKI5eGtf2hbG+fCdIpT29j/AGq6m78sjJq9JnzwGa4YRyRNIQsYyST24rWcsVvFuvWkJga1cSSYOXXoKyarSxvcW+xZVY4JoT7nWUuyDJEwTbhShxj3/XvUYaNVrEWDtb6oslukaOJg/wAGcknqT74+tSp0yrk5GfVOVsNsQvpV9EokRpFEbjIJOMHFdXTT/KznQhOHlkjbY6tbLKFe6jI7AsMVq2rHBdiRpvNQTyGaFkkY9GXGBVfh8jTwArME3ryyuApGcEcle5+VZJ6hQtxFZyaoUOUOeGX20Hk38q4CZddkKIP3ZxkHdjIPPI98VZGcpyW1cClGKi9zyxnkh82MuBk45H8w7j/3vUNZp46ipwfXt+pnpm65buwPmt7eWQvPPOJDjOw8Hjg/Uc15GM5wW1R+/wCjr9echTXNGh1SJmOEuEX4JMfofavS2Q3xwV0XeFLOOO4g3FrNZTNBOhV16g1zZRcXhnchJSjmJzDMuAOO9EYuTwgssjCOWatR1W9u7OOzec+VEOTwCfTPc10oJpYZwLZqc3KKwBpXMzBOuOu0fpUiszSodxwnPbigCdum51Mg6+nX9KAOTBoU2sox+ooUsPKFg16VZWt8+HlaJuOnIonqNRDHhrI1GPcJ30lnpLR2luMs8i+YCc7eR1Pr7VpitQqpeM1l+nb9ypbJTW3oQ003LSyTXJ3bp8w7+N+37oA+f0rJ4Swn0Xc0KbzgYNPtrucyXl9KnmzEEqowFxxgV0K9sIJRRjtblLkZLddsO1SDnGag3l5IpY4QLuZmtriSFVyFPH15ri6r4X41rsTxk2VX7YKPoHj91vU5FdAQN1fSE1OzCthbhBiOT+x9qqtrU17mnT6h0y9jznVBLZt9nkBR8kMDVOni03k066akouPRgtbhW4fJTtjjJrUc00iaPaoCyKo+8RgAUtw0iTOk0gKOZQOhzkge9AGpYtg3Epz+EmkMsitnunCiEEDjg1W5YLIwbMl/avp7K+0qknAPofSpVz3cEbIOIRuooZNGtpSS92Zd6RgbQoGNxatLu21Pf06FWMyWDPYGaW+/1C4dviJ8oDny1z2H1qbpfhYIqxeJyONuWe1jjQgAD+IDlTyBjPY855q2NsXHph+hS6nnOcmmwnSVXEMolRXKhx0bHFTXRZKpLDwWOoLHIowRPtC1uPVLfY2FuU++nr7j2rl1WKa9ztajTuqXHQLq+atMojftKgUfY5lXDMCpNIeXjAnWxh2BGHJO6lIBo03T7a7hUuoOOtY5SaZtrimhk0/wxpjod1spPYhiDRGTZOUI46BG28G6czMzlyp/DwMfWrUU7Qimk2NlF5dvCAPUnNQki2IoePLVDpe9V5SQMKVL85C/mIAkWOKAgthmjG0/Mn/FWXJynCPbOWY00k2zkCKMheRvyK7a9jExltYY7mzKSorjPQ9DQ/Ujua6E7PEcuxVCjpgCkInPcMJWC9BWSzVVVy2yfJbGpyWUItpdSW86ywSFJUOQ1cZNxeUeqaU00z0PQdXTVbfcoCzJxJHnp7j2rfXYpo499Lql7AH9orD/AEi0PfzOfbirDP2PPHfMnwHv0pMEOnhx2RAjdWPT0NZLVzk2UvA66ZcbGAZlz3G6qlkvbTGCKXKgjHyFXJlbKp2GPvD86TBCh40l8uxGO8gAPXrUaV5yFz8gpXirtLDOOnXpwBV7b3+yRy5yUouK6sEQ3b2kxikZWVn53cbMd/lWyq3ctqBQwvc9J0Frc2ig85A5Hy7Vpnu7FXlzyaI2igu5WA+ELkAiq5ZawyccGRmud7GOIMCxOffPP614zU3K62U2+r+nb6HVrhtikedq2yQ+/Ndfqjpp4ZssNQmsLlbi2bEi9j0Yehpxbi8oU4xmsMYvFEsOseG1u7ZwBBKDKhPTsR+orapqUco5U6nXJxYh6dEJLpccgHNNvgpS5Gy1tLg7Z4xlCfu461llNdDTGL6jBbaRJcxy3ErQwTKQYjCpw/ruyaMx28DUZbuQpoE86XU1tdTb1RQyFRioRZa48GbUtPuruZCt4q852OvBH0pxa7kJReODFr9pJHYzPtj2xMrpsGAxDDGRnrTg8zwQt4hn0AEwgk0RpriBuQWDxAd+zfX9KipTeq2Vy+f+jFCGK91i+QuSvIJIbnh2bD7iByehH6Vtrarm4rjBC1vGfUf9AdDbgR4CFRgV1M5WTMy+48z/AFCNFPXnnoPT+mfpXJ+LahVU7V1l/Hf/AKNOlr3yy+xqk0+dnJj1K4hTtGqjCivLw1FailKvL9TpuLyJOs6UbeRpoRmAnHH4T/ivQ217eUW6e7xPLLqCl6kemKpfU1I0wTyJHPAnMcybXU9/f6VKEnF8EboKUX7GeyiWBXC/hYjdWvOUcprDHHQZZNqKWJAHesklybKllDhJ5EVg0hwgVSzGpbUkPuANPmL36yIMIy8c1BFiDsE0SDZcAY3Zz7GpLHci456A/wAUwxz6TdRxAYeNhgU15ZpopvT8KR51JLfTWYt3l3W6nAVVAGffFaqKKa5eJFcnElqty2sEyweTsbHBHPsatsnuYvE3JobPC9xOk3lou6Ir8Wein1/2qqWujpo+fn27hRVOyWEuBkZHDGRBmZR0fgcjrn6fT8683qdRLUT32dH6eh2a4KEXGJTaPq720bXCt5hXJ2eWBjt15zjFO3/hqb2dPfP+gXiYKkdWCxsodd5yD3FemZkTw8i5rmknTp90SsbeTlSe3saxWV7H7HX09/ix56grP70ey1V2L+rPuI1IHc5PzrZW8xOXqIKFmENPh1JZT+75PHFUTXJbTLgMXV6s0T2kina3wsM0YySlNELbw/BI6Ti4nieMALtl4x9eKmksclbbzlBKQQRv5SSIzOmxviyzCouK7ElOS6lEscq2DJNJlsMqn14xmqbJbE5PsOct0cCxpuk3IjkTcpAb+Rx/aof5KC7fwcafwxyeVIH3ulCP/mJOjdht/rz+Qp/85z/Avv8Ag0V6GMOZPIUsGbZ/w3wLCpLBBh+DyAOxxn3PFZXFb14nLfy9jVjjyhwIlqFkgzJbSJ65CY5GPY56VjnKVqanxJP59vmia8r9mBpvFUSSsqCZ1HAZDgH5V1afgk5VqTeMlL1OHwXxkpKue7GuqU4wGZII7u3McyhkYYNDimsMcJOL3IRdW017C9ZCdyfgf+asE4ODwdmmxWx3L9wZM6sTsOcf1FaKk1HkwamSla8B3wrqnkXkQYkDODmlOPchXIctUtLe5l8/y0cEZ4FVP1NEUXaVKkWQE2c5A2KR+oqcWKUEaYlDTtO6gvt278AHHpxSfI8LGEC9UuDcTquB5Sq20Ho7AcD8z+lZL7fyr2+/kit+gI0xmjttSXJ+Hq3fbnJP5NWKWJW1/fPQGntZi1WOKOdltxnEoZQvPHJIH1xx71OqUpRW/wBP/PoDSzwS0ySG0lF3K4QBNrbiAGGBwfcEfPnpRYpWx8KKzzlf199RZUfMwxo8kV9YyTQxk2kLmJA3QkAHOPTkf39KnqtBqK4+JLq+Xjt9+xCFsW8Aq48IvJM72kqLCxyqt29q3af45tqjGa5SK5Uc8ME6Jqu9ltLl/ix+6cn9K01y7Mutr7odLedhHyMH0+VXmQBeK761ttKaJ9rXUhzEoPK+rVFwUuGThZKvmIrRQeZpEMkAy6Elsd8nmpuOVwVqWGZre4MMqyLnaTnHpVTWeC1PDHfw/r6T5jdwD2Vj1rPKG01V2KXUY4Z4hJvDDaegB6U44LWRursRx+TExd3O1QOpzQ1l4RGTwsiSviG4i3k7WcSn92VIAX5g9fpUp/D6LHnLT+/3+ph8aRo8O6rd6lrEkENtsHls7Nu4Cj/prJd8LSTallr79SxajPDRX4ve4sLTfE8ZBk24KnA4J4Gay/DowuscX6ffYna3GOUCda0u7tfs107vJBKq4Y8hGxkr7V6XSxhDiKwYptvqP37PYwPDRJH8SeQ/PgD+1Gp/GKIbWxXaPLd1XHCjHFcuXw/Tybk0XK+xLCPDmYh1IqXY6DfIz2/id47AxPGZLkDCv2x6mtFWWuTHeoqXlFa9mkuJGllYu7HJY9atM4T8NXYil+zyEbZPu/P0qyt84IyDV7oCXZaWywsh+8jH4W/walOndygjZjqA2sLq2nMbxtFL2VhjPyrNJbeqLVh8oN6SL25+AzSDaehqie1F0JSfccPDmmNLfrI+5hD8RJ5y3Yf3q3Tw3Sz6EL5tRwed65GINZvo1wVW4kA/7jVzWGUdjLHI0bK8bsjjoykgj6ikBZd3lzeW/kXUzSx5yA3JB+dUwoqhPfGOGTc5NYbGGy8VRG2+zanYLNCRtIQ4yPkf81dHKeUQGPwzreh2+npaWt20Y3sRHcDawyc4z0PX1p2ScnlglgZkYhQMdqgB4MVwQ2Miq4V46mq27LxEtAwSwOcirjMVBcmRfRv60AVBDHIGWgB58M6zHK3k3pXzBwGP4/8AetNdmeGVSjge7a207UIhDOiOv8r849we30qco56iTwQm8L2lsWnhuHjhALOG+LaB1Of85rnayKhFNdWzTTNvJfoOpxRW8Mc9s1s8pJi38ls/dzwMEjHH0qWn1Vbl4SWH9GRsg/xZPJNeiaPV79JDllupefX4iatl1ILoD88c0hn2aAOUCPi2BQMaNM8aX1pYQ24iSURrgO55I7f4pYAViMrigZxRgUAVFglwNxAV16+4/wDtAFjLQBKJ2hcOhKkHII7UIR6d4UuotYs/MiYR3UQxNGOPkw9jWuM8oqlHBLxXZ6hc2ryW1022yANxbDIaRDzwehHHTHOKovq3rPoTrltZqW9lv9Psri8tpGuLe9RG2KOeceue+fnXG0jitQjXavIxI8dwrF4mvCjBllKyqV6fEB/g115dTLHoLppDOUCPqAOMe1AFcTHYOehI/WgZcKQz40AVSIGHQH50AQhx1XAA7DvQBf1oEEdD1SfR9QjvLc5KfeQ9HHdTUovDBrJ6jrV7Hd6RFfaZKmLqIKruMgEMrAH5YbI+dW2tOqT9iEfxHNEuDe2epCVBDci5YtATzGcDB+Xoa85KOzmP6o35zwxB8dT/AGrXEuSMNNaRmQDoJFLKw/QH612YXK6KmjLKO14FzHOR19KsRE6aBEQaAPn+6aAMyHj6mjIzSGpDO5oA4fSgDOm+ElVO5P5T1HyoA0KQRlelAiVADF4d1gxWV1pc5/czKzwk/gk2kfTI4/KpxeU4vuRa7o9FNjFf28VwrNFcKoMU8f3lBGce49jxXnoTcOHyja1k818YLNHq/l3aKk6rz5Y+Bx2YenfjsfpXR0eEmo9Cq3nGQEK3IpOHrQIi3FAHDyKAKYxlAfnRgkWLuI+IcikBwS7Th+BQBb8qAIMOaAO4J+JeD/WgCQYEEjjHUelAExwKAPR/BuuSR6WDduZrWI+W0gGWt/TcB1TH4u3fjmuXfSt+Fw39f7L4S4Bf7TApvLKZGDK8ZwwOQRT0PEpIVvRCXXURQyBPNAjjc0AQJwh+VIZFOFAoA4hdeh3CgZ2dVliK45xx7GgD60l82EE/eHBoAsbrQBNaAIupzlcBqBH0cm/jGGHUHtQMP+EdY/0jV45JDi3lHlzj0U9/of71n1FXiQ46olB4YV/aNYw2E1l9lZkilaQmAfcVuMlfTPoOKz6OblJ56k7EJ9dEoK2oYEQ1CAplbHA70gR8BJjpQM5CePgwfbNAyTzheJE2Z6EnigCiybbLInqcigDb1IHegD5mxQB0HPagRXKrfxI/4g/8vagCcEyzJleo4I7igAhrOsvqNrpVvMSZbUNHn+ZeMH8uPpWeunZZKS6Mm5ZSRkbvWlFZTIeKGBDtQgKpD6cmkMsWTIGTg0wIIufvbT9KQyxkYLlC2PTOc/nQBiOI7gEAjI6UAbfM+GgDg5oAsUmgD4mngRkuEaJ/Pg4P4h60hkjOk7QyJ1DYK+lAjax+GmhFMlDGVE4FICpvicCgZMZx1WgR/9k="><br/> -->
-                  <input ng-show="!startDone" ng-click="startClick()" type="button" value="Start!" class="startButton button big block"></input>
-                  <input ng-show="startDone" ng-click="submitClick()" type="submit" value="Submit" class="button big block"></input>
-                </form>
-              </div>
-              <small>
-                We don't record your data! Continue with confidence.
-              </small>
-            </div>
-          </div>
+                {{userAddressLabel}}</a>
+              </li>
+              <li><a href="/#/feed">Feed</a></li>
+              <li><a href="/#/reps">Reps</a></li>
+              <li><a href="/#/links">Links</a></li>
+              <li><a href="/#/about">About</a></li>
+            </ul>
+          </nav>
         </div>
-      </div>
+      </header>
     </div>
+  </div>
+</div>
 
-    <!-- Main Wrapper -->
-    <div id="main-wrapper">
-      <div class="wrapper style1">
-        <div class="inner">
+<!-- TODO separate -->
 
-          <!-- Feature 1 -->
-          <section class="container box feature1">
-            <div class="row">
-              <div class="12u">
-                <header class="first major">
-                  <h2>It's all about where you are!</h2>
-                  <p class="uppercase">Location-based civic information. No sign ups required.</p>
-                </header>
-              </div>
-            </div>
-            <div class="row">
-              <div class="4u">
-                <section>
-                  <a href="/#/feed" class="image featured constant">
-                    <img src="images/messages.svg" alt="Messages">
-                  </a>
-                  <h3>Messages for you from your local Reps.</h3>
-                </section>
-              </div>
-              <div class="4u">
-                <section>
-                  <a href="/#/reps" class="image featured constant">
-                    <img src="images/reps.svg" alt="Representatives" />
-                  </a>
-                  <h3>All the officials who are representing you.</h3>
-                </section>
-              </div>
-              <div class="4u">
-                <section>
-                  <a href="/#/links" class="image featured constant">
-                    <img src="images/resources.svg" alt="Resources" />
-                  </a>
-                  <h3>Links to your local resources.</h3>
-                </section>
-              </div>
-            </div>
-          </section>
-        </div>
+<!-- Banner -->
+<div id="banner">
+  <div class="left">
+    <h2 class="uppercase">Become an<br/>
+      engaged<br/>
+      citizen</h2>
+    <p>without even trying.</p>
+    <p class="attitude">Boost the &nbsp;<strong>#CitizenUp</strong> movement.</p>
+  </div>
+  <div class="right">
+    <div id="location-form-container" class="location-form-container" ng-class="lfcClass" >
+      <span></span>
+      <form id="location-forost">
+        <input class="block optional" ng-show="startDone" ng-model="userLocation.address"
+          type="text" name="address" placeholder="Address"> </input>
+        <input class="block suggested" ng-show="startDone" ng-model="userLocation.city"
+          type="text" name="city" placeholder="City"></input>
+        <select class="block suggested" ng-show="startDone" ng-model="userLocation.state"
+          ng-change="focusOnMap()" type="text" name="state" placeholder="State">
+            <option value="" disabled selected>State</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+          <!-- <input ng-show="startDone" ng-model="userLocation.state" type="text" name="state" placeholder="State"></input><br/> -->
+          <input class="block suggested" ng-show="startDone" ng-model="userLocation.zip" type="text" name="zip" placeholder="Zip"></input>
+          <a class="pointer pull-left" ng-show="startDone" ng-click="clearAll()">Clear Address</a>
+          <a class="pointer pull-right" ng-show="startDone" ng-click="startClick()">Use Location</a>
+          <img ng-show="spin" ng-src="images/Ajax-loader.gif">
+          <div id="errorBlock" class="block">
+            <span id="errorSpan" ng-show="startDone">{{formError}}</span>
+          </div>
+          <!-- <img ng-show="spin" ng-src="data:image/jpeg;base64,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"><br/> -->
+          <input ng-show="!startDone" ng-click="startClick()" type="button" value="Start!" class="startButton button big block"></input>
+          <input ng-show="startDone" ng-click="submitClick()" type="submit" value="Submit" class="button big block"></input>
+        </form>
       </div>
-      <section style="width:100%;background:white;padding:100px 0;text-align:center;">
+      <small>
+        We don't record your data! Continue with confidence.
+      </small>
+    </div>
+  </div>
+</div>
+
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+  <div class="wrapper style1">
+    <div class="inner">
+
+      <!-- Feature 1 -->
+      <section class="container box feature1">
         <div class="row">
           <div class="12u">
-            <header>
-            <h2 style="font-size:3em;color:rgb(239,65,54);">Get CITIZEN on your device!</h2>
-            <h3 style="color:rgb(43,64,120);text-transform:uppercase;">DIRECTIONS HOW ON AN <a style="color:rgb(239,65,54);" href="http://www.wikihow.com/Add-a-Link-Button-to-the-Home-Screen-of-an-iPhone" target="_blank">APPLE</a> OR <a style="color:rgb(239,65,54);" href="http://www.wikihow.com/Set-a-Bookmark-Shortcut-in-Your-Home-Screen-on-Android
-            " target="_blank">ANDROID</a> DEVICE.</h3>
+            <header class="first major">
+              <h2>It's all about where you are!</h2>
+              <p class="uppercase">Location-based civic information. No sign ups required.</p>
             </header>
           </div>
         </div>
+        <div class="row">
+          <div class="4u">
+            <section>
+              <a href="/#/feed" class="image featured constant">
+                <img src="images/messages.svg" alt="Messages">
+              </a>
+              <h3>Messages for you from your local Reps.</h3>
+            </section>
+          </div>
+          <div class="4u">
+            <section>
+              <a href="/#/reps" class="image featured constant">
+                <img src="images/reps.svg" alt="Representatives" />
+              </a>
+              <h3>All the officials who are representing you.</h3>
+            </section>
+          </div>
+          <div class="4u">
+            <section>
+              <a href="/#/links" class="image featured constant">
+                <img src="images/resources.svg" alt="Resources" />
+              </a>
+              <h3>Links to your local resources.</h3>
+            </section>
+          </div>
+        </div>
       </section>
+    </div>
   </div>
+  <section style="width:100%;background:white;padding:100px 0;text-align:center;">
+    <div class="row">
+      <div class="12u">
+        <header>
+          <h2 style="font-size:3em;color:rgb(239,65,54);">Get CITIZEN on your device!</h2>
+          <h3 style="color:rgb(43,64,120);text-transform:uppercase;">DIRECTIONS HOW ON AN
+            <a style="color:rgb(239,65,54);"
+              href="http://www.wikihow.com/Add-a-Link-Button-to-the-Home-Screen-of-an-iPhone" target="_blank">APPLE</a> OR
+            <a style="color:rgb(239,65,54);"
+              href="http://www.wikihow.com/Set-a-Bookmark-Shortcut-in-Your-Home-Screen-on-Android" target="_blank">ANDROID</a> DEVICE.
+          </h3>
+        </header>
+      </div>
+    </div>
+  </section>
 </div>

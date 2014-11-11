@@ -1041,7 +1041,7 @@ margin: 0.5em 0 10px 0;
 }
         }
 
-#header-wrapper-gradient
+#banner
 {
 	background-image: -moz-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
 	background-image: -webkit-linear-gradient(top, rgba(230,230,230,.2), rgba(255,255,255,.2));
