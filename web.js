@@ -13,7 +13,7 @@ function compile(str, path) {
 };
 
 app.use(stylus.middleware({
-  src: __dirname + "/app",
+  src: __dirname + "/app/css",
   compile: compile
 }));
 
