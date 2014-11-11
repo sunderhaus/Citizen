@@ -20,27 +20,25 @@ angular.module('CitizenApp')
   var prev_id = [], color_map = {};
   map.focus = function (id) {
     if(id) {
-      if(prev_id.length) {
-        env.paper.select(prev_id.pop()).attr({
-            fill: color_map[last_id]
-        });
-      }
       var state = env.paper.select('#'+id);
       if(!color_map[id]) {
           color_map[id] = state.attr('fill');
       }
-      prev_id.push(id);
       var start = env.paper.attr('viewBox').vb,
         bbox = state.getBBox(),
         scale = .2,
         end = (bbox.x-scale/2*bbox.width) + ' ' + (bbox.y-scale/2*bbox.height) + ' '
           + (bbox.width+scale*bbox.width) + ' ' + (bbox.height+scale*bbox.height);
-      state.animate({fill: '#F9B099'},1000,mina.easeout);
-        var last_state = env.paper.select(prev_id.pop());
-        last_state.animate({fill: color_map[last_id]},1000,mina.easeout);
+      state.animate({fill: '#F9B099'},500,mina.easeinout);
+      if(prev_id.length) {
+        var last_id = prev_id.pop(),
+          last_state = env.paper.select('#'+last_id);
+        last_state.animate({fill: color_map[last_id]},500,mina.easeinout);
+      }
       env.paper.add(Snap.parse(
-        '<animate id="smoothpan" attributeName="viewBox" dur="4s" values="'
+        '<animate attributeName="viewBox" dur="1s" values="'
           + start + ';' + end + '" fill="freeze" />'));
+      prev_id.push(id);
     } else {
       if(prev_color.length) {
         var info = prev_color.pop();
