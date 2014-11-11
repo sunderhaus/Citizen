@@ -266,6 +266,11 @@ header.major p
 	margin: 0;
 	padding: 0.5em;
 }
+
+#errorBlock {
+        background-color: transparent;
+}
+
 .startButton {
 	margin-top: 110px;
 } 
