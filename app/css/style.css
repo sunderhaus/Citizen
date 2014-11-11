@@ -19,6 +19,11 @@ body
 	background-color: #e7e8e9;
 }
 
+.invisible
+{
+        visibility: hidden;
+}
+
 .container
 {
 	padding: 1em;

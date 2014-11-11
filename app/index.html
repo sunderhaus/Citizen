@@ -29,6 +29,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-cookies.min.js"></script>
   <script src="/scripts/app.js"></script>
+  <script src="/scripts/controllers/nav.js"></script>
   <script src="/scripts/controllers/home.js"></script>
 
   <script src="/scripts/controllers/officials-list.js"></script>
@@ -56,8 +57,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
   <link rel="apple-touch-startup-image" href="images/home_icon.png">
 
 </head>
-<body>
-  <div class="banner-background USAmap"></div>
+<body ng-controller="NavCtrl">
+  <div class="banner-background USAmap" ng-class="{invisible:!isActive('/')}"></div>
   <!-- Header -->
   <div id="header-background"></div>
     <div id="header-wrapper-gradient">
@@ -72,16 +73,16 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <!-- Logo -->
             <h1><a href="/#/" id="logo">Citizen</a></h1>
             <!-- Nav -->
-            <nav id="nav">
+            <nav id="nav" >
               <ul>
                 <li><a class="location" href="#">
                   <img src="images/pin.svg" alt="GPS pin">
                   {{userAddressLabel}}</a>
                 </li>
-                <li><a href="/#/feed">Feed</a></li>
-                <li><a href="/#/reps">Reps</a></li>
-                <li><a href="/#/links">Links</a></li>
-                <li><a href="/#/about">About</a></li>
+                <li ng-class="{current_page_item:isActive('/feed')}"><a href="/#/feed">Feed</a></li>
+                <li ng-class="{current_page_item:isActive('/reps')}"><a href="/#/reps">Reps</a></li>
+                <li ng-class="{current_page_item:isActive('/links')}"><a href="/#/links">Links</a></li>
+                <li ng-class="{current_page_item:isActive('/about')}"><a href="/#/about">About</a></li>
               </ul>
             </nav>
           </div>
