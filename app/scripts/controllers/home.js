@@ -5,7 +5,6 @@ angular.module('CitizenApp')
 	$scope.formError = '';
 
 	$scope.startClick = function() {
-		$scope.spin = true;
 		$scope.askForLocation(false);
 	};//end startClick
 
@@ -23,7 +22,6 @@ angular.module('CitizenApp')
 	}//end clearAll
 
 	$scope.refreshLocation = function() {
-		$scope.spin = true;
 		$scope.askForLocation(true);
 	};//end startClick
 
@@ -76,10 +74,9 @@ angular.module('CitizenApp')
 	};//end setUserLocationFromCookie
 
 	$scope.askForLocation = function(refresh) {
+		$scope.spin = true;
 		$scope.userLocation = CookieJar.getUserLocation();
                 if(!$scope.userLocation || refresh) {
-                    // console.log("Retrieving the user locationdata.");
-                    // console.log(userLocation);
                     Geolocator.getBrowserGeolocation()
                     .then(function(data) {
                             CookieJar.setUserLocation(data);
