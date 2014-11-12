@@ -1,5 +1,5 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($rootScope, $scope, $location, $route, Geolocator, CookieJar, Map) {
+.controller('HomeCtrl', function ($rootScope, $scope, $location, $route, $timeout, Geolocator, CookieJar, Map) {
 
 	$scope.startDone = false;
 	$scope.formError = '';
@@ -93,7 +93,7 @@ angular.module('CitizenApp')
                 } else {
                     $scope.focusOnMap();
                 }
-                $scope.spin = false;
+                $timeout(function() {$scope.spin = false;},500);
                 $scope.startDone = true;
                 $scope.lfcClass = "location-form-container-expanded";
 	};//end askForLocation
