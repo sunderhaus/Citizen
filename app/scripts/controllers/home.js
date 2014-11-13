@@ -74,26 +74,27 @@ angular.module('CitizenApp')
 	};//end setUserLocationFromCookie
 
 	$scope.askForLocation = function(refresh) {
-		$scope.spin = true;
 		$scope.userLocation = CookieJar.getUserLocation();
                 if(!$scope.userLocation || refresh) {
+                    $scope.spin = true;
                     Geolocator.getBrowserGeolocation()
                     .then(function(data) {
                             CookieJar.setUserLocation(data);
                             $scope.setUserLocationFromCookie();
                             $scope.focusOnMap();
                             $scope.browserLookupFailed = false;
+                            $timeout(function() {$scope.spin = false;},500);
                     }, function (refresh) {
                             if(refresh) {
                               alert("Oops! It looks like you've denied us access to your location. Please fill out the form or re-enable location permission for our website in your browser settings and reload this page. Thanks!");
                             }
                             $scope.browserLookupFailed = true;
                             $scope.userLocationIsValid($scope.userLocation);
+                            $timeout(function() {$scope.spin = false;},500);
                     });
                 } else {
                     $scope.focusOnMap();
                 }
-                $timeout(function() {$scope.spin = false;},500);
                 $scope.startDone = true;
                 $scope.lfcClass = "location-form-container-expanded";
 	};//end askForLocation
