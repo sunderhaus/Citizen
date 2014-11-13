@@ -4,8 +4,14 @@
 @import url('http://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('http://fonts.googleapis.com/css?family=Permanent+Marker');
 
+$citizen-red = #F05040;
+$citizen-blue = #2A4078;
+$light-grey = #E7E8E9;
+$grey = #7B818C;
+$dark-grey = #696969;
+
 body {
-  background-color: #e7e8e9;
+  background-color: $light-grey;
 }
 
 .invisible {
@@ -32,7 +38,7 @@ body {
 
 body,input,select,textarea {
   font-family: 'Montserrat', sans-serif;
-  color: #7b818c;
+  color: $grey;
   font-weight: 400;
 }
 
@@ -55,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: capitalize;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #2A4078;
+  color: $citizen-blue;
   margin: 0 0 1em 0;
 }
 
@@ -93,21 +99,20 @@ b, strong {
   text-align: center;
   position: relative;
   .attitude {
-    color: #2A4078;
+    color: $citizen-blue;
     text-transform: none;
     font-size: 1.2em;
     margin-top: 1em;
     strong {
       font-family: 'Permanent Marker', cursive;
-      color: #F05040;
+      color: $citizen-red;
       font-size: 1.2em;
     }
   }
   h2 {
     border-left: 0;
     border-right: 0;
-    color: #2A4078;
-    color: rgba(42,64,120,1);
+    color: $citizen-blue;
     text-align: left;
     font-size: 5em;
     letter-spacing: .005em;
@@ -121,8 +126,7 @@ b, strong {
   }
   p {
     text-transform: uppercase;
-    color: #F05040;
-    color: rgba(240,80,64,1);
+    color: $citizen-blue;
     font-size: 1.8em;
     font-weight: 700;
     line-height: 1.3em;
@@ -168,7 +172,7 @@ blockquote {
 
 p, ul, ol, dl, table {
   margin-bottom: 1.8em;
-  font-family: 'open sans',sans-serif;
+  font-family: 'open sans', sans-serif;
 }
 
 .date {
@@ -177,7 +181,7 @@ p, ul, ol, dl, table {
   font-weight: 700;
   letter-spacing: 0.065em;
   font-size: 0.9em;
-  color: #696969;
+  color: $dark-grey;
   margin: 0 0 0.25em 0;
 }
 
@@ -242,7 +246,7 @@ header.major h3 {
 }
 
 .location-form-container-expanded {
-  background-color: #F05040;
+  background-color: $citizen-red;
   margin: 0;
   padding: 0.5em;
 }
