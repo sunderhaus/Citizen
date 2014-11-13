@@ -275,6 +275,7 @@ header.major p
 	margin-top: 110px;
 } 
 .spinner {
+        margin: 0.5em;
 	height: 2em;
 } 
 #location-form input {
