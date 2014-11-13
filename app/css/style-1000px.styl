@@ -1,82 +1,56 @@
-/*
-	ZeroFour by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+body,input,select,textarea {
+  line-height: 1.75em;
+  font-size: 10.75pt;
+}
 
-/*********************************************************************************/
-/* Basic                                                                         */
-/*********************************************************************************/
+#header-wrapper {
+  padding: 1em 0 4em 0;
+  height: 11em;
+}
 
-	body,input,select,textarea
-	{
-		line-height: 1.75em;
-		font-size: 10.75pt;
-	}
+body {
+  &.homepage {
+    #header-wrapper {
+      height: 40em;
+    }
+  }
+}
 
-/*********************************************************************************/
-/* Wrappers                                                                      */
-/*********************************************************************************/
+#banner-wrapper {
+}
 
-	#header-wrapper
-	{
-		padding: 1em 0 4em 0;
-		height: 11em;
-	}
+#main-wrapper {
+}
 
-		body.homepage #header-wrapper
-		{
-			height: 40em;
-		}
-	
-	#banner-wrapper
-	{
-	}
+#footer-wrapper {
+  padding: 4.5em 0 4.5em 0;
+}
 
-	#main-wrapper
-	{
-	}
-	
-	#footer-wrapper
-	{
-		padding: 4.5em 0 4.5em 0;
-	}
+.wrapper {
+  padding: 4.5em 0 4.5em 0;
+}
 
-	.wrapper
-	{
-		padding: 4.5em 0 4.5em 0;
-	}
+#banner {
+  width: 840px;
+  padding: 0 0 2em 0;
+  h2 {
+    font-size: 5em;
+    line-height: 1.3em;
+    margin: 0 0 0 0;
+  }
+  p {
+    font-size: 2em;
+    line-height: 1.75em;
+    letter-spacing: 0.04em;
+  }
+  .fill {
+    height: 15em;
+  }
+}
 
-/*********************************************************************************/
-/* Banner                                                                        */
-/*********************************************************************************/
+#nav {
+  .location-container {
+    margin-right: 8em;
+  }
+}
 
-	#banner
-	{
-		width: 840px;
-		padding: 0 0 2em 0;
-	}
-	
-		#banner h2
-		{
-			font-size: 5em;
-			line-height: 1.3em;
-			margin: 0 0 0 0;
-		}
-		
-		#banner p
-		{
-			font-size: 2em;
-			line-height: 1.75em;
-			letter-spacing: 0.04em;
-		}
-
-		#banner .fill
-                {
-                        height: 15em;
-                }
-
-                #nav .location-container
-                {
-                        margin-right: 8em;
-                }

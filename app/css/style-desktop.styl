@@ -1,260 +1,172 @@
-/*
-	ZeroFour by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+body,input,select,textarea {
+  font-size: 11pt;
+  line-height: 1.85em;
+}
 
-/*********************************************************************************/
-/* Basic                                                                         */
-/*********************************************************************************/
+#sidebar {
+  h2 {
+    font-size: 1.5em;
+  }
+}
 
-	body,input,select,textarea
-	{
-		font-size: 11pt;
-		line-height: 1.85em;
-	}
+#header-wrapper {
+  padding: 1em 0 0;
+}
 
-/*********************************************************************************/
-/* Sidebar                                                                       */
-/*********************************************************************************/
+#header-wrapper-gradient {
+  padding: 1em 0 0;
+}
 
-	#sidebar h2
-	{
-		font-size: 1.5em;
-	}
+#banner-wrapper {
+}
 
-/*********************************************************************************/
-/* Wrappers                                                                      */
-/*********************************************************************************/
+#main-wrapper {
+}
 
-	#header-wrapper
-	{
-		padding: 1em 0 0;
-	}
+#footer-wrapper {
+  padding: 1em 0 1em 0;
+}
 
-	#header-wrapper-gradient
-	{
-		padding: 1em 0 0;
-	}
-	
-	#banner-wrapper
-	{
-	}
-	
-	#main-wrapper
-	{
-	}
+.wrapper {
+  padding: 7em 0 7em 0;
+}
 
-	#footer-wrapper
-	{
-		padding: 1em 0 1em 0;
-	}
+#header {
+  position: relative;
+  border-radius: 10px;
+  padding: 0.75em;
+  .inner {
+    position: relative;
+    height: 5.5em;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2A4078;
+    background-color: rgba(42,64,120,1);
+    border-radius: 8px;
+  }
+  h1 {
+    position: absolute;
+    left: 1.75em;
+    top: 50%;
+    margin-top: -0.65em;
+    font-size: 1.5em;
+    color: #fff;
+  }
+}
 
-	.wrapper
-	{
-		padding: 7em 0 7em 0;
-	}
+#banner {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 1em 0 3em 0;
+  .left {
+    float: left;
+    width: 60%;
+  }
+  .right {
+    float: right;
+  }
+  h2 {
+  }
+  p {
+    float: left;
+    text-align: left;
+    line-height: 1.5em;
+    margin: 4px;
+  }
+}
 
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
+#logo {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8em;
+}
 
-	#header
-	{
-		position: relative;
-		border-radius: 10px;
-		padding: 0.75em;
-	}
+#nav {
+  float: right;
+  margin-right: 2em;
+  line-height: 5.5em;
+  font-family: 'Open Sans', sans-serif;
+  & > ul {
+    float: right;
+    & > li {
+      float: left;
+      padding: 0 0.8em 0 0.8em;
+      &:last-child {
+        padding-right: 0;
+      }
+      & > ul {
+        display: none;
+      }
+    }
+  }
+}
 
-		#header .inner
-		{
-			position: relative;
-			height: 5.5em;
-                        width: 75%;
-                        margin-left: auto;
-                        margin-right: auto;
-			background-color: #2A4078;
-			background-color: rgba(42,64,120,1);
-			border-radius: 8px;
-                        /*
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.35)), url('images/bg02.png');
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.35)), url('images/bg02.png');
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.35)), url('images/bg02.png');
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.35)), url('images/bg02.png');
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.35)), url('images/bg02.png');
-                        */
-		}
-	
-		#header h1
-		{
-			position: absolute;
-			left: 1.75em;
-			top: 50%;
-			margin-top: -0.65em;
-			font-size: 1.5em;
-			color: #fff;
-		}
+#nav > ul > li > a,
+#nav > ul > li > span {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 0.075em;
+  padding: 0.5em 0.3em 0.5em 0.3em;
+  border-radius: 6px;
+  outline: 0;
+  text-transform: capitalize;
+}
 
-		#banner .left
-                {
-                        float: left;
-                        width: 60%;
-                }
+#nav > ul > li:hover > a,
+#nav  > ul > li:hover > span {
+  background: rgba(0,0,0,0.15);
+  box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.025), 1px 1px 0px 0px rgba(255,255,255,0.025);
+}
 
-		#banner .right
-                {
-                        float: right;
-                }
+#nav > ul > li.active > a,
+#nav > ul > li.current_page_item > a,
+#nav > ul > li.active > span,
+#nav > ul > li.current_page_item > span {
+  background: rgba(0,0,0,0.15);
+  box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.025), 1px 1px 0px 0px rgba(255,255,255,0.025);
+}
 
-                #logo
-                {
-                        font-family: 'Open Sans', sans-serif;
-			font-size: 1.8em;
-                }
+.dropotron {
+  position: relative;
+  background-color: #3B3E45;
+  background-color: rgba(59,62,69,0.9);
+  background-image: linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
+  background-image: linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5), inset 0px 0px 0px 2px rgba(255,255,255,0.075), inset 0px 2px 1px 0px rgba(255,255,255,0.2), 0px 2px 14px 0px rgba(0,0,0,0.4);
+  padding: 1.5em;
+  line-height: 2.5em;
+  min-width: 15em;
+  &.level-0 {
+    borderleft-radius: 0;
+    borderright-radius: 0;
+    margin-top: -2px;
+    box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5), inset 0px 0px 0px 2px rgba(255,255,255,0.075), 0px 2px 14px 0px rgba(0,0,0,0.4);
+  }
+}
 
+.dropotron a,
+.dropotron span {
+  color: #aaa;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.8em;
+  letter-spacing: 0.075em;
+  outline: 0;
+}
 
-/*********************************************************************************/
-/* Nav                                                                           */
-/*********************************************************************************/
+.dropotron li:hover > a,
+.dropotron li:hover > span {
+  color: #fff;
+}
 
-	#nav
-	{
-		float: right;
-                margin-right: 2em;
-		line-height: 5.5em;
-                font-family: 'Open Sans', sans-serif;
-	}
+#footer {
+}
 
-                #nav > ul
-                {
-                        float: right;
-                }
+#main {
+}
 
-		#nav > ul > li
-		{
-			float: left;
-			padding: 0 0.8em 0 0.8em;
-		}
-
-			#nav > ul > li > a,
-			#nav > ul > li > span
-			{
-				color: #fff;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 1em;
-                letter-spacing: 0.075em;
-                padding: 0.5em 0.3em 0.5em 0.3em;
-                border-radius: 6px;
-                outline: 0;
-                text-transform: capitalize;
-			}
-
-                        #nav > ul > li:hover > a,
-                        #nav  > ul > li:hover > span
-                        {
-                                background: rgba(0,0,0,0.15);
-				box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.025), 1px 1px 0px 0px rgba(255,255,255,0.025);
-                        }
-
-				#nav > ul > li.active > a,
-				#nav > ul > li.current_page_item > a,
-				#nav > ul > li.active > span,
-				#nav > ul > li.current_page_item > span
-				{
-					background: rgba(0,0,0,0.15);
-					box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.025), 1px 1px 0px 0px rgba(255,255,255,0.025);
-				}
-
-			#nav > ul > li:last-child
-			{
-				padding-right: 0;
-			}
-
-		#nav > ul > li > ul
-		{
-			display: none;
-		}
-
-	.dropotron
-	{
-		position: relative;
-		background-color: #3B3E45;
-		background-color: rgba(59,62,69,0.9);
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
-		background-image: -o-linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
-		background-image: linear-gradient(top, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('images/bg02.png');
-		border-radius: 8px;
-		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5), inset 0px 0px 0px 2px rgba(255,255,255,0.075), inset 0px 2px 1px 0px rgba(255,255,255,0.2), 0px 2px 14px 0px rgba(0,0,0,0.4);
-		padding: 1.5em;
-		line-height: 2.5em;
-		min-width: 15em;
-	}
-
-		.dropotron.level-0
-		{
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
-			margin-top: -2px;
-			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5), inset 0px 0px 0px 2px rgba(255,255,255,0.075), 0px 2px 14px 0px rgba(0,0,0,0.4);
-		}
-		
-		.dropotron a,
-		.dropotron span
-		{
-			color: #aaa;
-			text-decoration: none;
-			text-transform: uppercase;
-			font-weight: 800;
-			font-size: 0.8em;
-			letter-spacing: 0.075em;
-			outline: 0;
-		}
-		
-		.dropotron li:hover > a,
-		.dropotron li:hover > span
-		{
-			color: #fff;
-		}
-
-/*********************************************************************************/
-/* Banner                                                                        */
-/*********************************************************************************/
-
-	#banner
-	{
-		width: 1000px;
-		margin: 0 auto;
-		overflow: hidden;
-		padding: 1em 0 3em 0;
-	}
-
-		#banner h2
-		{
-		}
-		
-		#banner p
-		{
-			float: left;
-			text-align: left;
-			line-height: 1.5em;
-			margin: 4px;
-		}
-
-/*********************************************************************************/
-/* Footer                                                                        */
-/*********************************************************************************/
-
-	#footer
-	{
-	}
-
-/*********************************************************************************/
-/* Main                                                                          */
-/*********************************************************************************/
-
-	#main
-	{
-	}
