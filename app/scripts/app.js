@@ -25,23 +25,7 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
     .when('/about', {
       templateUrl: '/templates/about.html'
     })
-    .when('/officialsList', {
-        templateUrl: '/templates/officialsList.html',
-        controller: 'OfficialsListCtrl'
-     })
-     .when('/officialsDetail', {
-        templateUrl: '/templates/officialsDetail.html',
-        controller: 'OfficialsDetailCtrl'
-     })
-     .when('/localCivicList', {
-        templateUrl: '/templates/localCivicList.html',
-        controller: 'LocalCivicCtrl'
-     })
-     .when('/getTwitterFeed', {
-        templateUrl: '/templates/twitterFeed.html',
-        controller: 'getTwitterFeed'
-     })
     .otherwise({
-    	redirectTo: '/'
+      redirectTo: '/'
     });
   }]);
