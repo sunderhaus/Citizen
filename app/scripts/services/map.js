@@ -29,12 +29,13 @@ angular.module('CitizenApp')
         scale = .2,
         end = (bbox.x-scale/2*bbox.width) + ' ' + (bbox.y-scale/2*bbox.height) + ' '
           + (bbox.width+scale*bbox.width) + ' ' + (bbox.height+scale*bbox.height);
-      state.animate({fill: '#F9B099'},500,mina.easeinout);
       if(prev_id.length) {
         var last_id = prev_id.pop(),
           last_state = env.paper.select('#'+last_id);
-        last_state.animate({fill: color_map[last_id]},500,mina.easeinout);
+        if(last_id != id)
+          last_state.animate({fill: color_map[last_id]},500,mina.easeinout);
       }
+      state.animate({fill: '#F9B099'},500,mina.easeinout);
       env.paper.add(Snap.parse(
         '<animate attributeName="viewBox" dur="1s" values="'
           + start + ';' + end + '" fill="freeze" />'));
