@@ -1,11 +1,10 @@
 angular.module('CitizenApp')
-.controller('HomeCtrl', function ($rootScope, $scope, $location, $route, Geolocator, CookieJar, Map) {
+.controller('HomeCtrl', function ($rootScope, $scope, $location, $route, $timeout, Geolocator, CookieJar, Map) {
 
 	$scope.startDone = false;
 	$scope.formError = '';
 
 	$scope.startClick = function() {
-		$scope.spin = true;
 		$scope.askForLocation(false);
 	};//end startClick
 
@@ -23,7 +22,6 @@ angular.module('CitizenApp')
 	}//end clearAll
 
 	$scope.refreshLocation = function() {
-		$scope.spin = true;
 		$scope.askForLocation(true);
 	};//end startClick
 
@@ -78,25 +76,25 @@ angular.module('CitizenApp')
 	$scope.askForLocation = function(refresh) {
 		$scope.userLocation = CookieJar.getUserLocation();
                 if(!$scope.userLocation || refresh) {
-                    // console.log("Retrieving the user locationdata.");
-                    // console.log(userLocation);
+                    $scope.spin = true;
                     Geolocator.getBrowserGeolocation()
                     .then(function(data) {
                             CookieJar.setUserLocation(data);
                             $scope.setUserLocationFromCookie();
                             $scope.focusOnMap();
                             $scope.browserLookupFailed = false;
+                            $timeout(function() {$scope.spin = false;},500);
                     }, function (refresh) {
                             if(refresh) {
                               alert("Oops! It looks like you've denied us access to your location. Please fill out the form or re-enable location permission for our website in your browser settings and reload this page. Thanks!");
                             }
                             $scope.browserLookupFailed = true;
                             $scope.userLocationIsValid($scope.userLocation);
+                            $timeout(function() {$scope.spin = false;},500);
                     });
                 } else {
                     $scope.focusOnMap();
                 }
-                $scope.spin = false;
                 $scope.startDone = true;
                 $scope.lfcClass = "location-form-container-expanded";
 	};//end askForLocation
