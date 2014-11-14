@@ -1,0 +1,14 @@
+<div class="centered containerDiv" >
+  <!-- Spotlight -->
+  <section ng-if="error!=''" class="box spotlight">
+    <article>{{error}}</article>
+  </section>
+  <section ng-if="error==''" class="box spotlight">
+    <article class="whiteBkg" data-ng-repeat="nfo in contactList">
+      <h3>{{nfo.title}}</h3>
+      <p>{{nfo.comments}}</p>
+      <span class="whiteBkg" ng-if="nfo.url!=''"><a href="{{nfo.url}}">{{nfo.url}}</a><br/></span>
+      <span class="whiteBkg" ng-if="nfo.phone!=''"><a href="tel://{{nfo.phone}}">{{nfo.phone}}</a><br/></span>
+    </article>
+  </section>
+</div>

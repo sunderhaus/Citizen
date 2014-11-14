@@ -1,0 +1,54 @@
+<div class="centered containerDiv">
+
+  <!-- Spotlight -->
+  <!-- Excerpt -->
+  <section ng-if="error!=''" class="box spotlight replist" >
+	  <h2 >{{error}}</h2>
+	</section>
+  <section ng-if="error==''" class="box spotlight">
+    <article class="rep-info">
+    	<h2 class="role" style="margin-bottom: 15px;">{{officialDetail.office}}</h2>
+      <h3 class="name">{{officialDetail.name}}</h3>
+      <span ng-if="officialDetail.photoURL!=''">
+      	<a href="{{officialDetail.photoURL}}" target="_blank"><img src="{{officialDetail.photoURL}}" border="0" style="max-height: 200px;"></a>
+      </span>
+      <h4 ng-if="officialDetail.party!='' && officialDetail.party!='Unknown'">{{officialDetail.party}}</h4>
+      
+      <p ng-if="officialDetail.address!=''" class="address uppercase" >
+        <span ng-if="officialDetail.address!=''">{{officialDetail.address}}<br/></span>
+        <span ng-if="officialDetail.address2!=''">{{officialDetail.address2}}<br/></span>
+        <span ng-if="officialDetail.city!=''">{{officialDetail.city}}, {{officialDetail.state}} {{officialDetail.zip}}</span>
+      </p>
+      <p data-ng-repeat="pn in officialDetail.email">
+        <a class="email"
+	   href="mailto:{{pn}}">
+	   {{pn}}
+        </a><br/>
+      </p>
+      <p data-ng-repeat="pn in officialDetail.phone">
+        <a class="phone"
+	  href="tel://{{pn}}">
+          {{pn}}
+        </a><br/>
+      </p>
+      <p data-ng-repeat="pn in officialDetail.urls">
+        <a class="source"
+	  href="{{pn}}" target="_blank">
+	  Visit Information Source &gt;&gt;
+	</a><br/>
+      </p>
+      <hr>
+      <section class="box spotlight replist">
+        <ul>
+          <li ng-repeat="sm in officialDetail.socialMedia">
+            <span ng-if="sm.type=='Facebook'"><a href="https://www.facebook.com/{{sm.id}}" target="_blank">Facebook</a><br/></span>
+            <span ng-if="sm.type=='Twitter'"><a href="https://twitter.com/{{sm.id}}" target="_blank">Twitter @{{sm.id}}</a><br/></span>
+            <span ng-if="sm.type=='LinkedIn'"><a href="https://www.linkedin.com/pub/{{sm.id}}" target="_blank">LinkedIn</a><br/></span>
+            <span ng-if="sm.type=='YouTube'"><a href="https://www.youtube.com/{{sm.id}}" target="_blank">YouTube</a><br/></span>
+            <span ng-if="sm.type=='GooglePlus'"><a href="https://plus.google.com/u/0/{{sm.id}}" target="_blank">Google+</a><br/></span>
+          </li>
+        </ul>
+      </section>
+    </article>
+  </section>
+</div>
