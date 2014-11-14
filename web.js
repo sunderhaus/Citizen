@@ -1,21 +1,6 @@
 var express = require("express"),
-    stylus = require("stylus"),
-    nib = require("nib"),
     app = express(),
     port = process.env.PORT || 3000;
-
-// Compile CSS with Stylus
-function compile(str, path) {
-    return stylus(str)
-      .set("filename", path)
-      .set("compress", true)
-      .use(nib());
-};
-
-app.use(stylus.middleware({
-  src: __dirname + "/app/css",
-  compile: compile
-}));
 
 // This serves up all the HTML pages on the site
 // The port designation allows us to develop on 8083 but serve from heroku on standard ports
