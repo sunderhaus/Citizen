@@ -466,7 +466,7 @@ input[type="reset"],
   font-family: 'Montserrat', sans-serif;
   position: relative;
   display: inline-block;
-  background-color: #F05040;
+  background-color: $citizen-red;
   background-color: rgba(240,80,64,1);
   border-radius: 8px;
   color: #fff !important;
@@ -489,16 +489,14 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 .button:hover {
-  background-color: #FF6454;
-  background-color: rgba(255,100,84,1);
+  background-color: lighten($citizen-red, 20%);
 }
 
 input[type="button"]:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 .button:active {
-  background-color: #C82818;
-  background-color: rgba(200,40,24,1);
+  background-color: darken($citizen-red, 20%);
 }
 
 .button {
