@@ -6,8 +6,15 @@
 
 This will perform the following steps:
 
-#####Build the app
-    gulp
+#####Install dependencies
+    npm install
+
+#####Build the app and watch for changes
+    node node_modules/gulp/bin/gulp.js watch
+
+To build without watching run:
+
+    node node_modules/gulp/bin/gulp.js
 
 #####Serve the app
     node web.js

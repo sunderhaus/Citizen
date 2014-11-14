@@ -24,4 +24,8 @@ gulp.task('stylus', function() {
     .pipe(gulp.dest('./app/css'));
 });
 
+gulp.task('watch', ['default'], function() {
+  gulp.watch('app/css/*.styl', ['stylus']);
+});
+
 gulp.task('default',['stylus']);
