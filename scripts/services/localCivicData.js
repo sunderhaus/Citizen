@@ -10,7 +10,7 @@ angular.module('CitizenApp')
 			if((city && state && city!='' && state!='') || (zip && zip!='') ) {
 
 				//try to look up by full address
-				$http.get( '/data/localCivic.json' )
+				$http.get( 'data/localCivic.json' )
 				.success(function(data) {
 					if(data) {
 						$rootScope.currentLocalCivicData = data;
