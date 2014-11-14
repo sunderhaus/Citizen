@@ -4,7 +4,7 @@ angular.module('CitizenApp')
   var map = {},
       env;
 
-  Snap.load('/images/Blank_USA_w_territories.svg', function (data){
+  Snap.load('images/Blank_USA_w_territories.svg', function (data){
     var paper = Snap.select(".USAmap");
     paper.append(data);
     paper = paper.select('svg');

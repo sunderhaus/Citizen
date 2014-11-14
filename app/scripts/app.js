@@ -3,27 +3,27 @@ angular.module('CitizenApp', ['ngRoute', 'ngCookies', 'infiniteScroll'])
   '$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
-      templateUrl: '/templates/home.html',
+      templateUrl: 'templates/home.html',
       controller: 'HomeCtrl'
     })
     .when('/feed', {
-      templateUrl: '/templates/feed.html',
+      templateUrl: 'templates/feed.html',
       //controller: 'FeedController'
     })
     .when('/reps', {
-      templateUrl: '/templates/reps.html',
+      templateUrl: 'templates/reps.html',
       controller: 'OfficialsListCtrl'
     })
     .when('/rep-detail', {
-      templateUrl: '/templates/rep-detail.html',
+      templateUrl: 'templates/rep-detail.html',
       controller: 'OfficialsDetailCtrl'
     })
     .when('/links', {
-      templateUrl: '/templates/links.html',
+      templateUrl: 'templates/links.html',
       controller: 'LocalCivicCtrl'
     })
     .when('/about', {
-      templateUrl: '/templates/about.html'
+      templateUrl: 'templates/about.html'
     })
     .otherwise({
       redirectTo: '/'
