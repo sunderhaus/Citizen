@@ -22,7 +22,9 @@ angular.module('CitizenApp')
         cookieToReturn.city_state = cookieFromStore.locality + ", " + cookieFromStore.administrative_area_level_1.short_name;
       }
       cookieToReturn.city = cookieFromStore.locality;
-      cookieToReturn.state = cookieFromStore.administrative_area_level_1.short_name;
+      if(cookieFromStore.administrative_area_level_1) {
+          cookieToReturn.state = cookieFromStore.administrative_area_level_1.short_name;
+      }
       cookieToReturn.zip = cookieFromStore.postal_code;
     } else {
       cookieToReturn = null;
