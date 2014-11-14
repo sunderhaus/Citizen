@@ -1,4 +1,4 @@
 #!/bin/sh
 
-gulp
+gulp &&
 node web.js
