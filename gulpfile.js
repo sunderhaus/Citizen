@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    deploy = require('gulp-gh-pages'),
     sourcemaps = require('gulp-sourcemaps'),
     stylus = require('gulp-stylus'),
     nib = require('nib');
@@ -25,7 +26,12 @@ gulp.task('stylus', function() {
 });
 
 gulp.task('watch', ['default'], function() {
-  gulp.watch('app/css/*.styl', ['stylus']);
+  gulp.watch('./app/css/*.styl', ['stylus']);
+});
+
+gulp.task('deploy', ['default'], function() {
+  gulp.src('./app/**/*')
+    .pipe(deploy());
 });
 
 gulp.task('default',['stylus']);
