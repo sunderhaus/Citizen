@@ -1,5 +1,4 @@
 @charset 'UTF-8';
-@import url('font-awesome.min.css');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic');
 @import url('http://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('http://fonts.googleapis.com/css?family=Permanent+Marker');
@@ -12,10 +11,6 @@ $dark-grey = #696969;
 
 body {
   background-color: $light-grey;
-}
-
-.invisible {
-  visibility: hidden;
 }
 
 .container {
@@ -119,10 +114,6 @@ b, strong {
     font-weight: 700;
     line-height: 1em;
     margin: 0 0 0.1em 0;
-    strong {
-      font-weight: 700;
-      color: inherit;
-    }
   }
   p {
     text-transform: uppercase;
@@ -141,24 +132,6 @@ i, em {
   font-style: italic;
 }
 
-br {
-  &.clear {
-    clear: both;
-  }
-}
-
-sub {
-  position: relative;
-  top: 0.5em;
-  font-size: 0.8em;
-}
-
-sup {
-  position: relative;
-  top: -0.5em;
-  font-size: 0.8em;
-}
-
 hr {
   border: 0;
   border-top: solid 0 #ddd;
@@ -173,16 +146,6 @@ blockquote {
 p, ul, ol, dl, table {
   margin-bottom: 1.8em;
   font-family: 'open sans', sans-serif;
-}
-
-.date {
-  display: block;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.065em;
-  font-size: 0.9em;
-  color: $dark-grey;
-  margin: 0 0 0.25em 0;
 }
 
 section, article {
@@ -379,39 +342,6 @@ form input[type="password"],
 form select {
   line-height: 2em;
   padding: 0 .2em;
-}
-
-table {
-  width: 100%;
-  &.default {
-    width: 100%;
-    tr {
-      border-top: solid 1px #eee;
-      &:first-child {
-        border-top: 0;
-      }
-    }
-    td {
-      padding: 0.5em 1em 0.5em 1em;
-    }
-    th {
-      text-align: left;
-      padding: 0.5em 1em 0.5em 1em;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      margin: 0 0 1em 0;
-      font-size: 0.8em;
-    }
-    thead {
-      background: #404248;
-      color: #fff;
-    }
-    tfoot {
-    }
-    tbody {
-    }
-  }
 }
 
 #citizen-star {
