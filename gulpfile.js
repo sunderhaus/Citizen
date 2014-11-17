@@ -1,10 +1,20 @@
+/* project settings */
+
+var port = process.env.PORT || 8000,
+    host = 'localhost.citizen.com';
+
+
+/* node.js modules */
+
 var gulp = require('gulp'),
     deploy = require('gulp-gh-pages'),
     sourcemaps = require('gulp-sourcemaps'),
     stylus = require('gulp-stylus'),
     axis = require('axis'),
-    webserver = require('gulp-webserver'),
-    port = process.env.PORT || 8000;
+    webserver = require('gulp-webserver');
+
+
+/* gulp.js tasks */
 
 gulp.task('css', function() {
   gulp.src('./app/css/*.styl')
@@ -38,7 +48,7 @@ gulp.task('server', ['build'], function() {
   gulp.watch('./app/css/*.styl', ['css']);
   gulp.src('./app')
     .pipe(webserver({
-      host: 'localhost.citizen.com',
+      host: host,
       port: port,
       livereload: true,
       open: true
@@ -47,7 +57,7 @@ gulp.task('server', ['build'], function() {
 /* Catch Error: getaddrinfo ENOTFOUND */
 process.on('uncaughtException', function (err) {
   if(err.errno === 'ENOTFOUND' && err.syscall === 'getaddrinfo') {
-    console.log('\nAdd the following line to your system HOSTS file:\n127.0.0.1	localhost.citizen.com');
+    console.log('\nAdd the following line to your system HOSTS file:\n127.0.0.1	' + host);
   }
   process.exit(1);
 });
