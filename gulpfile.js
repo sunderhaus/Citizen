@@ -44,5 +44,12 @@ gulp.task('server', ['build'], function() {
       open: true
     }));
 });
+/* Catch Error: getaddrinfo ENOTFOUND */
+process.on('uncaughtException', function (err) {
+  if(err.errno === 'ENOTFOUND' && err.syscall === 'getaddrinfo') {
+    console.log('\nAdd the following line to your system HOSTS file:\n127.0.0.1	localhost.citizen.com');
+  }
+  process.exit(1);
+});
 
 gulp.task('default', ['server']);
