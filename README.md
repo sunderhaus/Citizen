@@ -1,14 +1,18 @@
 #Citizen
 *Designed at Hack Nashville 6 - November 7-9, 2014*
 
-####Run the app with:
-    ./run.sh
+##Run the app
+    ./run.sh [GULP_ARGS...]
 
-####Build the app without running
-    ./run.sh build
+`run.sh` performs setup (`npm install`) and passes arguments to `gulp`.
+By default, it runs the development server.
 
-####Deploy the app to gh-pages
-    ./run.sh deploy
+###Run gulp
+`gulp.js` targets:
 
-###Contributors
+* **server** - Run the dev server (supports live reload) [default]
+* **build** - Build the app
+* **deploy** - Deploy to GitHub pages
+
+##Contributors
 Wes Nelson, Kenneth Kloeppel, Mara Kim, Hakan Tunc, Kimberly Lewis, Kate Brady, and Paul Sunderhaus
