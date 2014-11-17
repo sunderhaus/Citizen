@@ -6,6 +6,7 @@
 
 `run.sh` performs setup (`npm install`) and passes arguments to `gulp`.
 By default, it runs the development server.
+Supports [livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei "Chrome LiveReload Extension").
 
 ###Run gulp
 `gulp.js` targets:
