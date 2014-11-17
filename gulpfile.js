@@ -38,6 +38,7 @@ gulp.task('server', ['build'], function() {
   gulp.watch('./app/css/*.styl', ['css']);
   gulp.src('./app')
     .pipe(webserver({
+      host: 'localhost.citizen.com',
       port: port,
       livereload: true,
       open: true
