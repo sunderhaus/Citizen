@@ -14,22 +14,26 @@ angular.module('CitizenApp')
 		//get address information from cookie
 		var userLocation = CookieJar.getUserLocation();
 		if(userLocation) {
-			if(userLocation.address)
+			if(userLocation.address) {
 				address = userLocation.address;
-                        else
+                        } else {
                                 address = "";
-			if(userLocation.city)
+                        }
+			if(userLocation.city) {
 				city = userLocation.city;
-                        else
+                        } else {
                                 city = "";
-			if(userLocation.state)
+                        }
+			if(userLocation.state) {
 				state = userLocation.state;
-                        else
+                        } else {
                                 state = "";
-			if(userLocation.postal_code)
+                        }
+			if(userLocation.postal_code) {
 				zip = userLocation.zip;
-                        else
+                        } else {
                                 zip = "";
+                        }
 	
 			var currentLocationAddress = (address + city + state + zip).trim().toLowerCase().replace(/[\W_]+/g,"");
 			
