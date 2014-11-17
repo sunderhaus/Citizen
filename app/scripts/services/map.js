@@ -4,7 +4,7 @@ angular.module('CitizenApp')
   var map = {},
       env;
 
-  Snap.load('/images/Blank_USA_w_territories.svg', function (data){
+  Snap.load('images/Blank_USA_w_territories.svg', function (data){
     var paper = Snap.select(".USAmap");
     paper.append(data);
     paper = paper.select('svg');
@@ -32,8 +32,9 @@ angular.module('CitizenApp')
       if(prev_id.length) {
         var last_id = prev_id.pop(),
           last_state = env.paper.select('#'+last_id);
-        if(last_id != id)
+        if(last_id != id) {
           last_state.animate({fill: color_map[last_id]},500,mina.easeinout);
+        }
       }
       state.animate({fill: '#F9B099'},500,mina.easeinout);
       env.paper.add(Snap.parse(
@@ -41,10 +42,12 @@ angular.module('CitizenApp')
           + start + ';' + end + '" fill="freeze" />'));
       prev_id.push(id);
     } else {
-      if(prev_color.length) {
-        var info = prev_color.pop();
-        env.paper.select('#'+info.id).attr({
-            fill: info.color});
+      if(prev_id.length) {
+        var last_id = prev_id.pop(),
+          last_state = env.paper.select('#'+last_id);
+        if(last_id) {
+          last_state.animate({fill: color_map[last_id]},500,mina.easeinout);
+        }
       }
       env.paper.attr({
         viewBox: env.viewbox

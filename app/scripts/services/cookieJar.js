@@ -12,13 +12,19 @@ angular.module('CitizenApp')
       } else {
         cookieToReturn.address = cookieFromStore.street_number + " " + cookieFromStore.route;
       }
-      if (!cookieFromStore.locality || cookieFromStore.locality === '' || !cookieFromStore.administrative_area_level_1.short_name || !cookieFromStore.administrative_area_level_1.short_name === ''){
+      if (!cookieFromStore.locality
+          || cookieFromStore.locality === ''
+          || !cookieFromStore.administrative_area_level_1
+          || !cookieFromStore.administrative_area_level_1.short_name
+          || !cookieFromStore.administrative_area_level_1.short_name === ''){
         cookieToReturn.city_state = null;
       } else {
         cookieToReturn.city_state = cookieFromStore.locality + ", " + cookieFromStore.administrative_area_level_1.short_name;
       }
       cookieToReturn.city = cookieFromStore.locality;
-      cookieToReturn.state = cookieFromStore.administrative_area_level_1.short_name;
+      if(cookieFromStore.administrative_area_level_1) {
+          cookieToReturn.state = cookieFromStore.administrative_area_level_1.short_name;
+      }
       cookieToReturn.zip = cookieFromStore.postal_code;
     } else {
       cookieToReturn = null;
