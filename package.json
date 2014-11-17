@@ -2,22 +2,17 @@
   "name": "Citizen",
   "version": "0.2.0",
   "description": "Hack Nashville 6 project pitched by Wes Nelson",
-  "main": "web.js",
-  "directories": {
-    "test": "test"
-  },
   "dependencies": {
-    "express": "^4.0.0"
+    "axis": "^0.3.0",
+    "gulp": "^3.8.10",
+    "gulp-gh-pages": "^0.4.0",
+    "gulp-jade": "^0.9.0",
+    "gulp-sourcemaps": "^1.2.8",
+    "gulp-stylus": "^1.3.4",
+    "gulp-webserver": "^0.8.7"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sunderhaus/Citizen.git"
-  },
-  "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-gh-pages": "^0.4.0",
-    "gulp-sourcemaps": "^1.2.8",
-    "gulp-stylus": "^1.3.4",
-    "nib": "^1.0.4"
   }
 }

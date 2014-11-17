@@ -1,21 +1,23 @@
 #!/bin/bash
 
+GULP="$(which gulp)"
+GULP="${GULP:-node_modules/gulp/bin/gulp.js}"
+
 npm install &&
 if [[ -z "$*" || "server" == "$1"* ]]
 then
-  node node_modules/gulp/bin/gulp.js watch &
-  node web.js
+  $GULP
 elif [[ "build" == "$1"* ]]
 then
-  node node_modules/gulp/bin/gulp.js
+  $GULP build
 elif [[ "deploy" == "$1"* ]]
 then
-  node node_modules/gulp/bin/gulp.js deploy
+  $GULP deploy
 else
   printf 'Unrecognized option: `%s`
 
-Usage: %s [TARGET]
-Where TARGET (partially) matches:
+Usage: %s [GULP_TARGET]
+Where GULP_TARGET matches:
   server	Run app watching for changes (default)
   build		Build app
   deploy	Build and deploy to gh-pages

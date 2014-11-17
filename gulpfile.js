@@ -2,12 +2,14 @@ var gulp = require('gulp'),
     deploy = require('gulp-gh-pages'),
     sourcemaps = require('gulp-sourcemaps'),
     stylus = require('gulp-stylus'),
-    nib = require('nib');
+    axis = require('axis'),
+    webserver = require('gulp-webserver'),
+    port = process.env.PORT || 8000;
 
-gulp.task('stylus', function() {
+gulp.task('css', function() {
   gulp.src('./app/css/*.styl')
     .pipe(stylus({
-        use: nib(),
+        use: axis(),
         compress: true,
         sourcemap: {
           sourceRoot: '.',
@@ -25,13 +27,21 @@ gulp.task('stylus', function() {
     .pipe(gulp.dest('./app/css'));
 });
 
-gulp.task('watch', ['default'], function() {
-  gulp.watch('./app/css/*.styl', ['stylus']);
-});
+gulp.task('build',['css']);
 
-gulp.task('deploy', ['default'], function() {
+gulp.task('deploy', ['build'], function() {
   gulp.src('./app/**/*')
     .pipe(deploy());
 });
 
-gulp.task('default',['stylus']);
+gulp.task('server', ['build'], function() {
+  gulp.watch('./app/css/*.styl', ['css']);
+  gulp.src('./app')
+    .pipe(webserver({
+      port: port,
+      livereload: true,
+      open: true
+    }));
+});
+
+gulp.task('default', ['server']);
